@@ -44,8 +44,9 @@ Yes, the design changed several times during the skeleton review phase. The most
 
 **b. Tradeoffs**
 
-- Describe one tradeoff your scheduler makes.
-- Why is that tradeoff reasonable for this scenario?
+The scheduler uses a greedy algorithm — it sorts all tasks by priority (HIGH → MEDIUM → LOW) and schedules them one by one until the time budget runs out. Once a task is skipped because it doesn't fit, the algorithm moves on and never revisits that decision. This means it can leave time on the table: if a 25-minute MEDIUM task is skipped with 20 minutes remaining, a 10-minute LOW task that comes later in the list is also skipped, even though it would have fit.
+
+The tradeoff is **simplicity and predictability over optimal time usage**. A more sophisticated approach (like a knapsack algorithm) could pack the schedule tighter, but it would be harder to explain to the user *why* a lower-priority task was chosen over a higher-priority one. For a pet owner glancing at their daily plan, "high-priority tasks go first" is an intuitive rule that builds trust in the output — even if it occasionally wastes a few minutes of available time.
 
 ---
 
