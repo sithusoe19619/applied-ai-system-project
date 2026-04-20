@@ -1,135 +1,223 @@
+import os
+
 import streamlit as st
-from pawpal_system import Task, Pet, Owner, Scheduler, Priority
 
-DATA_FILE = "data.json"
+from bedrock_client import DEFAULT_AWS_REGION, DEFAULT_BEDROCK_MODEL_ID, RecommendationProviderError
+from pawpal_ai import PawPalAIPlanner
+from pawpal_system import Owner, Pet
 
-PRIORITY_EMOJI = {"high": "🔴 High", "medium": "🟡 Medium", "low": "🟢 Low"}
 
-st.set_page_config(page_title="PawPal+", page_icon="🐾", layout="centered")
-st.title("🐾 PawPal+")
+DEFAULT_PLANNING_DAY_MINUTES = 24 * 60
+FORM_KEYS = [
+    "sidebar_region",
+    "sidebar_profile",
+    "sidebar_model",
+    "owner_name",
+    "pet_name",
+    "species",
+    "breed",
+    "custom_species",
+    "pet_age",
+    "special_needs",
+    "current_context",
+]
+RESULT_KEYS = ("result_owner", "result_pet", "result_ai_run")
+SPECIES_PLACEHOLDER = "-None-"
 
-# ── Load saved data on first run ─────────────────────────────────────────────
-if "owner" not in st.session_state:
-    saved = Owner.load_from_json(DATA_FILE)
-    if saved:
-        st.session_state["owner"] = saved
-        st.session_state["pet"] = saved.pets[0] if saved.pets else None
 
-# ── Step 1: Owner & Pet Setup ──────────────────────────────────────────────
-st.subheader("Step 1: Set Up Your Profile")
+def clear_form_state() -> None:
+    for key in FORM_KEYS:
+        st.session_state.pop(key, None)
 
-owner_name = st.text_input("Owner name", value="Jordan")
-pet_name = st.text_input("Pet name", value="Mochi")
-species = st.selectbox("Species", ["dog", "cat", "other"])
-available_minutes = st.number_input("Available time today (minutes)", min_value=10, max_value=480, value=90)
 
-if st.button("Create Profile"):
-    pet = Pet(pet_name, species, age=0)
-    owner = Owner(owner_name, available_minutes=int(available_minutes))
+def build_profile_from_inputs(
+    owner_name: str,
+    pet_name: str,
+    species: str,
+    breed: str,
+    custom_species: str,
+    pet_age: int,
+    special_needs: str,
+):
+    validation_errors: list[str] = []
+    normalized_species = "" if species == SPECIES_PLACEHOLDER else species.lower()
+    if not owner_name.strip():
+        validation_errors.append("Please enter the owner name.")
+    if not pet_name.strip():
+        validation_errors.append("Please enter the pet name.")
+    if not normalized_species:
+        validation_errors.append("Please select a species.")
+    if breed.strip() and normalized_species in {"dog", "cat"} and not Pet.is_valid_breed_label(breed, normalized_species):
+        validation_errors.append('That breed does not look valid. Try a real breed name such as "Golden Retriever," "Siamese," or "Mixed."')
+    if normalized_species == "other" and not custom_species.strip():
+        validation_errors.append("Please tell us what kind of species this pet is.")
+
+    if validation_errors:
+        return None, None, validation_errors
+
+    pet = Pet(
+        pet_name.strip(),
+        normalized_species,
+        age=int(pet_age),
+        special_needs=special_needs.strip(),
+        breed=breed.strip(),
+        custom_species=custom_species.strip(),
+    )
+    owner = Owner(owner_name.strip(), available_minutes=DEFAULT_PLANNING_DAY_MINUTES)
     owner.add_pet(pet)
-    st.session_state["owner"] = owner
-    st.session_state["pet"] = pet
-    owner.save_to_json(DATA_FILE)
-    st.success(f"Profile created for {owner_name} and {pet_name}!")
+    return owner, pet, []
 
-# ── Step 2: Add Tasks ──────────────────────────────────────────────────────
-if "owner" in st.session_state:
-    st.divider()
-    st.subheader("Step 2: Add Tasks")
 
-    col1, col2, col3, col4 = st.columns([3, 2, 2, 2])
-    with col1:
-        task_title = st.text_input("Task title", value="Morning walk")
-    with col2:
-        duration = st.number_input("Duration (minutes)", min_value=1, max_value=240, value=20)
-    with col3:
-        priority = st.selectbox("Priority", ["low", "medium", "high"], index=2)
-    with col4:
-        scheduled_time = st.text_input("Time (HH:MM)", value="08:00")
+st.set_page_config(page_title="PawPal+ Pet Care AI", page_icon="🐾", layout="centered")
+st.title("🐾 PawPal+ Pet Care AI")
+st.caption("Profile-driven pet care planning with AI-generated routines, reminders, and explainable guidance.")
 
-    if st.button("Add task"):
-        pet = st.session_state["pet"]
-        priority_map = {"low": Priority.LOW, "medium": Priority.MEDIUM, "high": Priority.HIGH}
-        task = Task(task_title, int(duration), priority_map[priority], "general", "",
-                    scheduled_time=scheduled_time)
-        pet.add_task(task)
-        st.session_state["owner"].save_to_json(DATA_FILE)
-        st.success(f"Added '{task_title}' to {pet.name}'s tasks.")
+st.sidebar.header("AI Settings")
+sidebar_region = st.sidebar.text_input(
+    "AWS region",
+    value=st.session_state.get("sidebar_region", os.getenv("AWS_REGION", DEFAULT_AWS_REGION)),
+    key="sidebar_region",
+    help="Region used for Amazon Bedrock runtime requests.",
+)
+sidebar_profile = st.sidebar.text_input(
+    "AWS profile (optional)",
+    value=st.session_state.get("sidebar_profile", os.getenv("AWS_PROFILE", "")),
+    key="sidebar_profile",
+    help="Leave blank to use your default AWS credentials chain.",
+)
+sidebar_model = st.sidebar.text_input(
+    "Bedrock model ID",
+    value=st.session_state.get("sidebar_model", os.getenv("BEDROCK_MODEL_ID", DEFAULT_BEDROCK_MODEL_ID)),
+    key="sidebar_model",
+)
+st.sidebar.caption("Authenticate with AWS CLI/profile credentials. Example: run `aws configure` before launching Streamlit.")
 
-    pet = st.session_state["pet"]
-    if pet.tasks:
-        scheduler = Scheduler(st.session_state["owner"])
-        sorted_tasks = scheduler.sort_by_time(pet.tasks)
-        st.write(f"**{pet.name}'s current tasks (sorted by time):**")
-        st.table([
-            {"Time": t.scheduled_time, "Task": t.name,
-             "Duration (min)": t.duration_minutes,
-             "Priority": PRIORITY_EMOJI[t.priority.value]}
-            for t in sorted_tasks
-        ])
+st.subheader("Pet Profile")
+owner_name = st.text_input(
+    "Owner name",
+    value=st.session_state.get("owner_name", ""),
+    key="owner_name",
+    placeholder="Example: Jordan",
+)
+pet_name = st.text_input(
+    "Pet name",
+    value=st.session_state.get("pet_name", ""),
+    key="pet_name",
+    placeholder="Example: Mochi",
+)
+species_options = [SPECIES_PLACEHOLDER, "Dog", "Cat", "Other"]
+species = st.selectbox(
+    "Species",
+    species_options,
+    key="species",
+)
+normalized_species = "" if species == SPECIES_PLACEHOLDER else species.lower()
+
+breed = ""
+custom_species = ""
+if normalized_species in {"dog", "cat"}:
+    breed = st.text_input(
+        "Breed (optional)",
+        value=st.session_state.get("breed", ""),
+        key="breed",
+        placeholder="Examples: Golden Retriever, Domestic Shorthair, Mixed",
+    )
+    st.caption('Enter a real breed like "Golden Retriever," "Siamese," or "Mixed."')
+elif normalized_species == "other":
+    custom_species = st.text_input(
+        "What kind of species?",
+        value=st.session_state.get("custom_species", ""),
+        key="custom_species",
+        placeholder="Examples: Rabbit, Guinea Pig, Parrot, Monkey",
+    )
+    st.caption('Enter the animal name you want the AI to reason about, such as "Rabbit," "Guinea Pig," or "Monkey."')
+
+pet_age = st.number_input(
+    "Pet age (years)",
+    min_value=0,
+    max_value=40,
+    value=st.session_state.get("pet_age", 0),
+    key="pet_age",
+)
+special_needs = st.text_area(
+    "Special needs or vet guidance",
+    value=st.session_state.get("special_needs", ""),
+    key="special_needs",
+    placeholder="Kidney diet, mobility support, anxiety trigger, medication reminder, etc.",
+)
+st.caption('Write a short note like "Kidney Diet," "Mobility Support," or "Give medication after breakfast."')
+
+if st.button("Save profile"):
+    owner, pet, validation_errors = build_profile_from_inputs(
+        owner_name=owner_name,
+        pet_name=pet_name,
+        species=species,
+        breed=breed,
+        custom_species=custom_species,
+        pet_age=pet_age,
+        special_needs=special_needs,
+    )
+    if validation_errors:
+        for message in validation_errors:
+            st.error(message)
     else:
-        st.info("No tasks yet. Add one above.")
+        st.success(f"Profile is ready for this session for {owner.name} and {pet.name}.")
 
-    # ── Step 3: Generate Schedule ──────────────────────────────────────────
-    st.divider()
-    st.subheader("Step 3: Generate Schedule")
+st.subheader("Care Planning")
+current_context = st.text_area(
+    "Current situation or concern (optional)",
+    value=st.session_state.get("current_context", ""),
+    key="current_context",
+    placeholder="Examples: New limp today, rainy week so keep routines indoors, appetite slightly down, new medication reminder needed.",
+)
+st.caption('Describe what is happening right now, such as "Rainy week so keep exercise indoors" or "Appetite slightly down today."')
 
-    if st.button("Generate schedule"):
-        owner = st.session_state["owner"]
-        if not owner.get_all_tasks():
-            st.warning("Add at least one task before generating a schedule.")
-        else:
-            scheduler = Scheduler(owner)
-            plan = scheduler.generate_plan()
+if st.button("Generate Pet Care Plan"):
+    owner, pet, validation_errors = build_profile_from_inputs(
+        owner_name=owner_name,
+        pet_name=pet_name,
+        species=species,
+        breed=breed,
+        custom_species=custom_species,
+        pet_age=pet_age,
+        special_needs=special_needs,
+    )
+    generation_errors = list(validation_errors)
+    if not Pet.is_valid_aws_region(sidebar_region):
+        generation_errors.append('AWS region should look like a real region code, such as "us-west-2."')
+    if not Pet.is_valid_aws_profile(sidebar_profile):
+        generation_errors.append("AWS profile contains invalid characters.")
+    if not Pet.is_valid_bedrock_model_id(sidebar_model):
+        generation_errors.append("Bedrock model ID should look like a real model identifier.")
 
-            st.success(f"Schedule generated for {owner.name}!")
+    if generation_errors:
+        for message in generation_errors:
+            st.error(message)
+    else:
+        planner = PawPalAIPlanner(
+            region=sidebar_region.strip(),
+            profile=sidebar_profile.strip(),
+            model=sidebar_model.strip(),
+        )
+        try:
+            run = planner.recommend_and_schedule(
+                owner=owner,
+                pet=pet,
+                goal="Create a complete pet care plan with daily, weekly, monthly tasks, reminders, and safe condition-aware guidance.",
+                extra_context=current_context.strip(),
+                apply_to_pet=True,
+            )
+            st.session_state["result_owner"] = owner
+            st.session_state["result_pet"] = pet
+            st.session_state["result_ai_run"] = run
+            clear_form_state()
+            st.switch_page("pages/Results.py")
+        except RecommendationProviderError as exc:
+            st.error(str(exc))
+        except Exception as exc:
+            st.error(f"AI planning failed: {exc}")
 
-            sorted_scheduled = scheduler.sort_by_time(plan["scheduled"])
-
-            conflicts = scheduler.detect_conflicts(sorted_scheduled)
-            if conflicts:
-                with st.container(border=True):
-                    st.markdown(f"**Conflicts Found: {len(conflicts)}**")
-                    for c in conflicts:
-                        a, b = c["task_a"], c["task_b"]
-                        end_a = scheduler._to_minutes(a.scheduled_time) + a.duration_minutes
-                        suggested = f"{end_a // 60:02d}:{end_a % 60:02d}"
-                        if c["type"] == "same_pet":
-                            st.error(f"**Same-pet overlap for {a.pet.name}**")
-                            col1, col2 = st.columns(2)
-                            col1.markdown(f"**{a.name}**  \n{a.scheduled_time} — {a.duration_minutes} min")
-                            col2.markdown(f"**{b.name}**  \n{b.scheduled_time} — {b.duration_minutes} min")
-                            st.info(f"Suggestion: Move **{b.name}** to **{suggested}**")
-                        else:
-                            st.warning(f"**Cross-pet overlap**")
-                            col1, col2 = st.columns(2)
-                            col1.markdown(f"**{a.name}** ({a.pet.name})  \n{a.scheduled_time} — {a.duration_minutes} min")
-                            col2.markdown(f"**{b.name}** ({b.pet.name})  \n{b.scheduled_time} — {b.duration_minutes} min")
-                            st.info(f"Suggestion: Move **{b.name}** to **{suggested}** — you can only attend one pet at a time")
-            else:
-                st.success("No scheduling conflicts detected.")
-
-            if sorted_scheduled:
-                st.markdown("**Scheduled Tasks (by time)**")
-                st.table([
-                    {"Time": t.scheduled_time, "Task": t.name, "Pet": t.pet.name,
-                     "Duration (min)": t.duration_minutes,
-                     "Priority": PRIORITY_EMOJI[t.priority.value]}
-                    for t in sorted_scheduled
-                ])
-
-            if plan["skipped"]:
-                st.markdown("**Skipped Tasks**")
-                st.table([
-                    {"Task": t.name, "Pet": t.pet.name,
-                     "Duration (min)": t.duration_minutes,
-                     "Priority": PRIORITY_EMOJI[t.priority.value]}
-                    for t in plan["skipped"]
-                ])
-
-            time_used = sum(t.duration_minutes for t in plan["scheduled"])
-            st.divider()
-            col1, col2, col3 = st.columns(3)
-            col1.metric("Scheduled", f"{len(plan['scheduled'])} tasks")
-            col2.metric("Time Used", f"{time_used} / {owner.available_minutes} min")
-            col3.metric("Remaining", f"{owner.available_minutes - time_used} min")
+if any(st.session_state.get(key) for key in RESULT_KEYS):
+    st.info("A generated result is available in this session.")
+    if st.button("Open Latest Result"):
+        st.switch_page("pages/Results.py")
