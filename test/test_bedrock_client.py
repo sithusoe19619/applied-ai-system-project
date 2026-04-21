@@ -49,6 +49,27 @@ class TestBedrockClientParsing:
 
         assert parsed["recommendations"][0]["name"] == "Hydration Check"
 
+    def test_parse_json_payload_recovers_from_truncated_json_fragment(self):
+        client = BedrockRecommendationClient()
+        parsed = client._parse_json_payload(
+            '{"recommendations": [{"name": "Morning hydration check", "notes": "Observe water intake'
+        )
+
+        assert parsed["recommendations"][0]["name"] == "Morning hydration check"
+        assert parsed["recommendations"][0]["notes"] == "Observe water intake"
+
+    def test_parse_json_payload_salvages_completed_items_from_truncated_array(self):
+        client = BedrockRecommendationClient()
+        parsed = client._parse_json_payload(
+            '{"recommendations": [{"name": "Water check", "duration_minutes": 5}, '
+            '{"name": "Short walk", "duration_minutes": 15}, '
+            '{"name": "Evening note", "duration_minutes": '
+        )
+
+        assert len(parsed["recommendations"]) == 2
+        assert parsed["recommendations"][0]["name"] == "Water check"
+        assert parsed["recommendations"][1]["name"] == "Short walk"
+
     def test_parse_json_payload_raises_clean_provider_error_on_bad_json(self):
         client = BedrockRecommendationClient()
 
@@ -69,3 +90,17 @@ class TestBedrockClientParsing:
             assert "unexpected response shape" in str(exc)
         else:
             raise AssertionError("Expected RecommendationProviderError")
+
+    def test_species_profile_prompt_keeps_lifespan_independent_from_current_condition(self):
+        client = BedrockRecommendationClient()
+
+        system_prompt = client._species_profile_system_prompt()
+        user_prompt = client._build_species_profile_prompt(
+            species="dog",
+            breed="",
+            special_needs="large senior dog with weight management needs",
+        )
+
+        assert "usual healthy companion-animal range" in system_prompt
+        assert "Do not reduce or narrow the lifespan estimate" in user_prompt
+        assert "use a broad typical range for the species" in user_prompt

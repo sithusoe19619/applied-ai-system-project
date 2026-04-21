@@ -5,10 +5,12 @@ PawPal+ is now a profile-driven Pet Care AI rather than a manual task scheduler.
 The upgraded app uses:
 
 - `Amazon Bedrock` for structured Claude task recommendations
+- `Amazon Bedrock` for contextual follow-up chat and species profiling
 - `local retrieval` over curated pet-care documents for grounding
 - `deterministic guardrails` to block unsupported or unsafe advice
 - recurring routine generation for `daily`, `weekly`, `monthly`, and condition-based care
 - a derived daily schedule and in-app reminder view
+- a dedicated `Chat with PawPal AI` page for follow-up questions
 - `logging + evaluation` to make system behavior traceable and testable
 
 ## Problem
@@ -24,14 +26,27 @@ This makes the app useful for:
 
 ## System Flow
 
-The main pipeline is:
+The main planning pipeline is:
 
 `pet profile + breed/custom species context + inferred traits + age context -> retrieve local care guidance -> Claude recommends recurring care tasks -> validator blocks unsafe or ungrounded advice -> app groups routines into daily/weekly/monthly sections -> app shows reminders, rationale, warnings, and logs`
+
+The follow-up chat pipeline is:
+
+`current pet/profile context or active AI result -> Bedrock chat reply -> medical-safety fallback if needed`
 
 ### Components
 
 - `app.py`
-  Streamlit UI for pet profile setup, AI care-plan generation, daily scheduling, reminders, and evidence.
+  Streamlit entrypoint that registers hidden navigation across planner, results, and chat.
+
+- `planner.py`
+  Main planner page for pet profile setup, AI care-plan generation, and result handoff.
+
+- `pages/Results.py`
+  Dedicated results page for the generated plan, reminders, evidence, and the AI-derived pet profile.
+
+- `pages/Chat.py`
+  Dedicated chat page for follow-up questions about the pet, the plan, or broader pet-care concerns.
 
 - `pawpal_system.py`
   Core deterministic domain model and scheduler. This remains the planning backbone.
@@ -40,13 +55,16 @@ The main pipeline is:
   Local retrieval layer over the repo's curated knowledge base in `knowledge_base/`.
 
 - `bedrock_client.py`
-  Amazon Bedrock Converse wrapper that requests strictly structured JSON recommendations from Claude on Bedrock.
+  Amazon Bedrock Converse wrapper that handles species profiling, structured plan generation, and free-form chat.
 
 - `ai_validation.py`
   Guardrails for groundedness, schema checks, time validation, and unsafe-advice blocking.
 
 - `pawpal_ai.py`
   Orchestration layer that ties retrieval, Claude, validation, logging, and scheduling together.
+
+- `pawpal_chat.py`
+  Chat orchestration layer that builds conversation context from the current profile or active AI result.
 
 - `ai_logging.py`
   Writes per-run JSON traces to `logs/`.
@@ -60,6 +78,7 @@ PawPal+ is designed to be explainable and constrained instead of acting like an 
 
 - The model receives retrieved care guidance and is instructed to stay inside that evidence.
 - Recommendations must include source IDs, rationale, time, priority, and frequency.
+- The chat assistant can answer broader questions, but it still refuses diagnosis, dosage changes, prescription advice, and replacing veterinary care.
 - The validator blocks:
   unsupported source citations,
   malformed times,
@@ -105,7 +124,7 @@ export AWS_PROFILE="default"
 export BEDROCK_MODEL_ID="global.anthropic.claude-haiku-4-5-20251001-v1:0"
 ```
 
-You can also enter `AWS region`, `AWS profile`, and a model ID in the Streamlit sidebar. The app does not ask for AWS secret keys directly.
+PawPal+ reads these values from your AWS environment or credential chain automatically. The app does not ask for AWS secret keys directly and does not expose Bedrock configuration fields in the UI.
 
 ## Run the App
 
@@ -113,13 +132,15 @@ You can also enter `AWS region`, `AWS profile`, and a model ID in the Streamlit 
 streamlit run app.py
 ```
 
+Navigation is fully button-driven inside the app body. PawPal+ does not use a visible Streamlit sidebar for page navigation.
+
 ### Recommended demo flow
 
 1. Create a pet profile with species, optional breed for dogs/cats, custom species for `Other`, age, and special-needs guidance.
 2. Add an optional current situation or concern.
 3. Click `Generate Pet Care Plan`.
-4. Review the daily schedule, weekly care, monthly care, and condition-based guidance.
-5. Check in-app reminders, blocked items, evidence, and reliability score.
+4. Review the dedicated results page with the AI-derived pet profile, daily schedule, weekly care, monthly care, condition-based guidance, reminders, blocked items, and evidence.
+5. Open `Chat with PawPal AI` for follow-up questions tied to the current profile or active result.
 
 ## Reliability Evaluation
 
@@ -139,6 +160,9 @@ The evaluation script runs multiple realistic scenarios, repeats them, and repor
 
 - average reliability score
 - groundedness pass/fail
+- blocked-output expectation pass/fail
+- cadence compliance
+- plan-shape validity
 - consistency across repeated runs
 - blocked recommendation counts
 - accepted task summaries
@@ -155,10 +179,11 @@ The repo includes tests for:
 - AI orchestration with a fake Bedrock client
 - replacement of stale AI tasks while preserving manual tasks
 - pet age-context reasoning, breed/custom-species validation, and inferred traits
+- contextual chat behavior and unsafe chat fallback
 
 Current test status:
 
-- `65 passing tests`
+- `69 passing tests`
 
 ## Public Interface Changes
 
@@ -170,7 +195,7 @@ Current test status:
 - `source_ids`
 - `validation_status`
 
-These fields are persisted in `data.json` so AI-generated tasks remain explainable after reload.
+These fields support explainability in the generated plan, logs, and evaluation outputs.
 
 ## Limitations
 
@@ -178,8 +203,8 @@ These fields are persisted in `data.json` so AI-generated tasks remain explainab
 - The app is a planning assistant, not a medical diagnosis tool.
 - Live evaluation requires valid AWS credentials, Bedrock model access, and network access.
 - The current UI focuses on one active pet profile in Streamlit, even though the scheduler model still supports multiple pets.
+- Generated results and chat history are session-based in the UI rather than persisted across refreshes.
 - The fixed default model is `global.anthropic.claude-haiku-4-5-20251001-v1:0`; if your account or region does not have access, choose another Bedrock Claude model ID you are enabled for.
-- Live chat is not implemented yet, but the planner/provider architecture is designed to support a future chat extension.
 
 ## Architecture Summary
 

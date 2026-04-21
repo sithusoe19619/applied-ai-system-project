@@ -1,0 +1,318 @@
+{
+  "run_id": "3ea3b449ad68",
+  "model": "global.anthropic.claude-haiku-4-5-20251001-v1:0",
+  "owner": "AA",
+  "available_minutes": 1440,
+  "pet": {
+    "name": "BB",
+    "species": "other",
+    "effective_species": "Monkey",
+    "breed": "",
+    "custom_species": "Monkey",
+    "age": 3,
+    "special_needs": "Broken leg, very playful, have to monitor consistently",
+    "characteristics": "Monkeys require extensive environmental enrichment, social interaction, and mental stimulation to prevent behavioral problems. They need spacious, climbing-rich enclosures with varied substrates and objects to manipulate. Diet typically includes fruits, vegetables, nuts, and protein sources offered multiple times daily. Handling should be minimal and calm to reduce stress; consistent monitoring for injury, illness, and social dynamics is essential. Veterinary care from an exotic-animal specialist is critical. They are highly intelligent, social, and active, demanding significant daily engagement and observation.",
+    "lifespan_range_years": [
+      20,
+      40
+    ],
+    "species_profile_summary": "Typical pet monkeys live 20-40 years depending on species and care quality; they require expert husbandry, enrichment, and veterinary support.",
+    "species_profile_source": "Model-derived profile from global.anthropic.claude-haiku-4-5-20251001-v1:0",
+    "age_context": {
+      "life_stage": "young",
+      "lifespan_range_years": [
+        20,
+        40
+      ],
+      "estimated_total_years": 30,
+      "summary": "Typical pet monkeys live 20-40 years depending on species and care quality; they require expert husbandry, enrichment, and veterinary support."
+    }
+  },
+  "query": "Monkey BB age 3 young Broken leg, very playful, have to monitor consistently Monkeys require extensive environmental enrichment, social interaction, and mental stimulation to prevent behavioral problems. They need spacious, climbing-rich enclosures with varied substrates and objects to manipulate. Diet typically includes fruits, vegetables, nuts, and protein sources offered multiple times daily. Handling should be minimal and calm to reduce stress; consistent monitoring for injury, illness, and social dynamics is essential. Veterinary care from an exotic-animal specialist is critical. They are highly intelligent, social, and active, demanding significant daily engagement and observation. Create a complete pet care plan with daily, weekly, monthly tasks, reminders, and safe condition-aware guidance. I don't have time since college is restarted. pet care routine",
+  "goal": "Create a complete pet care plan with daily, weekly, monthly tasks, reminders, and safe condition-aware guidance.",
+  "extra_context": "I don't have time since college is restarted.",
+  "requested_frequencies": [],
+  "retrieved_passages": [
+    {
+      "doc_id": "enrichment_and_monitoring",
+      "title": "Enrichment and Daily Monitoring",
+      "chunk_id": "enrichment_and_monitoring#2",
+      "content": "Daily care plans are stronger when they combine essential care with realistic enrichment and observation. Short play, sniff walks, brushing, or calm interaction can improve quality of life without requiring large blocks of time.",
+      "score": 22.65
+    },
+    {
+      "doc_id": "enrichment_and_monitoring",
+      "title": "Enrichment and Daily Monitoring",
+      "chunk_id": "enrichment_and_monitoring#3",
+      "content": "Observation tasks are useful for special-needs pets because they create a record of appetite, water intake, energy, and bathroom habits. These tasks should be short, specific, and easy to complete consistently.",
+      "score": 22.6
+    },
+    {
+      "doc_id": "senior_pet_support",
+      "title": "Senior Pet Support",
+      "chunk_id": "senior_pet_support#4",
+      "content": "A senior pet plan should prioritize consistency over intensity. When time is limited, essential care such as feeding, hydration, medication reminders, and mobility support should be scheduled before optional enrichment.",
+      "score": 21.45
+    },
+    {
+      "doc_id": "kidney_diet_care",
+      "title": "Kidney Diet and Hydration Support",
+      "chunk_id": "kidney_diet_care#3",
+      "content": "Owners should follow the veterinary feeding plan already prescribed and avoid changing food or supplement amounts without veterinary guidance. If a pet refuses multiple meals or shows sudden decline, the safe action is to contact a veterinarian.",
+      "score": 20.9
+    },
+    {
+      "doc_id": "senior_pet_support",
+      "title": "Senior Pet Support",
+      "chunk_id": "senior_pet_support#3",
+      "content": "Older pets may benefit from routines that include medication reminders, slow feeding, and extra time for transitions. Owners should watch for changes in gait, confusion, appetite, and bathroom habits and report major changes to a veterinarian.",
+      "score": 19.4
+    }
+  ],
+  "raw_recommendations": [
+    {
+      "name": "Monitor appetite, water intake, and energy levels",
+      "duration_minutes": 5,
+      "priority": "high",
+      "category": "monitoring",
+      "notes": "Quick observation of eating, drinking, and activity to track baseline health.",
+      "scheduled_time": "08:00",
+      "frequency": "daily",
+      "rationale": "Observation tasks create a health record for special-needs pets and catch early changes.",
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "confidence": 0.99
+    },
+    {
+      "name": "Check leg injury site and mobility",
+      "duration_minutes": 3,
+      "priority": "high",
+      "category": "monitoring",
+      "notes": "Visual check for swelling, discharge, or changes in movement; do not manipulate the injury.",
+      "scheduled_time": "12:00",
+      "frequency": "daily",
+      "rationale": "Consistent monitoring of the broken leg prevents complications and tracks healing progress.",
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "confidence": 0.99
+    },
+    {
+      "name": "Provide calm, low-impact enrichment",
+      "duration_minutes": 10,
+      "priority": "medium",
+      "category": "enrichment",
+      "notes": "Offer manipulable objects, varied textures, or quiet interaction suited to current mobility limits.",
+      "scheduled_time": "15:00",
+      "frequency": "daily",
+      "rationale": "Short, realistic enrichment improves quality of life without requiring large time blocks during busy college schedule.",
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "confidence": 0.99
+    },
+    {
+      "name": "Feeding and hydration check",
+      "duration_minutes": 8,
+      "priority": "high",
+      "category": "feeding",
+      "notes": "Offer food and fresh water; follow any veterinary feeding plan without changes.",
+      "scheduled_time": "07:00",
+      "frequency": "daily",
+      "rationale": "Essential care prioritized when time is limited; consistent feeding supports healing and routine.",
+      "source_ids": [
+        "senior_pet_support",
+        "kidney_diet_care"
+      ],
+      "confidence": 0.99
+    },
+    {
+      "name": "Record bathroom habits and behavior changes",
+      "duration_minutes": 2,
+      "priority": "medium",
+      "category": "monitoring",
+      "notes": "Note any unusual patterns or decline; report major changes to veterinarian.",
+      "scheduled_time": "18:00",
+      "frequency": "daily",
+      "rationale": "Short, specific observation task builds a health record and flags issues early.",
+      "source_ids": [
+        "enrichment_and_monitoring",
+        "senior_pet_support"
+      ],
+      "confidence": 0.99
+    },
+    {
+      "name": "Veterinary check-in or injury assessment",
+      "duration_minutes": 30,
+      "priority": "high",
+      "category": "medical",
+      "notes": "Schedule with exotic-animal specialist if not already done; confirm healing timeline and activity limits.",
+      "scheduled_time": "10:00",
+      "frequency": "weekly",
+      "rationale": "Exotic pets require specialist care; weekly check-ins ensure broken leg is healing properly and enrichment is safe.",
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "confidence": 0.99
+    }
+  ],
+  "blocked_recommendations": [],
+  "warnings": [],
+  "reliability_score": 0.99,
+  "accepted_tasks": [
+    {
+      "name": "Monitor appetite, water intake, and energy levels",
+      "duration_minutes": 5,
+      "priority": "high",
+      "category": "monitoring",
+      "scheduled_time": "08:00",
+      "frequency": "daily",
+      "ai_generated": true,
+      "rationale": "Observation tasks create a health record for special-needs pets and catch early changes.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Check leg injury site and mobility",
+      "duration_minutes": 3,
+      "priority": "high",
+      "category": "monitoring",
+      "scheduled_time": "12:00",
+      "frequency": "daily",
+      "ai_generated": true,
+      "rationale": "Consistent monitoring of the broken leg prevents complications and tracks healing progress.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Provide calm, low-impact enrichment",
+      "duration_minutes": 10,
+      "priority": "medium",
+      "category": "enrichment",
+      "scheduled_time": "15:00",
+      "frequency": "daily",
+      "ai_generated": true,
+      "rationale": "Short, realistic enrichment improves quality of life without requiring large time blocks during busy college schedule.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Feeding and hydration check",
+      "duration_minutes": 8,
+      "priority": "high",
+      "category": "feeding",
+      "scheduled_time": "07:00",
+      "frequency": "daily",
+      "ai_generated": true,
+      "rationale": "Essential care prioritized when time is limited; consistent feeding supports healing and routine.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "senior_pet_support",
+        "kidney_diet_care"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Record bathroom habits and behavior changes",
+      "duration_minutes": 2,
+      "priority": "medium",
+      "category": "monitoring",
+      "scheduled_time": "18:00",
+      "frequency": "daily",
+      "ai_generated": true,
+      "rationale": "Short, specific observation task builds a health record and flags issues early.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring",
+        "senior_pet_support"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Veterinary check-in or injury assessment",
+      "duration_minutes": 30,
+      "priority": "high",
+      "category": "medical",
+      "scheduled_time": "10:00",
+      "frequency": "weekly",
+      "ai_generated": true,
+      "rationale": "Exotic pets require specialist care; weekly check-ins ensure broken leg is healing properly and enrichment is safe.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "validation_status": "validated"
+    }
+  ],
+  "schedule_plan": {
+    "scheduled": [
+      {
+        "name": "Feeding and hydration check",
+        "duration_minutes": 8,
+        "priority": "high",
+        "category": "feeding",
+        "scheduled_time": "07:00",
+        "frequency": "daily"
+      },
+      {
+        "name": "Monitor appetite, water intake, and energy levels",
+        "duration_minutes": 5,
+        "priority": "high",
+        "category": "monitoring",
+        "scheduled_time": "08:00",
+        "frequency": "daily"
+      },
+      {
+        "name": "Veterinary check-in or injury assessment",
+        "duration_minutes": 30,
+        "priority": "high",
+        "category": "medical",
+        "scheduled_time": "10:00",
+        "frequency": "weekly"
+      },
+      {
+        "name": "Check leg injury site and mobility",
+        "duration_minutes": 3,
+        "priority": "high",
+        "category": "monitoring",
+        "scheduled_time": "12:00",
+        "frequency": "daily"
+      },
+      {
+        "name": "Provide calm, low-impact enrichment",
+        "duration_minutes": 10,
+        "priority": "medium",
+        "category": "enrichment",
+        "scheduled_time": "15:00",
+        "frequency": "daily"
+      },
+      {
+        "name": "Record bathroom habits and behavior changes",
+        "duration_minutes": 2,
+        "priority": "medium",
+        "category": "monitoring",
+        "scheduled_time": "18:00",
+        "frequency": "daily"
+      }
+    ],
+    "skipped": [],
+    "reasoning": [
+      "Scheduled 'Feeding and hydration check' for BB (8 min, high priority)",
+      "Scheduled 'Monitor appetite, water intake, and energy levels' for BB (5 min, high priority)",
+      "Scheduled 'Veterinary check-in or injury assessment' for BB (30 min, high priority)",
+      "Scheduled 'Check leg injury site and mobility' for BB (3 min, high priority)",
+      "Scheduled 'Provide calm, low-impact enrichment' for BB (10 min, medium priority)",
+      "Scheduled 'Record bathroom habits and behavior changes' for BB (2 min, medium priority)"
+    ]
+  }
+}

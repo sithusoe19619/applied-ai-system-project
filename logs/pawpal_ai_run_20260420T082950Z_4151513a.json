@@ -1,0 +1,379 @@
+{
+  "run_id": "9f0e0ade9c6c",
+  "model": "global.anthropic.claude-haiku-4-5-20251001-v1:0",
+  "owner": "Marshall",
+  "available_minutes": 1440,
+  "pet": {
+    "name": "MOMO",
+    "species": "other",
+    "effective_species": "Squirrel",
+    "breed": "",
+    "custom_species": "Squirrel",
+    "age": 10,
+    "special_needs": "Lost limb",
+    "characteristics": "Squirrels require large, multi-level enclosures with climbing structures, branches, and nesting boxes to support natural behavior. Diet consists of nuts, seeds, vegetables, and fruits; feeding should occur daily with fresh water always available. They are highly active and need substantial enrichment including foraging opportunities, chew toys, and environmental variety to prevent stress and stereotypic behavior. Handling should be minimal and gentle, as squirrels are prey animals and easily stressed. A three-limbed squirrel may experience mobility challenges; monitor for compensatory strain, ensure ramps and lower perches are accessible, and watch for signs of pain or infection at the injury site. Regular veterinary check-ups are essential, particularly to assess healing and prevent secondary complications.",
+    "lifespan_range_years": [
+      8,
+      15
+    ],
+    "species_profile_summary": "Captive squirrels typically live 8-15 years with proper nutrition, spacious enriched housing, and veterinary monitoring; limb loss requires adapted environment and close observation for complications.",
+    "species_profile_source": "Model-derived profile from global.anthropic.claude-haiku-4-5-20251001-v1:0",
+    "age_context": {
+      "life_stage": "senior",
+      "lifespan_range_years": [
+        8,
+        15
+      ],
+      "estimated_total_years": 12,
+      "summary": "Captive squirrels typically live 8-15 years with proper nutrition, spacious enriched housing, and veterinary monitoring; limb loss requires adapted environment and close observation for complications."
+    }
+  },
+  "query": "Squirrel MOMO age 10 senior Lost limb Squirrels require large, multi-level enclosures with climbing structures, branches, and nesting boxes to support natural behavior. Diet consists of nuts, seeds, vegetables, and fruits; feeding should occur daily with fresh water always available. They are highly active and need substantial enrichment including foraging opportunities, chew toys, and environmental variety to prevent stress and stereotypic behavior. Handling should be minimal and gentle, as squirrels are prey animals and easily stressed. A three-limbed squirrel may experience mobility challenges; monitor for compensatory strain, ensure ramps and lower perches are accessible, and watch for signs of pain or infection at the injury site. Regular veterinary check-ups are essential, particularly to assess healing and prevent secondary complications. Create a complete pet care plan with daily, weekly, monthly tasks, reminders, and safe condition-aware guidance. Losing appetite. Just create weekly schedule only. pet care routine",
+  "goal": "Create a complete pet care plan with daily, weekly, monthly tasks, reminders, and safe condition-aware guidance.",
+  "extra_context": "Losing appetite. Just create weekly schedule only.",
+  "retrieved_passages": [
+    {
+      "doc_id": "enrichment_and_monitoring",
+      "title": "Enrichment and Daily Monitoring",
+      "chunk_id": "enrichment_and_monitoring#3",
+      "content": "Observation tasks are useful for special-needs pets because they create a record of appetite, water intake, energy, and bathroom habits. These tasks should be short, specific, and easy to complete consistently.",
+      "score": 21.05
+    },
+    {
+      "doc_id": "senior_pet_support",
+      "title": "Senior Pet Support",
+      "chunk_id": "senior_pet_support#4",
+      "content": "A senior pet plan should prioritize consistency over intensity. When time is limited, essential care such as feeding, hydration, medication reminders, and mobility support should be scheduled before optional enrichment.",
+      "score": 20.1
+    },
+    {
+      "doc_id": "kidney_diet_care",
+      "title": "Kidney Diet and Hydration Support",
+      "chunk_id": "kidney_diet_care#3",
+      "content": "Owners should follow the veterinary feeding plan already prescribed and avoid changing food or supplement amounts without veterinary guidance. If a pet refuses multiple meals or shows sudden decline, the safe action is to contact a veterinarian.",
+      "score": 17.25
+    },
+    {
+      "doc_id": "senior_pet_support",
+      "title": "Senior Pet Support",
+      "chunk_id": "senior_pet_support#3",
+      "content": "Older pets may benefit from routines that include medication reminders, slow feeding, and extra time for transitions. Owners should watch for changes in gait, confusion, appetite, and bathroom habits and report major changes to a veterinarian.",
+      "score": 16.45
+    },
+    {
+      "doc_id": "enrichment_and_monitoring",
+      "title": "Enrichment and Daily Monitoring",
+      "chunk_id": "enrichment_and_monitoring#2",
+      "content": "Daily care plans are stronger when they combine essential care with realistic enrichment and observation. Short play, sniff walks, brushing, or calm interaction can improve quality of life without requiring large blocks of time.",
+      "score": 16.4
+    }
+  ],
+  "raw_recommendations": [
+    {
+      "name": "Daily appetite and intake monitoring",
+      "duration_minutes": 5,
+      "priority": "high",
+      "category": "monitoring",
+      "notes": "Observe and record MOMO's food consumption, water intake, and energy level. Note any changes from baseline. MOMO is currently losing appetite, so consistent daily observation is critical.",
+      "scheduled_time": "09:00",
+      "frequency": "daily",
+      "rationale": "Appetite loss in senior pets requires close tracking to detect early decline. Observation tasks create a record for veterinary consultation and help identify patterns.",
+      "source_ids": [
+        "enrichment_and_monitoring",
+        "senior_pet_support"
+      ],
+      "confidence": 0.99
+    },
+    {
+      "name": "Fresh water availability check",
+      "duration_minutes": 3,
+      "priority": "high",
+      "category": "hydration",
+      "notes": "Ensure fresh water is always available in MOMO's enclosure. Check water container is clean and filled daily.",
+      "scheduled_time": "09:05",
+      "frequency": "daily",
+      "rationale": "Consistent hydration is essential for senior pets and supports overall health. Daily checks ensure water remains fresh and accessible.",
+      "source_ids": [
+        "senior_pet_support"
+      ],
+      "confidence": 0.99
+    },
+    {
+      "name": "Feeding with veterinary plan adherence",
+      "duration_minutes": 10,
+      "priority": "high",
+      "category": "feeding",
+      "notes": "Provide daily meals following the established veterinary feeding plan. Do not change food amounts or introduce new foods without veterinary guidance. Monitor if MOMO refuses meals.",
+      "scheduled_time": "09:10",
+      "frequency": "daily",
+      "rationale": "Senior pets benefit from consistent feeding routines. Appetite loss requires strict adherence to prescribed diet and immediate veterinary contact if refusal continues.",
+      "source_ids": [
+        "kidney_diet_care",
+        "senior_pet_support"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "name": "Mobility and limb site observation",
+      "duration_minutes": 5,
+      "priority": "high",
+      "category": "monitoring",
+      "notes": "Observe MOMO's movement and balance on three limbs. Check for signs of compensatory strain, pain, or infection at the limb loss site. Note any changes in mobility or gait.",
+      "scheduled_time": "14:00",
+      "frequency": "daily",
+      "rationale": "Three-limbed senior squirrels require daily monitoring for secondary complications and strain. Early detection of pain or infection prevents serious complications.",
+      "source_ids": [
+        "enrichment_and_monitoring",
+        "senior_pet_support"
+      ],
+      "confidence": 0.99
+    },
+    {
+      "name": "Accessible perch and ramp verification",
+      "duration_minutes": 8,
+      "priority": "high",
+      "category": "mobility support",
+      "notes": "Verify that lower perches, ramps, and climbing structures remain accessible and stable for three-limbed movement. Ensure no obstacles block easy access to food, water, and nesting areas.",
+      "scheduled_time": "10:00",
+      "frequency": "weekly",
+      "rationale": "Adapted environment is essential for three-limbed senior squirrels. Weekly checks ensure mobility aids remain functional and safe.",
+      "source_ids": [
+        "senior_pet_support"
+      ],
+      "confidence": 0.97
+    },
+    {
+      "name": "Gentle enrichment and calm interaction",
+      "duration_minutes": 10,
+      "priority": "medium",
+      "category": "enrichment",
+      "notes": "Provide low-stress enrichment such as accessible foraging opportunities, soft chew materials, or gentle environmental variety. Keep interaction calm and brief to avoid stress.",
+      "scheduled_time": "15:00",
+      "frequency": "weekly",
+      "rationale": "Senior pets benefit from realistic enrichment that improves quality of life without intensity. Calm interaction supports mental health while respecting MOMO's prey-animal nature.",
+      "source_ids": [
+        "enrichment_and_monitoring",
+        "senior_pet_support"
+      ],
+      "confidence": 0.99
+    },
+    {
+      "name": "Bathroom habits and waste observation",
+      "duration_minutes": 3,
+      "priority": "medium",
+      "category": "monitoring",
+      "notes": "Observe and note MOMO's bathroom habits weekly. Report any changes in frequency, consistency, or appearance to veterinarian.",
+      "scheduled_time": "11:00",
+      "frequency": "weekly",
+      "rationale": "Changes in bathroom habits are early indicators of health decline in senior pets and should be tracked and reported.",
+      "source_ids": [
+        "senior_pet_support"
+      ],
+      "confidence": 0.97
+    },
+    {
+      "name": "Veterinary consultation reminder for appetite loss",
+      "duration_minutes": 2,
+      "priority": "high",
+      "category": "reminder",
+      "notes": "Contact veterinarian if appetite loss continues or MOMO refuses multiple meals. Provide observation notes from daily monitoring.",
+      "scheduled_time": "08:00",
+      "frequency": "as needed",
+      "rationale": "Sudden appetite decline in senior pets requires professional evaluation. Safe action is veterinary contact when refusal pattern emerges.",
+      "source_ids": [
+        "kidney_diet_care"
+      ],
+      "confidence": 0.99
+    }
+  ],
+  "blocked_recommendations": [
+    {
+      "name": "Feeding with veterinary plan adherence",
+      "reasons": [
+        "Recommendation contains unsafe or unsupported medical advice."
+      ]
+    }
+  ],
+  "warnings": [],
+  "reliability_score": 0.98,
+  "accepted_tasks": [
+    {
+      "name": "Daily appetite and intake monitoring",
+      "duration_minutes": 5,
+      "priority": "high",
+      "category": "monitoring",
+      "scheduled_time": "09:00",
+      "frequency": "daily",
+      "ai_generated": true,
+      "rationale": "Appetite loss in senior pets requires close tracking to detect early decline. Observation tasks create a record for veterinary consultation and help identify patterns.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring",
+        "senior_pet_support"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Fresh water availability check",
+      "duration_minutes": 3,
+      "priority": "high",
+      "category": "hydration",
+      "scheduled_time": "09:05",
+      "frequency": "daily",
+      "ai_generated": true,
+      "rationale": "Consistent hydration is essential for senior pets and supports overall health. Daily checks ensure water remains fresh and accessible.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "senior_pet_support"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Mobility and limb site observation",
+      "duration_minutes": 5,
+      "priority": "high",
+      "category": "monitoring",
+      "scheduled_time": "14:00",
+      "frequency": "daily",
+      "ai_generated": true,
+      "rationale": "Three-limbed senior squirrels require daily monitoring for secondary complications and strain. Early detection of pain or infection prevents serious complications.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring",
+        "senior_pet_support"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Accessible perch and ramp verification",
+      "duration_minutes": 8,
+      "priority": "high",
+      "category": "mobility support",
+      "scheduled_time": "10:00",
+      "frequency": "weekly",
+      "ai_generated": true,
+      "rationale": "Adapted environment is essential for three-limbed senior squirrels. Weekly checks ensure mobility aids remain functional and safe.",
+      "confidence_score": 0.97,
+      "source_ids": [
+        "senior_pet_support"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Gentle enrichment and calm interaction",
+      "duration_minutes": 10,
+      "priority": "medium",
+      "category": "enrichment",
+      "scheduled_time": "15:00",
+      "frequency": "weekly",
+      "ai_generated": true,
+      "rationale": "Senior pets benefit from realistic enrichment that improves quality of life without intensity. Calm interaction supports mental health while respecting MOMO's prey-animal nature.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring",
+        "senior_pet_support"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Bathroom habits and waste observation",
+      "duration_minutes": 3,
+      "priority": "medium",
+      "category": "monitoring",
+      "scheduled_time": "11:00",
+      "frequency": "weekly",
+      "ai_generated": true,
+      "rationale": "Changes in bathroom habits are early indicators of health decline in senior pets and should be tracked and reported.",
+      "confidence_score": 0.97,
+      "source_ids": [
+        "senior_pet_support"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Veterinary consultation reminder for appetite loss",
+      "duration_minutes": 2,
+      "priority": "high",
+      "category": "reminder",
+      "scheduled_time": "08:00",
+      "frequency": "as needed",
+      "ai_generated": true,
+      "rationale": "Sudden appetite decline in senior pets requires professional evaluation. Safe action is veterinary contact when refusal pattern emerges.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "kidney_diet_care"
+      ],
+      "validation_status": "validated"
+    }
+  ],
+  "schedule_plan": {
+    "scheduled": [
+      {
+        "name": "Veterinary consultation reminder for appetite loss",
+        "duration_minutes": 2,
+        "priority": "high",
+        "category": "reminder",
+        "scheduled_time": "08:00",
+        "frequency": "as needed"
+      },
+      {
+        "name": "Daily appetite and intake monitoring",
+        "duration_minutes": 5,
+        "priority": "high",
+        "category": "monitoring",
+        "scheduled_time": "09:00",
+        "frequency": "daily"
+      },
+      {
+        "name": "Fresh water availability check",
+        "duration_minutes": 3,
+        "priority": "high",
+        "category": "hydration",
+        "scheduled_time": "09:05",
+        "frequency": "daily"
+      },
+      {
+        "name": "Accessible perch and ramp verification",
+        "duration_minutes": 8,
+        "priority": "high",
+        "category": "mobility support",
+        "scheduled_time": "10:00",
+        "frequency": "weekly"
+      },
+      {
+        "name": "Mobility and limb site observation",
+        "duration_minutes": 5,
+        "priority": "high",
+        "category": "monitoring",
+        "scheduled_time": "14:00",
+        "frequency": "daily"
+      },
+      {
+        "name": "Bathroom habits and waste observation",
+        "duration_minutes": 3,
+        "priority": "medium",
+        "category": "monitoring",
+        "scheduled_time": "11:00",
+        "frequency": "weekly"
+      },
+      {
+        "name": "Gentle enrichment and calm interaction",
+        "duration_minutes": 10,
+        "priority": "medium",
+        "category": "enrichment",
+        "scheduled_time": "15:00",
+        "frequency": "weekly"
+      }
+    ],
+    "skipped": [],
+    "reasoning": [
+      "Scheduled 'Veterinary consultation reminder for appetite loss' for MOMO (2 min, high priority)",
+      "Scheduled 'Daily appetite and intake monitoring' for MOMO (5 min, high priority)",
+      "Scheduled 'Fresh water availability check' for MOMO (3 min, high priority)",
+      "Scheduled 'Accessible perch and ramp verification' for MOMO (8 min, high priority)",
+      "Scheduled 'Mobility and limb site observation' for MOMO (5 min, high priority)",
+      "Scheduled 'Bathroom habits and waste observation' for MOMO (3 min, medium priority)",
+      "Scheduled 'Gentle enrichment and calm interaction' for MOMO (10 min, medium priority)"
+    ]
+  }
+}

@@ -1,0 +1,343 @@
+{
+  "run_id": "9158a50cd2c5",
+  "model": "global.anthropic.claude-haiku-4-5-20251001-v1:0",
+  "owner": "Marshall",
+  "available_minutes": 1440,
+  "pet": {
+    "name": "Mili",
+    "species": "other",
+    "effective_species": "Sugar Glider",
+    "breed": "",
+    "custom_species": "Sugar Glider",
+    "age": 12,
+    "special_needs": "Can't glide because of injury.",
+    "characteristics": "Sugar gliders are small, nocturnal marsupials requiring specialized care including a large enclosure with vertical space, multiple branches, and nesting pouches for daytime rest. Diet consists primarily of nectar-based foods, insects, and fresh fruits; feeding occurs in evening hours. They are highly social and typically need same-species companionship to prevent stress and behavioral issues. Regular handling from a young age promotes bonding, though they remain delicate and require gentle restraint. An injured glider unable to glide may experience reduced exercise capacity and increased stress; environmental enrichment becomes especially important to maintain muscle tone and mental stimulation. Temperature control between 72-78\u00b0F is critical. Weekly health monitoring for signs of injury complications, infection, or mobility decline is recommended.",
+    "lifespan_range_years": [
+      10,
+      13
+    ],
+    "species_profile_summary": "Sugar gliders live 10-13 years in captivity with specialized dietary, social, and environmental needs; an injured individual requires adapted enrichment and close monitoring.",
+    "species_profile_source": "Model-derived profile from global.anthropic.claude-haiku-4-5-20251001-v1:0",
+    "age_context": {
+      "life_stage": "senior",
+      "lifespan_range_years": [
+        10,
+        13
+      ],
+      "estimated_total_years": 12,
+      "summary": "Sugar gliders live 10-13 years in captivity with specialized dietary, social, and environmental needs; an injured individual requires adapted enrichment and close monitoring."
+    }
+  },
+  "query": "Sugar Glider Mili age 12 senior Can't glide because of injury. Sugar gliders are small, nocturnal marsupials requiring specialized care including a large enclosure with vertical space, multiple branches, and nesting pouches for daytime rest. Diet consists primarily of nectar-based foods, insects, and fresh fruits; feeding occurs in evening hours. They are highly social and typically need same-species companionship to prevent stress and behavioral issues. Regular handling from a young age promotes bonding, though they remain delicate and require gentle restraint. An injured glider unable to glide may experience reduced exercise capacity and increased stress; environmental enrichment becomes especially important to maintain muscle tone and mental stimulation. Temperature control between 72-78\u00b0F is critical. Weekly health monitoring for signs of injury complications, infection, or mobility decline is recommended. Create a complete pet care plan with daily, weekly, monthly tasks, reminders, and safe condition-aware guidance. Need special help because of broken limb. Generate Monthly plan only. pet care routine",
+  "goal": "Create a complete pet care plan with daily, weekly, monthly tasks, reminders, and safe condition-aware guidance.",
+  "extra_context": "Need special help because of broken limb. Generate Monthly plan only.",
+  "requested_frequencies": [
+    "monthly"
+  ],
+  "retrieved_passages": [
+    {
+      "doc_id": "kidney_diet_care",
+      "title": "Kidney Diet and Hydration Support",
+      "chunk_id": "kidney_diet_care#3",
+      "content": "Owners should follow the veterinary feeding plan already prescribed and avoid changing food or supplement amounts without veterinary guidance. If a pet refuses multiple meals or shows sudden decline, the safe action is to contact a veterinarian.",
+      "score": 21.45
+    },
+    {
+      "doc_id": "enrichment_and_monitoring",
+      "title": "Enrichment and Daily Monitoring",
+      "chunk_id": "enrichment_and_monitoring#2",
+      "content": "Daily care plans are stronger when they combine essential care with realistic enrichment and observation. Short play, sniff walks, brushing, or calm interaction can improve quality of life without requiring large blocks of time.",
+      "score": 21.3
+    },
+    {
+      "doc_id": "enrichment_and_monitoring",
+      "title": "Enrichment and Daily Monitoring",
+      "chunk_id": "enrichment_and_monitoring#3",
+      "content": "Observation tasks are useful for special-needs pets because they create a record of appetite, water intake, energy, and bathroom habits. These tasks should be short, specific, and easy to complete consistently.",
+      "score": 21.15
+    },
+    {
+      "doc_id": "senior_pet_support",
+      "title": "Senior Pet Support",
+      "chunk_id": "senior_pet_support#3",
+      "content": "Older pets may benefit from routines that include medication reminders, slow feeding, and extra time for transitions. Owners should watch for changes in gait, confusion, appetite, and bathroom habits and report major changes to a veterinarian.",
+      "score": 20.1
+    },
+    {
+      "doc_id": "puppy_kitten_routine",
+      "title": "Puppy and Kitten Routine Basics",
+      "chunk_id": "puppy_kitten_routine#3",
+      "content": "Exercise and enrichment for very young pets should stay short and positive. Puppies often do better with several brief walks or training moments instead of one long outing, and kittens benefit from short interactive play sessions that stop before exhaustion.",
+      "score": 19.5
+    }
+  ],
+  "raw_recommendations": [
+    {
+      "name": "Monitor mobility and injury recovery status",
+      "duration_minutes": 5,
+      "priority": "high",
+      "category": "health monitoring",
+      "notes": "Observe Mili for changes in gait, limb use, swelling, or signs of infection at injury site. Record observations to track recovery progress and identify complications early.",
+      "scheduled_time": "19:00",
+      "frequency": "monthly",
+      "rationale": "Injured sugar gliders require close monitoring for mobility decline and infection risk. Monthly structured observation creates a health record and flags when veterinary follow-up is needed.",
+      "source_ids": [
+        "senior_pet_support",
+        "enrichment_and_monitoring"
+      ],
+      "confidence": 0.99
+    },
+    {
+      "name": "Review and confirm current feeding plan compliance",
+      "duration_minutes": 10,
+      "priority": "high",
+      "category": "nutrition",
+      "notes": "Verify that Mili is receiving the veterinary-prescribed diet without unauthorized changes. Check that nectar-based foods, insects, and fresh fruits are being offered at appropriate evening feeding times. Note any refusal patterns.",
+      "scheduled_time": "18:30",
+      "frequency": "monthly",
+      "rationale": "Sugar gliders require specialized diets; monthly review ensures adherence to veterinary guidance and catches appetite or intake changes that may signal complications from injury or age.",
+      "source_ids": [
+        "kidney_diet_care"
+      ],
+      "confidence": 0.88
+    },
+    {
+      "name": "Assess enrichment effectiveness for limited mobility",
+      "duration_minutes": 15,
+      "priority": "high",
+      "category": "enrichment and behavior",
+      "notes": "Evaluate whether current enrichment (branches, nesting pouches, safe climbing structures adapted for non-gliding movement) maintains Mili's mental stimulation and muscle tone. Adjust placement of food, toys, or perches to encourage gentle movement without strain.",
+      "scheduled_time": "19:30",
+      "frequency": "monthly",
+      "rationale": "An injured glider unable to glide experiences reduced exercise capacity and stress; monthly enrichment review ensures environmental adaptations support mobility, prevent muscle atrophy, and maintain quality of life.",
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "confidence": 0.99
+    },
+    {
+      "name": "Check enclosure temperature and humidity stability",
+      "duration_minutes": 5,
+      "priority": "high",
+      "category": "environment",
+      "notes": "Verify that enclosure temperature remains between 72-78\u00b0F and humidity is appropriate. Confirm thermometer is functioning and heating/cooling systems are stable. Temperature stress compounds injury recovery challenges.",
+      "scheduled_time": "18:00",
+      "frequency": "monthly",
+      "rationale": "Sugar gliders are temperature-sensitive; stable thermal conditions are critical for an injured 12-year-old glider to support healing and prevent additional stress-related complications.",
+      "source_ids": [
+        "senior_pet_support"
+      ],
+      "confidence": 0.97
+    },
+    {
+      "name": "Observe appetite, water intake, and bathroom habits",
+      "duration_minutes": 8,
+      "priority": "medium",
+      "category": "health monitoring",
+      "notes": "Record Mili's appetite level, water consumption, and any changes in bathroom habits. Note energy levels and responsiveness. Sudden declines warrant veterinary contact.",
+      "scheduled_time": "20:00",
+      "frequency": "monthly",
+      "rationale": "Senior and special-needs pets benefit from structured observation of appetite, hydration, and elimination patterns. Monthly records help detect age-related or injury-related changes early.",
+      "source_ids": [
+        "enrichment_and_monitoring",
+        "senior_pet_support"
+      ],
+      "confidence": 0.99
+    },
+    {
+      "name": "Gentle handling and calm interaction session",
+      "duration_minutes": 10,
+      "priority": "medium",
+      "category": "enrichment and behavior",
+      "notes": "Provide calm, gentle handling and quiet interaction. Avoid restraint that stresses the injured limb. Keep session short and positive to maintain bonding without exhaustion.",
+      "scheduled_time": "20:30",
+      "frequency": "monthly",
+      "rationale": "Sugar gliders are social and benefit from regular bonding; monthly structured interaction maintains emotional well-being for an injured, aging glider while respecting physical limitations.",
+      "source_ids": [
+        "enrichment_and_monitoring",
+        "puppy_kitten_routine"
+      ],
+      "confidence": 0.99
+    },
+    {
+      "name": "Verify nesting pouch cleanliness and comfort",
+      "duration_minutes": 8,
+      "priority": "medium",
+      "category": "environment",
+      "notes": "Inspect nesting pouches for cleanliness, odor, and wear. Replace or wash as needed. Ensure pouches are easily accessible for an injured glider with limited mobility.",
+      "scheduled_time": "18:15",
+      "frequency": "monthly",
+      "rationale": "Sugar gliders use nesting pouches for daytime rest; monthly inspection ensures hygiene and comfort, especially important for an injured glider spending more time resting.",
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "confidence": 0.93
+    }
+  ],
+  "blocked_recommendations": [
+    {
+      "name": "Review and confirm current feeding plan compliance",
+      "reasons": [
+        "Recommendation contains unsafe or unsupported medical advice."
+      ]
+    }
+  ],
+  "warnings": [],
+  "reliability_score": 0.98,
+  "accepted_tasks": [
+    {
+      "name": "Monitor mobility and injury recovery status",
+      "duration_minutes": 5,
+      "priority": "high",
+      "category": "health monitoring",
+      "scheduled_time": "19:00",
+      "frequency": "monthly",
+      "ai_generated": true,
+      "rationale": "Injured sugar gliders require close monitoring for mobility decline and infection risk. Monthly structured observation creates a health record and flags when veterinary follow-up is needed.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "senior_pet_support",
+        "enrichment_and_monitoring"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Assess enrichment effectiveness for limited mobility",
+      "duration_minutes": 15,
+      "priority": "high",
+      "category": "enrichment and behavior",
+      "scheduled_time": "19:30",
+      "frequency": "monthly",
+      "ai_generated": true,
+      "rationale": "An injured glider unable to glide experiences reduced exercise capacity and stress; monthly enrichment review ensures environmental adaptations support mobility, prevent muscle atrophy, and maintain quality of life.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Check enclosure temperature and humidity stability",
+      "duration_minutes": 5,
+      "priority": "high",
+      "category": "environment",
+      "scheduled_time": "18:00",
+      "frequency": "monthly",
+      "ai_generated": true,
+      "rationale": "Sugar gliders are temperature-sensitive; stable thermal conditions are critical for an injured 12-year-old glider to support healing and prevent additional stress-related complications.",
+      "confidence_score": 0.97,
+      "source_ids": [
+        "senior_pet_support"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Observe appetite, water intake, and bathroom habits",
+      "duration_minutes": 8,
+      "priority": "medium",
+      "category": "health monitoring",
+      "scheduled_time": "20:00",
+      "frequency": "monthly",
+      "ai_generated": true,
+      "rationale": "Senior and special-needs pets benefit from structured observation of appetite, hydration, and elimination patterns. Monthly records help detect age-related or injury-related changes early.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring",
+        "senior_pet_support"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Gentle handling and calm interaction session",
+      "duration_minutes": 10,
+      "priority": "medium",
+      "category": "enrichment and behavior",
+      "scheduled_time": "20:30",
+      "frequency": "monthly",
+      "ai_generated": true,
+      "rationale": "Sugar gliders are social and benefit from regular bonding; monthly structured interaction maintains emotional well-being for an injured, aging glider while respecting physical limitations.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring",
+        "puppy_kitten_routine"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Verify nesting pouch cleanliness and comfort",
+      "duration_minutes": 8,
+      "priority": "medium",
+      "category": "environment",
+      "scheduled_time": "18:15",
+      "frequency": "monthly",
+      "ai_generated": true,
+      "rationale": "Sugar gliders use nesting pouches for daytime rest; monthly inspection ensures hygiene and comfort, especially important for an injured glider spending more time resting.",
+      "confidence_score": 0.93,
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "validation_status": "validated"
+    }
+  ],
+  "schedule_plan": {
+    "scheduled": [
+      {
+        "name": "Check enclosure temperature and humidity stability",
+        "duration_minutes": 5,
+        "priority": "high",
+        "category": "environment",
+        "scheduled_time": "18:00",
+        "frequency": "monthly"
+      },
+      {
+        "name": "Monitor mobility and injury recovery status",
+        "duration_minutes": 5,
+        "priority": "high",
+        "category": "health monitoring",
+        "scheduled_time": "19:00",
+        "frequency": "monthly"
+      },
+      {
+        "name": "Assess enrichment effectiveness for limited mobility",
+        "duration_minutes": 15,
+        "priority": "high",
+        "category": "enrichment and behavior",
+        "scheduled_time": "19:30",
+        "frequency": "monthly"
+      },
+      {
+        "name": "Verify nesting pouch cleanliness and comfort",
+        "duration_minutes": 8,
+        "priority": "medium",
+        "category": "environment",
+        "scheduled_time": "18:15",
+        "frequency": "monthly"
+      },
+      {
+        "name": "Observe appetite, water intake, and bathroom habits",
+        "duration_minutes": 8,
+        "priority": "medium",
+        "category": "health monitoring",
+        "scheduled_time": "20:00",
+        "frequency": "monthly"
+      },
+      {
+        "name": "Gentle handling and calm interaction session",
+        "duration_minutes": 10,
+        "priority": "medium",
+        "category": "enrichment and behavior",
+        "scheduled_time": "20:30",
+        "frequency": "monthly"
+      }
+    ],
+    "skipped": [],
+    "reasoning": [
+      "Scheduled 'Check enclosure temperature and humidity stability' for Mili (5 min, high priority)",
+      "Scheduled 'Monitor mobility and injury recovery status' for Mili (5 min, high priority)",
+      "Scheduled 'Assess enrichment effectiveness for limited mobility' for Mili (15 min, high priority)",
+      "Scheduled 'Verify nesting pouch cleanliness and comfort' for Mili (8 min, medium priority)",
+      "Scheduled 'Observe appetite, water intake, and bathroom habits' for Mili (8 min, medium priority)",
+      "Scheduled 'Gentle handling and calm interaction session' for Mili (10 min, medium priority)"
+    ]
+  }
+}

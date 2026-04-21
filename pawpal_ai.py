@@ -14,6 +14,8 @@ from pawpal_system import Owner, Pet, Priority, Scheduler, Task
 class AICareRun:
     run_id: str
     query: str
+    goal: str
+    extra_context: str
     retrieved_passages: List[RetrievedPassage]
     accepted_tasks: List[Task]
     blocked_recommendations: List[BlockedRecommendation]
@@ -126,6 +128,8 @@ class PawPalAIPlanner:
         return AICareRun(
             run_id=run_id,
             query=query,
+            goal=goal,
+            extra_context=extra_context,
             retrieved_passages=retrieved_passages,
             accepted_tasks=accepted_tasks,
             blocked_recommendations=validation.blocked,

@@ -13,85 +13,11 @@ class Priority(Enum):
     HIGH = "high"
 
 
-SPECIES_LIFESPAN_YEARS = {
-    "dog": (10, 13),
-    "cat": (13, 17),
-    "other": (10, 15),
-}
-
-SPECIES_CHARACTERISTICS = {
-    "dog": (
-        "Dogs often benefit from predictable routines, regular exercise or movement, hydration checks, "
-        "feeding consistency, enrichment, and observation of mobility, appetite, and behavior changes."
-    ),
-    "cat": (
-        "Cats often benefit from feeding consistency, hydration monitoring, litter box observation, "
-        "calm enrichment, and close attention to appetite, grooming, and behavioral changes."
-    ),
-    "other": (
-        "This pet may benefit from a steady care routine, feeding and hydration consistency, gentle enrichment, "
-        "and observation of appetite, mobility, and behavior changes."
-    ),
-}
-
-BREED_CHARACTERISTICS = {
-    "dog": {
-        "labrador retriever": (
-            "Labrador retrievers are often social, food-motivated, and energetic, so they usually benefit from "
-            "consistent exercise, structured enrichment, feeding consistency, and joint or weight monitoring as they age."
-        ),
-        "golden retriever": (
-            "Golden retrievers are often social and active, and they usually benefit from steady exercise, "
-            "grooming attention, enrichment, and observation for mobility or skin and coat changes."
-        ),
-        "german shepherd": (
-            "German shepherds often benefit from structured routines, mental stimulation, exercise, and close "
-            "observation of joint comfort, mobility, and stress-related behavior changes."
-        ),
-        "chihuahua": (
-            "Chihuahuas often benefit from predictable routines, short activity sessions, warmth and comfort support, "
-            "feeding consistency, and attention to stress or handling sensitivity."
-        ),
-        "bulldog": (
-            "Bulldogs often benefit from low-impact routines, heat-awareness, feeding consistency, and close "
-            "observation of breathing comfort, skin folds, and mobility changes."
-        ),
-        "poodle": (
-            "Poodles often benefit from enrichment, grooming structure, regular movement, and consistent routines "
-            "that support both mental stimulation and coat maintenance."
-        ),
-        "husky": (
-            "Huskies often benefit from high engagement, structured exercise, enrichment, hydration checks, and "
-            "careful planning for high energy needs and boredom prevention."
-        ),
-    },
-    "cat": {
-        "domestic shorthair": (
-            "Domestic shorthair cats often benefit from feeding consistency, litter monitoring, calm enrichment, "
-            "hydration support, and observation of appetite and grooming habits."
-        ),
-        "maine coon": (
-            "Maine coons often benefit from grooming attention, steady exercise and enrichment, feeding consistency, "
-            "and observation of mobility, appetite, and coat condition."
-        ),
-        "siamese": (
-            "Siamese cats often benefit from social interaction, enrichment, feeding consistency, and observation "
-            "for stress-related vocalization or behavior changes."
-        ),
-        "ragdoll": (
-            "Ragdolls often benefit from calm routines, grooming attention, moderate play, feeding consistency, "
-            "and observation of coat care and mobility."
-        ),
-        "bengal": (
-            "Bengal cats often benefit from higher enrichment, active play, feeding consistency, and structured "
-            "mental stimulation to prevent boredom."
-        ),
-        "persian": (
-            "Persian cats often benefit from grooming structure, calm routines, feeding consistency, and close "
-            "observation of coat condition, eye care, and comfort."
-        ),
-    },
-}
+DEFAULT_LIFESPAN_RANGE_YEARS = (10, 15)
+DEFAULT_CHARACTERISTICS = (
+    "This pet may benefit from a consistent care routine, feeding and hydration support, regular enrichment, "
+    "and observation of appetite, mobility, comfort, and behavior changes."
+)
 
 MIXED_OR_UNKNOWN_BREEDS = {"mixed", "mix", "mixed breed", "unknown", "unknown breed"}
 VALID_NAME_RE = re.compile(r"^[A-Za-z][A-Za-z' -]{1,49}$")
@@ -290,7 +216,7 @@ class Pet:
         """Return the best available lifespan range for this pet."""
         if self.lifespan_min_years > 0 and self.lifespan_max_years >= self.lifespan_min_years:
             return (self.lifespan_min_years, self.lifespan_max_years)
-        return SPECIES_LIFESPAN_YEARS.get(self.species, SPECIES_LIFESPAN_YEARS["other"])
+        return DEFAULT_LIFESPAN_RANGE_YEARS
 
     def apply_species_profile(
         self,
@@ -351,12 +277,7 @@ class Pet:
             return self.characteristics.strip()
 
         normalized_breed = self.get_effective_breed_label().lower()
-        if normalized_breed and normalized_breed not in MIXED_OR_UNKNOWN_BREEDS:
-            breed_traits = BREED_CHARACTERISTICS.get(self.species, {})
-            if normalized_breed in breed_traits:
-                return breed_traits[normalized_breed]
-
-        species_traits = SPECIES_CHARACTERISTICS.get(self.species, SPECIES_CHARACTERISTICS["other"])
+        species_traits = DEFAULT_CHARACTERISTICS
         if normalized_breed:
             return f"{species_traits} Breed context: {self.get_effective_breed_label()}."
         if self.species == "other" and self.custom_species.strip():

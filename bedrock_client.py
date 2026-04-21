@@ -160,7 +160,7 @@ class BedrockRecommendationClient:
                         )}],
                     }
                 ],
-                inferenceConfig={"maxTokens": 1400, "temperature": 0.2},
+                inferenceConfig={"maxTokens": 1800, "temperature": 0.2},
             )
         except Exception as exc:
             raise RecommendationProviderError(
@@ -173,6 +173,37 @@ class BedrockRecommendationClient:
         if not isinstance(recommendations, list):
             raise RecommendationProviderError("Bedrock returned a malformed recommendations payload.")
         return [RecommendationCandidate.from_payload(item) for item in recommendations]
+
+    def chat(
+        self,
+        messages: List[Dict[str, str]],
+        context_summary: str = "",
+    ) -> str:
+        client = self._build_client()
+        bedrock_messages = [
+            {
+                "role": message["role"],
+                "content": [{"text": message["content"]}],
+            }
+            for message in messages
+            if message.get("role") in {"user", "assistant"} and message.get("content", "").strip()
+        ]
+        if not bedrock_messages:
+            raise RecommendationProviderError("Chat request requires at least one user message.")
+
+        try:
+            response = client.converse(
+                modelId=self.model,
+                system=[{"text": self._chat_system_prompt(context_summary)}],
+                messages=bedrock_messages,
+                inferenceConfig={"maxTokens": 1000, "temperature": 0.3},
+            )
+        except Exception as exc:
+            raise RecommendationProviderError(
+                f"Bedrock chat request failed. Check AWS credentials, region, model access, and IAM permissions: {exc}"
+            ) from exc
+
+        return self._extract_text(response)
 
     def _build_client(self):
         try:
@@ -203,6 +234,7 @@ class BedrockRecommendationClient:
             "Recommend safe, routine-oriented pet care tasks grounded only in the supplied source excerpts. "
             "Do not diagnose, prescribe, adjust medication dosage, or claim emergency treatment. "
             "Keep string values plain and compact. Avoid markdown, commentary, and unnecessary quotation marks inside values. "
+            "Keep notes and rationale brief, usually one short sentence each. "
             "Return JSON only with this shape: "
             "{\"recommendations\": [{\"name\": str, \"duration_minutes\": int, \"priority\": \"low|medium|high\", "
             "\"category\": str, \"notes\": str, \"scheduled_time\": \"HH:MM\", \"frequency\": \"daily|weekly|monthly|as needed\", "
@@ -214,11 +246,24 @@ class BedrockRecommendationClient:
             "You are PawPal+, an AI species-context assistant for pet care planning. "
             "Return a cautious, best-effort species profile for a companion animal using common pet-care knowledge. "
             "Estimate a realistic typical lifespan range in years for the named species or breed in a pet/captive context when possible. "
+            "The lifespan range must reflect the usual healthy companion-animal range for the species or breed, not this individual pet's current age, senior status, injury, weight, or temporary condition. "
             "Describe general care characteristics only; do not diagnose, prescribe, or provide emergency instructions. "
             "Keep string values plain and compact. Avoid markdown, commentary, and unnecessary quotation marks inside values. "
             "Return JSON only with this shape: "
             "{\"species_profile\": {\"species_label\": str, \"lifespan_min_years\": int, "
             "\"lifespan_max_years\": int, \"characteristics\": str, \"summary\": str, \"confidence\": float}}"
+        )
+
+    def _chat_system_prompt(self, context_summary: str) -> str:
+        return (
+            "You are Paw, your Pal, the pet-care AI assistant. "
+            "If the user asks your name or who you are, answer with: Hi! I'm Paw, your Pal, the pet-care AI assistant.🐾 "
+            "You can answer broader pet-care questions, explain current care plans, and ask for missing pet details when context is incomplete. "
+            "Use the provided app context when it exists, but you may still offer cautious general pet-care guidance if context is limited. "
+            "Do not diagnose conditions, prescribe treatment, change medication dosages, replace veterinary care, or claim emergency treatment. "
+            "If the user asks for medical diagnosis or dosage changes, clearly refuse and recommend contacting a veterinarian. "
+            "Keep answers practical, concise, and easy to follow.\n\n"
+            f"Current app context:\n{context_summary or 'No active pet profile or plan is currently loaded.'}"
         )
 
     def _build_user_prompt(
@@ -267,6 +312,7 @@ class BedrockRecommendationClient:
             "Retrieved source excerpts:\n"
             f"{sources}\n\n"
             "Generate a recurring pet care plan with 5 to 8 task recommendations that fit the pet profile. "
+            "Prefer 4 to 6 concise recommendations unless the evidence strongly supports more. "
             "If a cadence constraint is present, obey it strictly and return only recommendations with that cadence. "
             "If no cadence constraint is present, include a realistic mix of daily, weekly, and monthly care tasks when supported by the profile and sources, "
             "plus 'as needed' guidance only when clearly grounded. "
@@ -278,9 +324,11 @@ class BedrockRecommendationClient:
         return (
             f"Species: {species}\n"
             f"Breed: {breed or 'not provided'}\n"
-            f"Special needs or context: {special_needs or 'none'}\n\n"
+            f"Special needs or context for care tendencies only: {special_needs or 'none'}\n\n"
             "Provide a general pet-care species profile for this animal. "
             "If breed materially changes lifespan or temperament, account for it. "
+            "Do not reduce or narrow the lifespan estimate because this specific pet is older, injured, overweight, senior, or has medical needs. "
+            "If breed is not provided, use a broad typical range for the species rather than inferring a size category from the care context. "
             "Use years for lifespan values. "
             "Characteristics should be a concise paragraph about normal care tendencies, enrichment, monitoring, handling, diet rhythm, and environment. "
             "Summary should be one short sentence explaining the lifespan estimate and broad care context."
@@ -312,9 +360,16 @@ class BedrockRecommendationClient:
         if extracted:
             candidates.append(extracted)
 
+        salvaged = self._salvage_recommendations_fragment(raw)
+        if salvaged:
+            candidates.append(salvaged)
+
         tried: set[str] = set()
         for candidate in candidates:
-            for variant in (candidate, self._repair_json(candidate)):
+            completed = self._complete_json_fragment(candidate)
+            repaired = self._repair_json(candidate)
+            repaired_completed = self._complete_json_fragment(repaired)
+            for variant in (candidate, completed, repaired, repaired_completed):
                 cleaned = variant.strip()
                 if not cleaned or cleaned in tried:
                     continue
@@ -442,3 +497,72 @@ class BedrockRecommendationClient:
             output.append(char)
 
         return "".join(output)
+
+    def _complete_json_fragment(self, text: str) -> str:
+        """Best-effort completion for truncated JSON-like model output."""
+        if not text.strip():
+            return text
+
+        output: List[str] = []
+        closers: List[str] = []
+        in_string = False
+        escape = False
+
+        for char in text:
+            output.append(char)
+
+            if escape:
+                escape = False
+                continue
+
+            if char == "\\":
+                escape = True
+                continue
+
+            if char == '"':
+                in_string = not in_string
+                continue
+
+            if in_string:
+                continue
+
+            if char == "{":
+                closers.append("}")
+            elif char == "[":
+                closers.append("]")
+            elif char in {"}", "]"} and closers and closers[-1] == char:
+                closers.pop()
+
+        completed = "".join(output).rstrip()
+        if in_string:
+            completed += '"'
+
+        completed = re.sub(r",\s*$", "", completed)
+        completed += "".join(reversed(closers))
+        return completed
+
+    def _salvage_recommendations_fragment(self, text: str) -> str:
+        """Recover completed recommendation objects from a truncated recommendations array."""
+        match = re.search(r'"recommendations"\s*:\s*\[', text)
+        if not match:
+            return ""
+
+        index = match.end()
+        items: List[str] = []
+        while index < len(text):
+            next_open = text.find("{", index)
+            if next_open == -1:
+                break
+            candidate = self._extract_json_object(text[next_open:])
+            if not candidate:
+                break
+            parsed = self._parse_structured_candidate(candidate)
+            if isinstance(parsed, dict):
+                items.append(candidate)
+                index = next_open + len(candidate)
+                continue
+            break
+
+        if not items:
+            return ""
+        return '{"recommendations": [' + ", ".join(items) + "]}"

@@ -146,6 +146,8 @@ class TestPlanner:
         assert run.schedule_plan["skipped"] == []
         assert os.path.exists(run.log_path)
         assert run.reliability_score > 0
+        assert run.goal == "build a low-impact senior routine"
+        assert run.extra_context == "owner has one hour today"
         assert pet.get_lifespan_range_years() == (10, 12)
         assert pet.species_profile_source == "Model-derived profile from fake-claude"
 
@@ -242,7 +244,7 @@ class TestPetProfileContext:
         context = pet.get_age_context()
 
         assert context["life_stage"] == "senior"
-        assert context["lifespan_range_years"] == (10, 13)
+        assert context["lifespan_range_years"] == (10, 15)
         assert "typical lifespan" in context["summary"].lower()
 
     def test_species_characteristics_are_inferred_for_cat(self):
@@ -250,15 +252,15 @@ class TestPetProfileContext:
 
         characteristics = pet.get_species_characteristics()
 
-        assert "feeding consistency" in characteristics.lower()
-        assert "litter" in characteristics.lower()
+        assert "consistent care routine" in characteristics.lower()
+        assert "breed context: domestic shorthair" in characteristics.lower()
 
     def test_breed_traits_fall_back_to_species_traits_when_unknown(self):
         pet = Pet("Mochi", "dog", 6, breed="mixed")
 
         characteristics = pet.get_species_characteristics()
 
-        assert "dogs often benefit" in characteristics.lower()
+        assert "consistent care routine" in characteristics.lower()
         assert "breed context" in characteristics.lower()
 
     def test_effective_species_uses_custom_species_for_other(self):

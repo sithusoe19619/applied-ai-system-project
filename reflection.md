@@ -1,131 +1,138 @@
-# PawPal+ Project Reflection
+# PawPal+ Final Project Reflection
 
 ## 1. System Design
-The three core actions a user should be able to perform in PawPal+ are:
 
-1. **Enter owner and pet info** — The user provides basic context about themselves and their pet, including the owner's name, the pet's name and type, and how much time is available in the day. This information gives the scheduler the constraints it needs to build a realistic plan.
+For the final version of PawPal+, I redesigned the project from a manual pet-task scheduler into an applied AI system that helps a pet owner generate and understand a care plan.
 
-2. **Add and manage care tasks** — The user creates tasks representing pet care responsibilities (such as walks, feeding, medications, grooming, or enrichment). Each task includes at minimum a name, an estimated duration, and a priority level. Users can also edit or remove tasks as their pet's needs change.
+The three core user actions are now:
 
-3. **Generate and view a daily plan** — The user triggers the scheduler to produce a prioritized, constraint-aware daily schedule. The app displays the resulting plan clearly and explains the reasoning behind it — for example, why certain tasks were included, deferred, or ordered the way they were.
+1. **Create a pet profile** — The user enters the owner name, pet name, species, optional breed or custom species, age, and any special-needs or vet-guidance notes. This gives the AI the profile context it needs to reason about the pet.
+2. **Generate an AI care plan** — The system retrieves local pet-care knowledge, asks Bedrock for species-aware planning help, validates the output, and turns accepted recommendations into a structured care plan with daily, weekly, monthly, and condition-based sections.
+3. **Ask follow-up questions in chat** — The user can open a dedicated `Chat with PawPal AI` page to ask broader questions about the pet, the current situation, or the generated plan. The chat uses the current profile or active result when available.
 
-**a. Initial design**
-The system is built around four core classes:
+### Initial design vs final design
 
-- **`Pet`** — A dataclass that holds information about the pet, including name, species, age, and any special needs (such as required medication). It is responsible for representing the pet's profile and exposing a `has_special_needs()` method that the scheduler can use to prioritize certain tasks.
+The earlier version of PawPal+ centered on `Owner`, `Pet`, `Task`, and `Scheduler` as a deterministic scheduling app. That structure still exists, but the final system adds an AI layer on top of it rather than replacing it.
 
-- **`Task`** — A dataclass that represents a single pet care responsibility. It stores the task name, estimated duration in minutes, priority level (low/medium/high), category (e.g. walk, feeding, grooming), notes, and a status field to track whether it was scheduled or skipped. It provides `is_high_priority()` as a convenience method for scheduling logic.
+The final design is built around these responsibilities:
 
-- **`Owner`** — Holds the owner's name, their daily time budget (`available_minutes`), a reference to their `Pet`, and a list of `Task` objects. It is responsible for managing the task list through `add_task()` and `remove_task()`, making it the single source of truth for all scheduling inputs.
+- **`pawpal_system.py`** — The deterministic backbone. It stores pets and tasks, interprets lifespan and life-stage context, and still owns the scheduling behavior.
+- **`ai_retrieval.py`** — Retrieves relevant local pet-care passages from the knowledge base before generation.
+- **`bedrock_client.py`** — Wraps Amazon Bedrock calls for three different AI behaviors: species profiling, structured plan generation, and free-form chat.
+- **`pawpal_ai.py`** — Orchestrates the planning pipeline: species profiling, retrieval, Bedrock recommendation generation, validation, logging, and scheduling.
+- **`ai_validation.py`** — Applies guardrails that block unsafe or unsupported outputs before they become visible tasks.
+- **`pawpal_chat.py`** — Builds contextual chat prompts using the current profile or active plan result.
+- **`app.py` + `planner.py` + `pages/Results.py` + `pages/Chat.py`** — Split the UI into a hidden-navigation entrypoint, a planner page, a results page, and a separate chat page.
 
-- **`Scheduler`** — Takes an `Owner` as its only input and accesses the pet and tasks through it. Responsible for generating a daily care plan via `generate_plan()`, checking whether a task fits within the remaining time budget via `fits_in_budget()`, and returning any tasks that couldn't be scheduled via `get_skipped_tasks()`.
+### Most important design changes
 
-**b. Design changes**
-Yes, the design changed several times during the skeleton review phase. The most significant changes were:
+The biggest design shift was moving from “the user manually adds tasks” to “the AI proposes tasks from context and deterministic code decides what is acceptable.” That changed the project from a scheduler utility into a full applied AI workflow.
 
-- **Removed `Pet` from `Scheduler`** — The initial UML had `Scheduler` holding both `owner` and `pet` as separate attributes. Since `pet` is already accessible via `owner.pet`, this was redundant. Removing it made `Owner` the single entry point into the model, which is cleaner and avoids the two getting out of sync.
+Other important changes were:
 
-- **Added `Priority` enum** — The original design used a plain `str` for `Task.priority`. This was replaced with a `Priority` enum (`LOW`, `MEDIUM`, `HIGH`) to prevent invalid values like `"HIGH"` or `"urgent"` from silently breaking scheduling logic.
+- I added **retrieval** so the model has local pet-care evidence before generating a plan.
+- I added a **species profile step** so lifespan and care traits can differ across animals instead of using one generic default for every non-dog/non-cat pet.
+- I added **guardrails and validation** so the model output is checked for grounding, allowed frequencies, durations, time formats, and unsafe medical-style language.
+- I added a **dedicated AI chat page** so the system is not only a one-shot planner, but also a follow-up reasoning assistant.
+- I changed the UI to a **session-based multipage flow** so the planner form, generated result, and chat feel like parts of one system rather than one crowded screen.
 
-- **Added `Task.pet` reference** — Tasks initially had no link back to the `Pet` they belonged to. A `pet: Optional[Pet]` field was added so the scheduler can inspect pet-specific constraints (like `special_needs`) directly from a task. `Owner.add_task()` automatically sets this link when a task is added.
+## 2. Applied AI System Behavior
 
-- **Added `status` default and `Scheduler` state** — `Task.status` originally had no default, requiring callers to always pass it. It now defaults to `"pending"`. Similarly, `Scheduler` was given `scheduled_tasks` and `skipped_tasks` lists so that `get_skipped_tasks()` has persistent state to return after `generate_plan()` runs.
+### How the AI pipeline works
 
-- **Gave `generate_plan()` a defined return structure** — The method originally returned `None`. It now returns a `dict` with keys `"scheduled"`, `"skipped"`, and `"reasoning"` so the UI layer knows exactly what to expect.
+The final planning flow is:
 
----
+`pet profile -> species profile lookup -> retrieval from local knowledge base -> Bedrock care-plan generation -> validation / guardrails -> scheduling -> logging -> results page`
 
-## 2. Scheduling Logic and Tradeoffs
+I also added a separate conversational flow:
 
-**a. Constraints and priorities**
-The scheduler considers two primary constraints:
+`current profile or current AI result -> contextual chat prompt -> Bedrock chat reply -> safety fallback if needed`
 
-1. **Time budget** — The owner's `available_minutes` sets a hard cap on how much can be scheduled. `fits_in_budget()` checks each task's `duration_minutes` against the remaining time before including it.
+This means the AI does not just answer a question in isolation. It first uses the pet profile, then uses retrieved information, then generates a structured output, and finally passes through deterministic checks.
 
-2. **Priority** — Tasks are sorted by a `Priority` enum (HIGH=0, MEDIUM=1, LOW=2) so high-priority tasks are always considered first. This ensures critical care like medication or feeding is never bumped by a low-priority task like enrichment.
+### Applied AI features implemented
 
-Priority was chosen as the primary sort key because a pet owner's most urgent concern is "did the essential care happen?" Time budget is the secondary gate — it determines how far down the priority list the scheduler can reach. Other constraints like `scheduled_time` and `frequency` influence how the plan is displayed and how tasks recur, but they don't affect which tasks make the cut.
+This project now clearly includes:
 
-**b. Tradeoffs**
-The scheduler uses a greedy algorithm — it sorts all tasks by priority (HIGH → MEDIUM → LOW) and schedules them one by one until the time budget runs out. Once a task is skipped because it doesn't fit, the algorithm moves on and never revisits that decision. This means it can leave time on the table: if a 25-minute MEDIUM task is skipped with 20 minutes remaining, a 10-minute LOW task that comes later in the list is also skipped, even though it would have fit.
+- **Retrieval-Augmented Generation (RAG)** — The planner retrieves relevant pet-care passages from a local knowledge base before generating recommendations.
+- **Agentic / multi-step workflow** — The system performs multiple steps in sequence: species profiling, retrieval, plan generation, validation, scheduling, logging, and optional chat follow-up.
+- **Reliability / testing system** — The project includes unit tests, run logging, blocked-output tracking, and a scenario-based evaluation harness.
 
-The tradeoff is **simplicity and predictability over optimal time usage**. A more sophisticated approach (like a knapsack algorithm) could pack the schedule tighter, but it would be harder to explain to the user *why* a lower-priority task was chosen over a higher-priority one. For a pet owner glancing at their daily plan, "high-priority tasks go first" is an intuitive rule that builds trust in the output — even if it occasionally wastes a few minutes of available time.
+I did **not** implement fine-tuning. Instead, I focused on combining retrieval, orchestration, validation, and explainability to make the system stronger and more trustworthy.
 
----
+## 3. Trustworthiness and Responsible Design
 
-## 3. AI Collaboration
+I wanted the system to feel useful without pretending to be a veterinarian. The final version is intentionally constrained.
 
-**a. How you used AI**
+The main trust and safety decisions were:
 
-I used Claude (Anthropic's AI assistant) throughout the entire project, and it became my primary collaborator for design, implementation, and testing. Here's how:
+- The planner uses **retrieved local documents** instead of relying only on the model’s internal knowledge.
+- Recommendations must include **source IDs, rationale, cadence, and timing**.
+- The validator blocks outputs that are **ungrounded, malformed, or medically unsafe**.
+- The system blocks or refuses advice that tries to **diagnose, prescribe, change dosage, or replace veterinary care**.
+- Each AI planning run is logged with the **query, retrieved passages, raw recommendations, blocked items, accepted tasks, and schedule output**.
 
-**Which Claude features were most effective for building the scheduler:**
+I think this is one of the strongest parts of the project because the AI is not treated like a magic black box. The model helps reason and draft outputs, but deterministic code still controls what becomes part of the final artifact.
 
-- **Iterative skeleton review** — The single most effective pattern was asking Claude to review my class stubs repeatedly with "do you notice any more missing relationships or potential logic bottlenecks?" Each round caught something new: the first pass found that `Task.status` had no default value, the second caught that `priority` was an unconstrained string (leading to the `Priority` enum), and a third found that `generate_plan()` returned `None` with no defined structure. By the time I started writing actual logic, the skeleton was rock-solid.
-- **Mermaid.js UML generation** — I described my classes in plain English and Claude produced a working Mermaid diagram that I could render immediately. When the design changed, I asked Claude to regenerate it, so the diagram always stayed in sync with the code.
-- **Codebase-aware documentation** — When it came time to write the README and reflection, Claude read `pawpal_system.py` and `app.py` directly and drafted feature descriptions that accurately referenced real method names, parameters, and algorithms — not generic placeholders.
+## 4. AI Collaboration
 
-**b. Judgment and verification**
+I used AI heavily during design, coding, debugging, and polishing, but the most useful pattern was not “generate code immediately.” The most useful pattern was asking the AI to help me make better engineering decisions and then verifying those decisions against the real codebase.
 
-**One example of an AI suggestion I rejected or modified:**
+The most effective ways I used AI were:
 
-When I asked Claude to brainstorm the main classes, it proposed five: Owner, Pet, Task, Scheduler, and DailyPlan. It then tried to narrow that down to four by folding DailyPlan into the Scheduler's return value. I pushed back and said the count could be six — I wanted Relationship included as an explicit design concern. Claude initially resisted, calling Relationship "more of a design concept than a class," but I kept it in scope because I wanted to force myself to think carefully about how the classes connected to each other before writing any code. That decision paid off — it's the reason we caught that `Owner` should own tasks through `Pet` rather than directly, and that `Scheduler` didn't need to hold `Pet` separately since it could access it through `Owner`.
+- **Architecture and decomposition** — I used AI to break the project into retrieval, generation, validation, logging, evaluation, and UI responsibilities instead of trying to keep everything in one file.
+- **Prompt and workflow design** — AI helped shape the species-profile step, the planner prompt, the cadence-control flow, and the later chat feature.
+- **Testing support** — AI helped create focused tests around validation, cadence enforcement, Bedrock response parsing, and contextual chat behavior.
+- **Debugging and iteration** — AI was especially useful when Bedrock returned malformed JSON, when prompt instructions conflicted with user input, and when the UI flow needed to be split across separate pages.
 
-I also rejected Claude's instinct to write all class stubs at once. When Claude filled in `pawpal_system.py` with a full skeleton on the first attempt, I cleared the file and told it "do not add anything yet." I wanted to control the pace — start with an empty file, add classes one phase at a time, and review between each step. That incremental approach is what made the iterative review cycles possible.
+I still had to use judgment. For example, several times I rejected or revised behavior that looked technically valid but did not match the product intent. One example was when the app initially treated custom species too rigidly and rejected realistic values like `Monkey`. Another was when cadence instructions such as `weekly only` were being passed as weak extra context instead of strong constraints. In both cases, I had to push the implementation toward what the user experience actually needed rather than accepting the first technically plausible result.
 
-**How separate chat sessions for different phases helped me stay organized:**
+## 5. Testing and Reliability
 
-I deliberately used separate Claude conversations for different project phases. The design phase (brainstorming classes, drawing the UML, reviewing the skeleton) happened in one session. Implementation of the core scheduling logic, sorting, filtering, recurrence, and conflict detection happened in later sessions. Testing and documentation each got their own sessions too.
+The project now has a much broader testing story than the original scheduler.
 
-This separation kept each conversation focused on one concern. The design session didn't get cluttered with debugging output, and the testing session didn't need to re-explain the class structure from scratch — Claude's memory system carried the key decisions forward (like the phase roadmap and the fact that Phase 1 features were complete). It also meant that if a session went in a wrong direction, I could start fresh without losing the work from previous phases that was already committed to git.
+The automated test suite covers:
 
----
+- core scheduler behavior
+- breed and species context behavior
+- retrieval relevance
+- Bedrock response parsing
+- validation and guardrails
+- orchestration of species profiling, retrieval, planning, and replacement of old AI tasks
+- cadence restriction handling like `weekly only`
+- contextual chat behavior and unsafe chat fallback
 
-## 4. Testing and Verification
+The repo currently has **69 passing tests**.
 
-**a. What you tested**
+In addition to the unit tests, the project also has a live evaluation script that runs multiple Bedrock-backed scenarios and reports:
 
-The test suite (`test/test_pawpal.py`) includes 43 tests organized by class and feature:
+- reliability averages
+- grounding checks
+- consistency across repeated runs
+- blocked-output behavior for unsafe scenarios
+- cadence compliance
+- plan-shape validity
 
-- **Task** — default status is `"pending"`, default frequency is `"daily"`, `is_high_priority()` returns correct results, `mark_complete()` changes status
-- **Pet** — `has_special_needs()` returns False by default and True when set, `add_task()` appends and sets the pet reference, `remove_task()` clears both list and reference, `get_tasks()` returns all tasks
-- **Owner** — starts with no pets, `add_pet()`/`remove_pet()` work correctly, `get_all_tasks()` returns a flat list across all pets
-- **Scheduler** — `fits_in_budget()` handles true/false/exact-match cases, `generate_plan()` returns correct keys, high-priority tasks are scheduled before low, tasks exceeding budget are skipped, `get_skipped_tasks()` matches plan output
-- **Sorting** — tasks sort chronologically by `scheduled_time`, same-time tasks both appear, empty list returns empty
-- **Recurrence** — daily tasks create next-day occurrence, weekly tasks create next-week occurrence, "as needed" tasks return None, next task auto-adds to same pet
-- **Conflict detection** — same-pet overlap detected, cross-pet overlap detected, different dates produce no conflict, adjacent (non-overlapping) times produce no conflict
-- **Filtering** — filter by status, filter by pet name (case-insensitive), combined AND logic, no filters returns full list
-- **Scheduling integration** — all tasks fit within budget, high-priority scheduled while low skipped when budget is tight, pet with no tasks produces empty plan
+This matters because a system like this should not only “work once.” It should also be inspectable, repeatable, and safe enough to justify trust.
 
-These tests were important because they verify that the scheduler's core algorithm works correctly (priority ordering, budget enforcement), that the data model relationships hold (pet references, task lists), and that edge cases like empty lists, exact budget matches, and adjacent times don't break the system.
+## 6. What Went Well
 
-**b. Confidence**
+The best outcome was that the project stopped feeling like a small class exercise and started feeling like a real applied AI artifact. The combination of retrieval, validation, logging, and multipage UI gave the system a stronger identity than a simple chatbot or a basic scheduler.
 
-Confidence level: 4/5 stars. All 43 tests pass across happy paths and edge cases for every core feature. The one star held back is because the UI layer (`app.py`) is not yet covered by automated tests.
+I also think the separation between deterministic code and model behavior worked well. The model is used for reasoning and generation, but the rest of the system provides structure, constraints, and explainability.
 
-Edge cases to test next if there was more time:
-- Tasks with `duration_minutes = 0`
-- Owner with `available_minutes = 0`
-- `scheduled_time` in invalid format (e.g., `"25:00"`, `"abc"`)
-- Very large task lists (performance testing)
-- Multiple pets with identical task names
-- Removing a pet that still has tasks assigned
+The dedicated chat feature was another strong addition because it turned the app from a one-time generator into something more interactive and useful.
 
----
+## 7. What I Would Improve Next
 
-## 5. Reflection
+If I had another iteration, I would improve three things first:
 
-**a. What went well**
+1. **Stronger evaluation metrics and reporting** — The evaluation harness is useful, but I would continue improving it so the reliability evidence is even easier to cite in a demo or report.
+2. **Richer knowledge base / retrieval quality** — The current retrieval layer is local and lexical. It is good for reproducibility, but an embedding-based retrieval system would likely improve recall and relevance.
+3. **More structured chat controls** — The chat is useful, but I would add clearer conversation modes such as “Explain my plan,” “Ask a general pet-care question,” and “Help me revise the plan safely.”
 
-The iterative design process worked especially well. Starting with a basic four-class UML diagram and then running multiple rounds of "review the skeleton — find bottlenecks — fix them" caught real issues (missing defaults, undefined return types, unconstrained strings) before any logic was written. By the time implementation started, the class structure was solid and the methods had clear contracts. The result was that features like sorting, filtering, recurrence, and conflict detection slotted in cleanly without requiring major refactors.
+## 8. Key Takeaway
 
-**b. What you would improve**
+The biggest lesson from this project was that an applied AI system is not just “call a model and show the answer.” The useful system is everything around the model: the context gathering, retrieval, validation, logging, UI design, and testing.
 
-If I had another iteration, I would:
-- **Replace the greedy scheduler with a smarter algorithm** — the current approach can waste time budget by skipping tasks that don't individually fit, even when smaller tasks later in the list would. A knapsack-style approach or a second pass for remaining time would improve utilization.
-- **Move task management to the UI** — currently there's no way to edit or delete tasks once added in the Streamlit app. Adding inline edit/delete buttons would make the app more usable.
-- **Add validation to `scheduled_time`** — the `"HH:MM"` format is not validated, so invalid strings like `"99:99"` would silently break `_to_minutes()`.
-
-**c. Key takeaway**
-
-The most important lesson was that **design review before implementation saves more time than debugging after implementation**. The multiple rounds of "review the skeleton" caught issues like missing relationships, undefined return types, and unconstrained strings — all of which would have been much harder to fix after building logic on top of them. Working with AI as a design reviewer (not just a code generator) was the most productive pattern in the project.
+The final version of PawPal+ is stronger because the model is only one part of the workflow. The surrounding system is what makes the AI output understandable, safer, and more trustworthy.
