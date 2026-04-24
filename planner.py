@@ -78,7 +78,7 @@ def build_profile_from_inputs(
 apply_theme()
 
 render_page_intro(
-    "🐾 PawPal+ Pet Care AI",
+    "🐾 Paw'Pal Pet Care AI",
     "AI-powered reliable care for your pet",
     "Create a clear daily care plan based on your pet's profile, current needs, and trusted care information.",
 )
@@ -151,7 +151,7 @@ with st.container(border=True):
             placeholder="Examples: Rabbit, Guinea Pig, Parrot, Monkey",
         )
         st.markdown(
-            '<p class="paw-pet-profile-caption">Enter the animal name you want PawPal+ to reason about.</p>',
+            '<p class="paw-pet-profile-caption">Enter the animal name you want Paw\'Pal Pet Care AI to reason about.</p>',
             unsafe_allow_html=True,
         )
 

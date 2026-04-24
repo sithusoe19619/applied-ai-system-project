@@ -1,10 +1,10 @@
-# PawPal+ Pet Care AI
+# Paw'Pal Pet Care AI
 
-PawPal+ Pet Care AI started as a pet-care scheduling project and evolved into an applied AI system for building grounded, explainable care plans. The original goal was to help pet owners organize routines more clearly; the final system now generates profile-aware plans, explains why tasks were suggested, and supports safe follow-up questions through chat. I built it to show that useful AI products are not just model calls, but systems that combine retrieval, validation, logging, and testing.
+Paw'Pal Pet Care AI started as a pet-care scheduling project and evolved into an applied AI system for building grounded, explainable care plans. The original goal was to help pet owners organize routines more clearly; the final system now generates profile-aware plans, explains why tasks were suggested, and supports safe follow-up questions through chat. I built it to show that useful AI products are not just model calls, but systems that combine retrieval, validation, logging, and testing.
 
 ## Project Summary
 
-PawPal+ helps a pet owner turn a pet profile, care notes, and a current goal into a structured care plan with daily, weekly, monthly, and condition-based guidance. The app matters because many owners know their pets need consistency, but it is difficult to translate age, breed, special needs, and real-life constraints into a practical routine without either overcomplicating the plan or relying on generic advice.
+Paw'Pal Pet Care AI helps a pet owner turn a pet profile, care notes, and a current goal into a structured care plan with daily, weekly, monthly, and condition-based guidance. The app matters because many owners know their pets need consistency, but it is difficult to translate age, breed, special needs, and real-life constraints into a practical routine without either overcomplicating the plan or relying on generic advice.
 
 This project demonstrates:
 
@@ -16,7 +16,7 @@ This project demonstrates:
 
 ## Why This Project Matters
 
-I wanted this project to feel like a real applied AI system rather than a simple chatbot demo. PawPal+ uses AI where reasoning is helpful, but it keeps deterministic code in control of safety, structure, and explainability. That balance made the project much stronger both technically and as a portfolio artifact.
+I wanted this project to feel like a real applied AI system rather than a simple chatbot demo. Paw'Pal Pet Care AI uses AI where reasoning is helpful, but it keeps deterministic code in control of safety, structure, and explainability. That balance made the project much stronger both technically and as a portfolio artifact.
 
 ## Architecture Overview
 
@@ -85,7 +85,7 @@ The daily plan turns the profile into concrete tasks with times, durations, prio
 
 ![Weekly, monthly, and care alerts](assets/Result3.png)
 
-PawPal+ separates recurring care by cadence. This screen shows weekly check-ins, monthly review tasks, and “as needed” care alerts that trigger when symptoms or risk conditions show up.
+Paw'Pal Pet Care AI separates recurring care by cadence. This screen shows weekly check-ins, monthly review tasks, and “as needed” care alerts that trigger when symptoms or risk conditions show up.
 
 ### 5. Task Guidance and Supporting References
 
@@ -116,7 +116,7 @@ pip install -r requirements.txt
 
 ### 3. Configure AWS credentials
 
-PawPal+ uses Amazon Bedrock for species profiling, plan generation, and follow-up chat. The easiest local setup is:
+Paw'Pal Pet Care AI uses Amazon Bedrock for species profiling, plan generation, and follow-up chat. The easiest local setup is:
 
 ```bash
 aws configure
@@ -217,7 +217,7 @@ This example shows that the system can mix routine planning with condition-trigg
 
 ### Why I built it this way
 
-I wanted PawPal+ to feel trustworthy and inspectable, not just impressive for one prompt. That led me to build the system around retrieval, validation, logging, and testing rather than letting the model directly control the final output.
+I wanted Paw'Pal Pet Care AI to feel trustworthy and inspectable, not just impressive for one prompt. That led me to build the system around retrieval, validation, logging, and testing rather than letting the model directly control the final output.
 
 The most important design choices were:
 

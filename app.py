@@ -1,7 +1,7 @@
 import streamlit as st
 
 
-st.set_page_config(page_title="PawPal+ Pet Care AI", page_icon="🐾", layout="wide")
+st.set_page_config(page_title="Paw'Pal Pet Care AI", page_icon="🐾", layout="wide")
 
 planner_page = st.Page("planner.py", title="Planner", icon="🐾", url_path="", default=True)
 results_page = st.Page("pages/Results.py", title="Results", icon="📋", url_path="results")

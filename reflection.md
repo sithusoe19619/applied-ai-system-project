@@ -1,10 +1,10 @@
-# PawPal+ Reflection and Ethics
+# Paw'Pal Pet Care AI Reflection and Ethics
 
-Building PawPal+ taught me that responsible AI is not just about getting a good-looking answer. It is about making the system grounded, testable, and safe enough that a user can understand what it is doing and where its limits are.
+Building Paw'Pal Pet Care AI taught me that responsible AI is not just about getting a good-looking answer. It is about making the system grounded, testable, and safe enough that a user can understand what it is doing and where its limits are.
 
 ## 1. What are the limitations or biases in my system?
 
-The biggest limitation in my system is that it depends on local retrieval. PawPal+ uses a curated local knowledge base and lexical retrieval, so the quality of the plan depends on whether the right information exists in those documents. If the knowledge base is incomplete, the output can still sound confident while missing an important edge case.
+The biggest limitation in my system is that it depends on local retrieval. Paw'Pal Pet Care AI uses a curated local knowledge base and lexical retrieval, so the quality of the plan depends on whether the right information exists in those documents. If the knowledge base is incomplete, the output can still sound confident while missing an important edge case.
 
 There is also a built-in bias toward common household pet-care routines. The system is much better at creating safe, structured daily or weekly care plans than handling rare medical situations or unusual species-specific cases. That was an intentional trade-off because I designed it as a pet-care planning assistant, not as a veterinary diagnosis tool.
 
