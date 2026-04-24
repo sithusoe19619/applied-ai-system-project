@@ -243,9 +243,21 @@ The most important design choices were:
 - **Session-based UI vs persistence**
   Streamlit session state keeps the demo simple, but results and chat history are not persisted across refreshes.
 
+## Phase 4: Reliability and Evaluation
+
+I wanted the AI in this project to prove it was working, not just look convincing in a demo. To do that, I combined automated tests, deterministic guardrails, run-level logging, confidence and reliability scoring, and manual review of outputs in the UI.
+
+- **Automated tests**: the project currently has **102 passing tests** covering scheduler behavior, retrieval, Bedrock response parsing, validation, orchestration, and contextual chat behavior.
+- **Confidence and reliability scoring**: validated recommendations keep a `confidence_score`, and each planning run stores an overall `reliability_score` so I can inspect how strong the accepted output was.
+- **Logging and error handling**: each AI planning run is saved as a JSON trace with retrieved passages, raw recommendations, blocked recommendations, warnings, accepted tasks, and final schedule output.
+- **Human evaluation**: I manually reviewed generated plans and chat responses to make sure they were grounded, readable, and safely constrained, and the screenshots in this README show those end-to-end results.
+- **Scenario-based evaluation**: the evaluation script runs multiple predefined scenarios, including cadence-constrained and unsafe-input cases, to check groundedness, blocked-output behavior, plan shape, and consistency.
+
+In short: **102 out of 102 automated tests passed.** The system also logs each AI planning run, assigns a reliability score to accepted outputs, and blocks unsafe or unsupported recommendations before they appear in the final plan. In manual review, the strongest outputs were grounded and readable, while the main weakness was lower-quality behavior when the available context was limited or overly constrained.
+
 ## Testing Summary
 
-The current automated suite has **101 passing tests**.
+The current automated suite has **102 passing tests**.
 
 ### What I tested
 
@@ -271,9 +283,3 @@ The current automated suite has **101 passing tests**.
 ### What I learned from testing
 
 One of the biggest lessons from this project was that AI systems need more than one good-looking output. They need validation, repeatability, logging, and scenario-based checks so you can trust them beyond a single demo.
-
-## Reflection
-
-This project taught me that applied AI work is much more than connecting a UI to a model. The useful part of the system is everything around the model: the context gathering, retrieval, safety constraints, validation, logging, and testing.
-
-It also taught me a lot about problem-solving. Several times, the technically correct implementation was not the best product behavior, so I had to iterate on the system until it matched what a user would actually need. That made this project a strong lesson in balancing engineering quality, AI capability, and user trust.
