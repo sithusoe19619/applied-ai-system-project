@@ -243,7 +243,7 @@ The most important design choices were:
 - **Session-based UI vs persistence**
   Streamlit session state keeps the demo simple, but results and chat history are not persisted across refreshes.
 
-## Phase 4: Reliability and Evaluation
+## Reliability and Evaluation
 
 I wanted the AI in this project to prove it was working, not just look convincing in a demo. To do that, I combined automated tests, deterministic guardrails, run-level logging, confidence and reliability scoring, and manual review of outputs in the UI.
 
