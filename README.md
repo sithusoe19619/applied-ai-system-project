@@ -112,47 +112,6 @@ flowchart TD
     Evaluator -->|automated tests| Validator
     Evaluator -->|reliability reports| Human
 ```
-
-### ASCII
-
-```text
-Human
-  -> Planner UI
-  -> PawPalAIPlanner
-  -> Retriever (local knowledge base)
-  -> Bedrock model
-  -> Validator / guardrails
-  -> Scheduler / plan formatter
-  -> Results UI
-  -> Human review
-
-Human
-  -> Chat UI
-  -> Bedrock chat with current profile/plan context
-  -> reply or safe fallback
-  -> Human review
-
-Testing / checking
-  -> RecommendationValidator blocks unsafe or unsupported outputs before display
-  -> evaluate_ai_system.py runs scenario-based reliability checks
-  -> pytest covers retrieval, validation, orchestration, and chat behavior
-```
-
-### Image Spec
-
-If this is turned into a visual slide or report diagram, use seven boxes arranged left-to-right or top-to-bottom:
-
-`Human / UI` -> `AI Orchestration` -> `Retriever` -> `Model` -> `Validation` -> `Scheduler / Output` -> `Logging`
-
-Then add:
-
-- a side box for `Evaluation / Tests`
-- an arrow from `Evaluation / Tests` into the orchestration / validation area
-- an arrow from `Results UI` back to `Human review`
-- a smaller parallel chat lane showing `Human -> Chat UI -> Model -> safe reply/fallback -> Human`
-
-This should emphasize `input -> process -> output`, plus the fact that both deterministic checks and human review are used to inspect AI behavior.
-
 ## Trust and Safety Design
 
 PawPal+ is designed to be explainable and constrained instead of acting like an unrestricted chatbot.
