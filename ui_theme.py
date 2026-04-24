@@ -17,6 +17,8 @@ THEME_CSS = """
     --paw-warm-dark: #b55f31;
     --paw-soft: #f6ebdf;
     --paw-shadow: 0 22px 55px rgba(31, 41, 51, 0.08);
+    --paw-form-control-height: 3.05rem;
+    --paw-form-control-radius: 16px;
 }
 
 .stApp {
@@ -222,6 +224,98 @@ div[data-testid="stVerticalBlock"]:has(.paw-results-plan-stack) {
 
 div[data-testid="stVerticalBlock"]:has(.paw-results-plan-stack) > div.element-container:has(.paw-results-plan-stack) {
     display: none;
+}
+
+.paw-pet-profile-scope {
+    display: none;
+}
+
+.paw-pet-profile-caption {
+    margin: 0.46rem 0 0.1rem 0;
+    color: var(--paw-muted);
+    font-size: 0.82rem;
+    line-height: 1.5;
+}
+
+div[data-testid="stVerticalBlock"]:has(.paw-pet-profile-scope) > div.element-container:has(.paw-pet-profile-scope) {
+    display: none;
+}
+
+div[data-testid="stVerticalBlock"]:has(.paw-pet-profile-scope) div[data-testid="stTextInput"],
+div[data-testid="stVerticalBlock"]:has(.paw-pet-profile-scope) div[data-testid="stSelectbox"],
+div[data-testid="stVerticalBlock"]:has(.paw-pet-profile-scope) div[data-testid="stNumberInput"] {
+    margin-bottom: 0;
+}
+
+div[data-testid="stVerticalBlock"]:has(.paw-pet-profile-scope) label[data-testid="stWidgetLabel"] {
+    margin-bottom: 0.42rem;
+}
+
+div[data-testid="stVerticalBlock"]:has(.paw-pet-profile-scope) label[data-testid="stWidgetLabel"] p {
+    margin: 0;
+}
+
+div[data-testid="stVerticalBlock"]:has(.paw-pet-profile-scope) div[data-testid="stTextInputRootElement"],
+div[data-testid="stVerticalBlock"]:has(.paw-pet-profile-scope) div[data-testid="stSelectbox"] div[data-baseweb="select"] > div,
+div[data-testid="stVerticalBlock"]:has(.paw-pet-profile-scope) div[data-testid="stNumberInputContainer"] {
+    min-height: var(--paw-form-control-height);
+    border-radius: var(--paw-form-control-radius);
+    border: 1px solid rgba(31, 41, 51, 0.12);
+    background: rgba(255, 255, 255, 0.94);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.84);
+    transition: border-color 0.14s ease, box-shadow 0.14s ease;
+}
+
+div[data-testid="stVerticalBlock"]:has(.paw-pet-profile-scope) div[data-testid="stTextInputRootElement"],
+div[data-testid="stVerticalBlock"]:has(.paw-pet-profile-scope) div[data-testid="stSelectbox"] div[data-baseweb="select"] > div,
+div[data-testid="stVerticalBlock"]:has(.paw-pet-profile-scope) div[data-testid="stNumberInputContainer"] {
+    display: flex;
+    align-items: center;
+}
+
+div[data-testid="stVerticalBlock"]:has(.paw-pet-profile-scope) div[data-testid="stTextInputRootElement"]:focus-within,
+div[data-testid="stVerticalBlock"]:has(.paw-pet-profile-scope) div[data-testid="stSelectbox"] div[data-baseweb="select"]:focus-within > div,
+div[data-testid="stVerticalBlock"]:has(.paw-pet-profile-scope) div[data-testid="stNumberInputContainer"]:focus-within {
+    border-color: rgba(31, 111, 99, 0.34);
+    box-shadow: 0 0 0 4px rgba(31, 111, 99, 0.11);
+}
+
+div[data-testid="stVerticalBlock"]:has(.paw-pet-profile-scope) div[data-testid="stTextInputRootElement"] input,
+div[data-testid="stVerticalBlock"]:has(.paw-pet-profile-scope) input[data-testid="stNumberInputField"] {
+    min-height: calc(var(--paw-form-control-height) - 2px);
+}
+
+div[data-testid="stVerticalBlock"]:has(.paw-pet-profile-scope) div[data-testid="stNumberInputContainer"] {
+    align-items: stretch;
+    overflow: hidden;
+}
+
+div[data-testid="stVerticalBlock"]:has(.paw-pet-profile-scope) div[data-testid="stNumberInputContainer"] > div:first-child {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+div[data-testid="stVerticalBlock"]:has(.paw-pet-profile-scope) input[data-testid="stNumberInputField"] {
+    padding-right: 0.8rem;
+    padding-left: 0.9rem;
+}
+
+div[data-testid="stVerticalBlock"]:has(.paw-pet-profile-scope) button[data-testid="stNumberInputStepDown"],
+div[data-testid="stVerticalBlock"]:has(.paw-pet-profile-scope) button[data-testid="stNumberInputStepUp"] {
+    width: 2rem;
+    min-width: 2rem;
+    background: rgba(255, 255, 255, 0.94);
+    color: var(--paw-muted);
+    border-left: 1px solid rgba(31, 41, 51, 0.10);
+    box-shadow: none;
+}
+
+div[data-testid="stVerticalBlock"]:has(.paw-pet-profile-scope) button[data-testid="stNumberInputStepDown"]:hover:enabled,
+div[data-testid="stVerticalBlock"]:has(.paw-pet-profile-scope) button[data-testid="stNumberInputStepUp"]:hover:enabled,
+div[data-testid="stVerticalBlock"]:has(.paw-pet-profile-scope) button[data-testid="stNumberInputStepDown"]:focus-visible:enabled,
+div[data-testid="stVerticalBlock"]:has(.paw-pet-profile-scope) button[data-testid="stNumberInputStepUp"]:focus-visible:enabled {
+    background: rgba(31, 111, 99, 0.10);
+    color: var(--paw-accent-dark);
 }
 
 .paw-plan-summary {
@@ -440,7 +534,7 @@ div[data-baseweb="select"] > div,
 div[data-baseweb="textarea"] textarea,
 div[data-baseweb="input"] input {
     background: rgba(255, 255, 255, 0.92);
-    border-radius: 16px;
+    border-radius: var(--paw-form-control-radius);
 }
 
 div[data-baseweb="textarea"] textarea {

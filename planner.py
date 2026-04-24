@@ -90,6 +90,7 @@ with ask_paw_col:
     st.page_link("pages/Chat.py", label="Ask Paw", icon="💬")
 
 with st.container(border=True):
+    st.markdown('<div class="paw-pet-profile-scope" aria-hidden="true"></div>', unsafe_allow_html=True)
     render_card_heading(
         "Pet Profile",
         "Start with the basic details about your pet. These help the planner tailor the routine to the pet's age and type.",
@@ -110,7 +111,7 @@ with st.container(border=True):
             placeholder="Example: Mochi",
         )
 
-    species_col, age_col = st.columns([1.2, 0.75], gap="medium")
+    species_col, age_col = st.columns(2, gap="medium")
     with species_col:
         species_options = [SPECIES_PLACEHOLDER, "Dog", "Cat", "Other"]
         species = st.selectbox(
@@ -138,7 +139,10 @@ with st.container(border=True):
             key="breed",
             placeholder="Examples: Golden Retriever, Domestic Shorthair, Mixed",
         )
-        st.caption('Use a common breed label such as "Golden Retriever," "Siamese," or "Mixed."')
+        st.markdown(
+            '<p class="paw-pet-profile-caption">Use a common breed label such as "Golden Retriever," "Siamese," or "Mixed."</p>',
+            unsafe_allow_html=True,
+        )
     elif normalized_species == "other":
         custom_species = st.text_input(
             "Species Name",
@@ -146,7 +150,10 @@ with st.container(border=True):
             key="custom_species",
             placeholder="Examples: Rabbit, Guinea Pig, Parrot, Monkey",
         )
-        st.caption("Enter the animal name you want PawPal+ to reason about.")
+        st.markdown(
+            '<p class="paw-pet-profile-caption">Enter the animal name you want PawPal+ to reason about.</p>',
+            unsafe_allow_html=True,
+        )
 
 with st.container(border=True):
     render_card_heading(
