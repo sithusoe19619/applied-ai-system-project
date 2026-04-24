@@ -77,40 +77,28 @@ The follow-up chat pipeline is:
 ### Mermaid
 
 ```mermaid
-flowchart TD
+flowchart LR
     Human[Human user]
-    PlannerUI[Planner UI<br/>planner.py]
-    ChatUI[Chat UI<br/>pages/Chat.py]
-    Orchestrator[PawPalAIPlanner<br/>orchestration]
-    Retriever[LocalKnowledgeBase<br/>ai_retrieval.py]
-    Model[BedrockRecommendationClient<br/>generation + chat]
-    Validator[RecommendationValidator<br/>guardrails]
-    Scheduler[Scheduler / task formatting<br/>pawpal_system.py]
-    Logger[AIRunLogger<br/>logs/]
-    Results[Results UI<br/>pages/Results.py]
-    Evaluator[evaluate_ai_system.py<br/>+ pytest]
+    UI[Planner UI]
+    Planner[PawPalAIPlanner]
+    Retriever[Retriever<br/>local knowledge base]
+    Model[Bedrock model / agent]
+    Validator[Validator / guardrails]
+    Results[Plan + results]
+    Tests[pytest + evaluation]
 
-    Human -->|pet profile + goal| PlannerUI
-    PlannerUI -->|input context| Orchestrator
-    Orchestrator -->|query| Retriever
-    Retriever -->|retrieved passages| Orchestrator
-    Orchestrator -->|prompt + evidence| Model
-    Model -->|recommendations| Orchestrator
-    Orchestrator -->|candidate tasks| Validator
-    Validator -->|accepted tasks / blocked items| Orchestrator
-    Orchestrator -->|validated tasks| Scheduler
-    Scheduler -->|plan output| Results
-    Orchestrator -->|run trace| Logger
-    Results -->|plan review| Human
+    Human -->|pet profile + goal| UI
+    UI --> Planner
+    Planner --> Retriever
+    Retriever -->|care guidance| Planner
+    Planner -->|prompt + retrieved context| Model
+    Model -->|recommendations| Planner
+    Planner --> Validator
+    Validator -->|accepted tasks| Results
+    Results -->|human review| Human
 
-    Human -->|follow-up question| ChatUI
-    ChatUI -->|current profile / plan context| Model
-    Model -->|chat reply or safe fallback| ChatUI
-    ChatUI -->|human review| Human
-
-    Evaluator -->|scenario checks| Orchestrator
-    Evaluator -->|automated tests| Validator
-    Evaluator -->|reliability reports| Human
+    Tests -->|check reliability and safety| Planner
+    Tests -->|check blocked / validated output| Validator
 ```
 ## Trust and Safety Design
 
