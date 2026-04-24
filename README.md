@@ -72,6 +72,87 @@ The follow-up chat pipeline is:
 - `evaluate_ai_system.py`
   Structured experiment runner for repeatable reliability checks across multiple scenarios.
 
+## Short System Diagram
+
+### Mermaid
+
+```mermaid
+flowchart TD
+    Human[Human user]
+    PlannerUI[Planner UI<br/>planner.py]
+    ChatUI[Chat UI<br/>pages/Chat.py]
+    Orchestrator[PawPalAIPlanner<br/>orchestration]
+    Retriever[LocalKnowledgeBase<br/>ai_retrieval.py]
+    Model[BedrockRecommendationClient<br/>generation + chat]
+    Validator[RecommendationValidator<br/>guardrails]
+    Scheduler[Scheduler / task formatting<br/>pawpal_system.py]
+    Logger[AIRunLogger<br/>logs/]
+    Results[Results UI<br/>pages/Results.py]
+    Evaluator[evaluate_ai_system.py<br/>+ pytest]
+
+    Human -->|pet profile + goal| PlannerUI
+    PlannerUI -->|input context| Orchestrator
+    Orchestrator -->|query| Retriever
+    Retriever -->|retrieved passages| Orchestrator
+    Orchestrator -->|prompt + evidence| Model
+    Model -->|recommendations| Orchestrator
+    Orchestrator -->|candidate tasks| Validator
+    Validator -->|accepted tasks / blocked items| Orchestrator
+    Orchestrator -->|validated tasks| Scheduler
+    Scheduler -->|plan output| Results
+    Orchestrator -->|run trace| Logger
+    Results -->|plan review| Human
+
+    Human -->|follow-up question| ChatUI
+    ChatUI -->|current profile / plan context| Model
+    Model -->|chat reply or safe fallback| ChatUI
+    ChatUI -->|human review| Human
+
+    Evaluator -->|scenario checks| Orchestrator
+    Evaluator -->|automated tests| Validator
+    Evaluator -->|reliability reports| Human
+```
+
+### ASCII
+
+```text
+Human
+  -> Planner UI
+  -> PawPalAIPlanner
+  -> Retriever (local knowledge base)
+  -> Bedrock model
+  -> Validator / guardrails
+  -> Scheduler / plan formatter
+  -> Results UI
+  -> Human review
+
+Human
+  -> Chat UI
+  -> Bedrock chat with current profile/plan context
+  -> reply or safe fallback
+  -> Human review
+
+Testing / checking
+  -> RecommendationValidator blocks unsafe or unsupported outputs before display
+  -> evaluate_ai_system.py runs scenario-based reliability checks
+  -> pytest covers retrieval, validation, orchestration, and chat behavior
+```
+
+### Image Spec
+
+If this is turned into a visual slide or report diagram, use seven boxes arranged left-to-right or top-to-bottom:
+
+`Human / UI` -> `AI Orchestration` -> `Retriever` -> `Model` -> `Validation` -> `Scheduler / Output` -> `Logging`
+
+Then add:
+
+- a side box for `Evaluation / Tests`
+- an arrow from `Evaluation / Tests` into the orchestration / validation area
+- an arrow from `Results UI` back to `Human review`
+- a smaller parallel chat lane showing `Human -> Chat UI -> Model -> safe reply/fallback -> Human`
+
+This should emphasize `input -> process -> output`, plus the fact that both deterministic checks and human review are used to inspect AI behavior.
+
 ## Trust and Safety Design
 
 PawPal+ is designed to be explainable and constrained instead of acting like an unrestricted chatbot.
