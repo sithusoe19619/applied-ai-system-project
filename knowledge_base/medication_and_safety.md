@@ -1,3 +1,10 @@
+---
+species: dog, cat, rabbit, parrot, monkey
+life_stage: puppy, kitten, adult, senior
+topics: medication, safety, dosage, reminders, veterinarian
+care_type: health support, reminders
+---
+
 # Medication Routine and Safety
 
 Medication-related tasks in a home routine should focus on reminders, documentation, and observation, not dosage changes. A planning assistant can remind the owner to give medication exactly as already prescribed and to log whether the dose was completed.

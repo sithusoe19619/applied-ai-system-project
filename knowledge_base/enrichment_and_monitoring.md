@@ -1,3 +1,10 @@
+---
+species: dog, cat, rabbit, parrot, monkey
+life_stage: puppy, kitten, adult, senior
+topics: enrichment, monitoring, appetite, hydration, behavior, routine
+care_type: daily care, observation
+---
+
 # Enrichment and Daily Monitoring
 
 Daily care plans are stronger when they combine essential care with realistic enrichment and observation. Short play, sniff walks, brushing, or calm interaction can improve quality of life without requiring large blocks of time.

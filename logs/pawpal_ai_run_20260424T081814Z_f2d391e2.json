@@ -1,0 +1,1138 @@
+{
+  "run_id": "71598b0ea98e",
+  "model": "global.anthropic.claude-haiku-4-5-20251001-v1:0",
+  "owner": "Marshall",
+  "pet": {
+    "name": "Terror",
+    "species": "dog",
+    "effective_species": "dog",
+    "breed": "Pug",
+    "custom_species": "",
+    "age": 12,
+    "special_needs": "Chronic respiratory disease with recent flare-ups, low body weight risk, and stress-related feather plucking. Kito needs close daily observation of breathing\n  effort, appetite, droppings, energy, vocalization, and tolerance for activity. Follow the veterinarian\u2019s existing care plan exactly. Needs a calm indoor routine,\n  careful cage hygiene, humidity support as advised by the vet, reduced stress, and consistent enrichment without overexertion.",
+    "characteristics": "Respiratory monitoring: Pugs have a shortened muzzle that predisposes them to airway obstruction; chronic respiratory disease requires daily observation of breathing effort, coughing, and exercise tolerance to catch flare-ups early. Environmental humidity and temperature control directly affect breathing comfort and should be maintained per your veterinarian's guidance. || Nutrition and weight management: Low body weight risk in this dog demands consistent, measured feeding aligned with your vet's plan to prevent malnutrition while avoiding overfeeding; monitor appetite changes and droppings daily as early signs of digestive upset or disease progression. || Stress and activity: Pugs are sensitive to heat and overexertion; a calm indoor routine with gentle, brief play sessions reduces respiratory strain and supports emotional stability, which helps prevent stress-related behaviors and supports overall recovery.",
+    "lifespan_range_years": [
+      12,
+      15
+    ],
+    "species_profile_summary": "Pugs typically live 12 to 15 years; this individual requires strict adherence to veterinary respiratory care, daily health monitoring, and a low-stress environment to manage chronic disease and maintain stable weight.",
+    "species_profile_source": "Model-derived profile from global.anthropic.claude-haiku-4-5-20251001-v1:0",
+    "age_context": {
+      "life_stage": "senior",
+      "lifespan_range_years": [
+        12,
+        15
+      ],
+      "estimated_total_years": 14,
+      "summary": "Pugs typically live 12 to 15 years; this individual requires strict adherence to veterinary respiratory care, daily health monitoring, and a low-stress environment to manage chronic disease and maintain stable weight."
+    }
+  },
+  "query": "dog Pug Terror age 12 senior Chronic respiratory disease with recent flare-ups, low body weight risk, and stress-related feather plucking. Kito needs close daily observation of breathing\n  effort, appetite, droppings, energy, vocalization, and tolerance for activity. Follow the veterinarian\u2019s existing care plan exactly. Needs a calm indoor routine,\n  careful cage hygiene, humidity support as advised by the vet, reduced stress, and consistent enrichment without overexertion. Respiratory monitoring: Pugs have a shortened muzzle that predisposes them to airway obstruction; chronic respiratory disease requires daily observation of breathing effort, coughing, and exercise tolerance to catch flare-ups early. Environmental humidity and temperature control directly affect breathing comfort and should be maintained per your veterinarian's guidance. || Nutrition and weight management: Low body weight risk in this dog demands consistent, measured feeding aligned with your vet's plan to prevent malnutrition while avoiding overfeeding; monitor appetite changes and droppings daily as early signs of digestive upset or disease progression. || Stress and activity: Pugs are sensitive to heat and overexertion; a calm indoor routine with gentle, brief play sessions reduces respiratory strain and supports emotional stability, which helps prevent stress-related behaviors and supports overall recovery. Create a complete pet care plan with daily, weekly, monthly tasks, reminders, and safe condition-aware guidance. Owner works from home on Mondays, Wednesdays, and Fridays and can do longer care blocks then. Tuesdays and Thursdays are busier, so check-ins should be shorter.\n  Wants strong daily monitoring, one practical weekly weigh-in and cage deep-clean rhythm, monthly supply and follow-up reminders, and clear watch-for-change\n  guidance for labored breathing, appetite drop, lethargy, or worsening feather damage.\n\n  Create a complete pet care plan with daily, weekly, monthly tasks, reminders, and safe condition-aware guidance. pet care routine",
+  "goal": "Create a complete pet care plan with daily, weekly, monthly tasks, reminders, and safe condition-aware guidance.",
+  "extra_context": "Owner works from home on Mondays, Wednesdays, and Fridays and can do longer care blocks then. Tuesdays and Thursdays are busier, so check-ins should be shorter.\n  Wants strong daily monitoring, one practical weekly weigh-in and cage deep-clean rhythm, monthly supply and follow-up reminders, and clear watch-for-change\n  guidance for labored breathing, appetite drop, lethargy, or worsening feather damage.\n\n  Create a complete pet care plan with daily, weekly, monthly tasks, reminders, and safe condition-aware guidance.",
+  "requested_frequencies": [],
+  "retrieved_passages": [
+    {
+      "doc_id": "medication_and_safety",
+      "title": "Medication Routine and Safety",
+      "chunk_id": "medication_and_safety#2",
+      "content": "Medication-related tasks in a home routine should focus on reminders, documentation, and observation, not dosage changes. A planning assistant can remind the owner to give medication exactly as already prescribed and to log whether the dose was completed.",
+      "score": 34.4,
+      "metadata": {
+        "species": [
+          "dog",
+          "cat",
+          "rabbit",
+          "parrot",
+          "monkey"
+        ],
+        "life_stage": [
+          "puppy",
+          "kitten",
+          "adult",
+          "senior"
+        ],
+        "topics": [
+          "medication",
+          "safety",
+          "dosage",
+          "reminders",
+          "veterinarian"
+        ],
+        "care_type": [
+          "health support",
+          "reminders"
+        ]
+      }
+    },
+    {
+      "doc_id": "enrichment_and_monitoring",
+      "title": "Enrichment and Daily Monitoring",
+      "chunk_id": "enrichment_and_monitoring#3",
+      "content": "Observation tasks are useful for special-needs pets because they create a record of appetite, water intake, energy, and bathroom habits. These tasks should be short, specific, and easy to complete consistently.",
+      "score": 31.95,
+      "metadata": {
+        "species": [
+          "dog",
+          "cat",
+          "rabbit",
+          "parrot",
+          "monkey"
+        ],
+        "life_stage": [
+          "puppy",
+          "kitten",
+          "adult",
+          "senior"
+        ],
+        "topics": [
+          "enrichment",
+          "monitoring",
+          "appetite",
+          "hydration",
+          "behavior",
+          "routine"
+        ],
+        "care_type": [
+          "daily care",
+          "observation"
+        ]
+      }
+    },
+    {
+      "doc_id": "senior_pet_support",
+      "title": "Senior Pet Support",
+      "chunk_id": "senior_pet_support#3",
+      "content": "Older pets may benefit from routines that include medication reminders, slow feeding, and extra time for transitions. Owners should watch for changes in gait, confusion, appetite, and bathroom habits and report major changes to a veterinarian.",
+      "score": 31.7,
+      "metadata": {
+        "species": [
+          "dog",
+          "cat",
+          "rabbit",
+          "monkey"
+        ],
+        "life_stage": [
+          "senior"
+        ],
+        "topics": [
+          "mobility",
+          "hydration",
+          "appetite",
+          "comfort",
+          "observation",
+          "routine"
+        ],
+        "care_type": [
+          "daily care",
+          "support"
+        ]
+      }
+    },
+    {
+      "doc_id": "puppy_kitten_routine",
+      "title": "Puppy and Kitten Routine Basics",
+      "chunk_id": "puppy_kitten_routine#3",
+      "content": "Exercise and enrichment for very young pets should stay short and positive. Puppies often do better with several brief walks or training moments instead of one long outing, and kittens benefit from short interactive play sessions that stop before exhaustion.",
+      "score": 30.3,
+      "metadata": {
+        "species": [
+          "dog",
+          "cat"
+        ],
+        "life_stage": [
+          "puppy",
+          "kitten",
+          "young"
+        ],
+        "topics": [
+          "routine",
+          "feeding",
+          "hydration",
+          "training",
+          "play",
+          "litter",
+          "bathroom"
+        ],
+        "care_type": [
+          "starter care",
+          "daily care"
+        ]
+      }
+    },
+    {
+      "doc_id": "enrichment_and_monitoring",
+      "title": "Enrichment and Daily Monitoring",
+      "chunk_id": "enrichment_and_monitoring#2",
+      "content": "Daily care plans are stronger when they combine essential care with realistic enrichment and observation. Short play, sniff walks, brushing, or calm interaction can improve quality of life without requiring large blocks of time.",
+      "score": 29.75,
+      "metadata": {
+        "species": [
+          "dog",
+          "cat",
+          "rabbit",
+          "parrot",
+          "monkey"
+        ],
+        "life_stage": [
+          "puppy",
+          "kitten",
+          "adult",
+          "senior"
+        ],
+        "topics": [
+          "enrichment",
+          "monitoring",
+          "appetite",
+          "hydration",
+          "behavior",
+          "routine"
+        ],
+        "care_type": [
+          "daily care",
+          "observation"
+        ]
+      }
+    }
+  ],
+  "raw_recommendations": [
+    {
+      "name": "Morning breathing and appetite check",
+      "duration_minutes": 5,
+      "priority": "high",
+      "category": "health monitoring",
+      "notes": "Observe breathing effort, coughing, energy level, and appetite before first meal.",
+      "scheduled_time": "08:00",
+      "frequency": "daily",
+      "rationale": "Chronic respiratory disease in Pugs requires daily observation of breathing and early appetite changes to catch flare-ups; short daily checks create a record for vet review.",
+      "source_ids": [
+        "enrichment_and_monitoring",
+        "senior_pet_support"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Medication administration and log",
+      "duration_minutes": 3,
+      "priority": "high",
+      "category": "medication",
+      "notes": "Give medication exactly as prescribed by veterinarian; record completion in app.",
+      "scheduled_time": "08:30",
+      "frequency": "daily",
+      "rationale": "Adherence to existing vet care plan is essential for managing chronic respiratory disease; logging ensures consistency and helps vet track response.",
+      "source_ids": [
+        "medication_and_safety"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Measured meal and water intake",
+      "duration_minutes": 5,
+      "priority": "high",
+      "category": "nutrition",
+      "notes": "Provide measured portions per vet plan; monitor appetite and water intake daily.",
+      "scheduled_time": "08:45",
+      "frequency": "daily",
+      "rationale": "Low body weight risk demands consistent measured feeding aligned with vet guidance; daily appetite and water monitoring detects early digestive upset or disease progression.",
+      "source_ids": [
+        "enrichment_and_monitoring",
+        "senior_pet_support"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Droppings and bathroom observation",
+      "duration_minutes": 3,
+      "priority": "high",
+      "category": "health monitoring",
+      "notes": "Check consistency, frequency, and any changes; note in app.",
+      "scheduled_time": "09:00",
+      "frequency": "daily",
+      "rationale": "Droppings are an early indicator of digestive upset or disease progression in senior pets with chronic illness; daily observation supports early intervention.",
+      "source_ids": [
+        "enrichment_and_monitoring",
+        "senior_pet_support"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Gentle calm enrichment and brief activity",
+      "duration_minutes": 10,
+      "priority": "medium",
+      "category": "enrichment",
+      "notes": "Short, low-stress play or sniff activity indoors; stop before overexertion or panting.",
+      "scheduled_time": "14:00",
+      "frequency": "daily",
+      "rationale": "Calm indoor routine with brief gentle play reduces respiratory strain and stress-related behaviors while supporting emotional stability; prevents overexertion in heat-sensitive Pug.",
+      "source_ids": [
+        "enrichment_and_monitoring",
+        "puppy_kitten_routine"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Evening breathing and energy check",
+      "duration_minutes": 5,
+      "priority": "high",
+      "category": "health monitoring",
+      "notes": "Observe breathing, coughing, energy, and tolerance for activity; note any changes.",
+      "scheduled_time": "19:00",
+      "frequency": "daily",
+      "rationale": "Evening check completes daily respiratory monitoring cycle and catches any worsening of breathing effort or activity intolerance before rest period.",
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Weekly body weight and condition check",
+      "duration_minutes": 8,
+      "priority": "high",
+      "category": "health monitoring",
+      "notes": "Weigh Terror on same scale at same time; record weight and note body condition; compare to baseline.",
+      "scheduled_time": "10:00",
+      "frequency": "weekly",
+      "rationale": "Consistent weekly weigh-in on work-from-home day tracks low body weight risk and detects appetite or absorption changes early; Monday allows weekend observation review.",
+      "source_ids": [
+        "enrichment_and_monitoring",
+        "senior_pet_support"
+      ],
+      "scheduled_weekday": "Monday",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Cage and living space hygiene deep-clean",
+      "duration_minutes": 20,
+      "priority": "high",
+      "category": "environment",
+      "notes": "Change bedding, sanitize surfaces, check humidity level per vet guidance, ensure calm setup.",
+      "scheduled_time": "11:00",
+      "frequency": "weekly",
+      "rationale": "Weekly deep-clean on work-from-home Friday maintains hygiene and allows time to verify humidity and temperature support respiratory comfort per vet plan.",
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "scheduled_weekday": "Friday",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Monthly medication and supply restock check",
+      "duration_minutes": 10,
+      "priority": "high",
+      "category": "medication",
+      "notes": "Verify medication supply, order refills if needed, check expiration dates.",
+      "scheduled_time": "10:00",
+      "frequency": "monthly",
+      "rationale": "Early-month restock prevents gaps in chronic disease management and ensures vet care plan continuity.",
+      "source_ids": [
+        "medication_and_safety"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [
+        "Week 1"
+      ],
+      "confidence": 0.99
+    },
+    {
+      "name": "Monthly veterinary follow-up and trend review",
+      "duration_minutes": 15,
+      "priority": "high",
+      "category": "health monitoring",
+      "notes": "Review daily monitoring logs, weight trend, breathing changes, appetite pattern; contact vet if concerns arise.",
+      "scheduled_time": "14:00",
+      "frequency": "monthly",
+      "rationale": "Mid-month trend review allows owner to spot patterns in respiratory flare-ups, weight, or stress-related feather plucking and report to vet before next scheduled visit.",
+      "source_ids": [
+        "enrichment_and_monitoring",
+        "senior_pet_support"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [
+        "Week 3"
+      ],
+      "confidence": 0.99
+    },
+    {
+      "name": "Labored breathing or coughing episode response",
+      "duration_minutes": 10,
+      "priority": "high",
+      "category": "health monitoring",
+      "notes": "If Terror shows increased breathing effort, wheezing, or persistent coughing, move to calm quiet space, check room humidity per vet plan, and log episode details for vet review.",
+      "scheduled_time": "00:00",
+      "frequency": "as needed",
+      "rationale": "Pugs with chronic respiratory disease require immediate environmental adjustment and documentation when flare-ups occur to catch progression early.",
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Appetite drop or refusal alert",
+      "duration_minutes": 5,
+      "priority": "high",
+      "category": "nutrition",
+      "notes": "If Terror skips meals, eats significantly less, or shows disinterest in food for more than one feeding, document and contact vet same day.",
+      "scheduled_time": "00:00",
+      "frequency": "as needed",
+      "rationale": "Low body weight risk and chronic disease make appetite changes an early warning sign of digestive upset or disease progression requiring prompt veterinary attention.",
+      "source_ids": [
+        "enrichment_and_monitoring",
+        "senior_pet_support"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Lethargy or reduced energy response",
+      "duration_minutes": 5,
+      "priority": "high",
+      "category": "health monitoring",
+      "notes": "If Terror shows unusual tiredness, reluctance to move, or lack of interest in calm enrichment, note timing and severity; contact vet if sustained beyond one day.",
+      "scheduled_time": "00:00",
+      "frequency": "as needed",
+      "rationale": "Senior dogs with respiratory disease may show lethargy as a sign of worsening condition; early documentation helps vet assess disease progression.",
+      "source_ids": [
+        "senior_pet_support",
+        "enrichment_and_monitoring"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Abnormal droppings or bathroom changes alert",
+      "duration_minutes": 3,
+      "priority": "high",
+      "category": "health monitoring",
+      "notes": "If droppings become loose, hard, discolored, or bathroom frequency changes significantly, log details and report to vet within 24 hours.",
+      "scheduled_time": "00:00",
+      "frequency": "as needed",
+      "rationale": "Digestive changes are early indicators of nutritional or disease issues in senior dogs with low body weight risk; consistent monitoring creates a diagnostic record.",
+      "source_ids": [
+        "enrichment_and_monitoring",
+        "senior_pet_support"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Stress-related feather plucking or self-injury response",
+      "duration_minutes": 10,
+      "priority": "medium",
+      "category": "enrichment",
+      "notes": "If Terror shows increased stress behaviors or self-directed damage, reduce activity level, increase calm interaction, and document frequency for vet review.",
+      "scheduled_time": "00:00",
+      "frequency": "as needed",
+      "rationale": "Stress-related behaviors worsen with overexertion or environmental changes; calm redirection and documentation support vet assessment of emotional and physical stability.",
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Heat sensitivity or overexertion warning",
+      "duration_minutes": 5,
+      "priority": "high",
+      "category": "environment",
+      "notes": "If room temperature rises above vet-recommended range or Terror shows panting, drooling, or distress during activity, move to cooler space immediately and reduce activity.",
+      "scheduled_time": "00:00",
+      "frequency": "as needed",
+      "rationale": "Pugs are heat-sensitive and respiratory disease increases risk; proactive temperature and activity management prevents acute respiratory crises.",
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Medication side effect or tolerance change alert",
+      "duration_minutes": 5,
+      "priority": "high",
+      "category": "medication",
+      "notes": "If Terror shows new vomiting, diarrhea, tremors, or behavioral changes after medication, document timing and contact vet before next dose adjustment.",
+      "scheduled_time": "00:00",
+      "frequency": "as needed",
+      "rationale": "Chronic medication in senior dogs requires monitoring for tolerance changes; documentation supports vet decision-making without owner-initiated dosage changes.",
+      "source_ids": [
+        "medication_and_safety",
+        "senior_pet_support"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Gait changes or mobility difficulty alert",
+      "duration_minutes": 5,
+      "priority": "medium",
+      "category": "health monitoring",
+      "notes": "If Terror shows limping, stiffness, confusion, or difficulty rising, note timing and severity; report to vet if persistent or worsening.",
+      "scheduled_time": "00:00",
+      "frequency": "as needed",
+      "rationale": "Senior dogs may develop age-related mobility issues; early detection supports preventive care and quality-of-life adjustments.",
+      "source_ids": [
+        "senior_pet_support"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Midday breathing and activity tolerance check",
+      "duration_minutes": 5,
+      "priority": "high",
+      "category": "health monitoring",
+      "notes": "Catch respiratory changes or fatigue during active hours before evening.",
+      "scheduled_time": "12:00",
+      "frequency": "daily",
+      "rationale": "Pugs with chronic respiratory disease benefit from multiple daily observation points to detect flare-ups early; midday check bridges morning and evening monitoring.",
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Gentle indoor sniff walk or exploration",
+      "duration_minutes": 8,
+      "priority": "medium",
+      "category": "enrichment",
+      "notes": "Low-impact sensory activity indoors to reduce stress without overexertion.",
+      "scheduled_time": "15:30",
+      "frequency": "daily",
+      "rationale": "Short, calm indoor enrichment supports emotional stability and stress reduction while respecting respiratory limits and heat sensitivity in senior pugs.",
+      "source_ids": [
+        "enrichment_and_monitoring",
+        "senior_pet_support"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Quiet rest period and breathing comfort check",
+      "duration_minutes": 5,
+      "priority": "high",
+      "category": "health monitoring",
+      "notes": "Observe resting posture, breathing rhythm, and comfort level in calm environment.",
+      "scheduled_time": "17:00",
+      "frequency": "daily",
+      "rationale": "Senior dogs with respiratory disease need documented rest-state observations to track baseline breathing and detect changes in comfort or positioning.",
+      "source_ids": [
+        "enrichment_and_monitoring",
+        "senior_pet_support"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Humidity and temperature environment check",
+      "duration_minutes": 3,
+      "priority": "high",
+      "category": "environment",
+      "notes": "Verify indoor conditions support respiratory comfort per veterinarian guidance.",
+      "scheduled_time": "10:00",
+      "frequency": "daily",
+      "rationale": "Environmental humidity and temperature directly affect breathing comfort in brachycephalic dogs; daily verification ensures conditions remain within safe range.",
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Stress-reduction calm interaction or gentle grooming",
+      "duration_minutes": 7,
+      "priority": "medium",
+      "category": "enrichment",
+      "notes": "Soft brushing, gentle touch, or quiet companionship to support emotional stability.",
+      "scheduled_time": "16:00",
+      "frequency": "daily",
+      "rationale": "Calm, consistent interaction reduces stress-related behaviors and supports overall recovery in senior dogs with chronic disease.",
+      "source_ids": [
+        "enrichment_and_monitoring",
+        "senior_pet_support"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Appetite and food intake observation log",
+      "duration_minutes": 4,
+      "priority": "high",
+      "category": "nutrition",
+      "notes": "Document portion consumed and any hesitation or refusal to track weight and digestive trends.",
+      "scheduled_time": "13:00",
+      "frequency": "daily",
+      "rationale": "Low body weight risk requires consistent appetite tracking as an early indicator of digestive upset or disease progression.",
+      "source_ids": [
+        "enrichment_and_monitoring",
+        "senior_pet_support"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    }
+  ],
+  "blocked_recommendations": [],
+  "warnings": [],
+  "reliability_score": 0.99,
+  "accepted_tasks": [
+    {
+      "name": "Morning breathing and appetite check",
+      "duration_minutes": 5,
+      "priority": "high",
+      "category": "health monitoring",
+      "scheduled_time": "08:00",
+      "frequency": "daily",
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "ai_generated": true,
+      "rationale": "Chronic respiratory disease in Pugs requires daily observation of breathing and early appetite changes to catch flare-ups; short daily checks create a record for vet review.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring",
+        "senior_pet_support"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Medication administration and log",
+      "duration_minutes": 3,
+      "priority": "high",
+      "category": "medication",
+      "scheduled_time": "08:30",
+      "frequency": "daily",
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "ai_generated": true,
+      "rationale": "Adherence to existing vet care plan is essential for managing chronic respiratory disease; logging ensures consistency and helps vet track response.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "medication_and_safety"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Measured meal and water intake",
+      "duration_minutes": 5,
+      "priority": "high",
+      "category": "nutrition",
+      "scheduled_time": "08:45",
+      "frequency": "daily",
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "ai_generated": true,
+      "rationale": "Low body weight risk demands consistent measured feeding aligned with vet guidance; daily appetite and water monitoring detects early digestive upset or disease progression.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring",
+        "senior_pet_support"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Droppings and bathroom observation",
+      "duration_minutes": 3,
+      "priority": "high",
+      "category": "health monitoring",
+      "scheduled_time": "09:00",
+      "frequency": "daily",
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "ai_generated": true,
+      "rationale": "Droppings are an early indicator of digestive upset or disease progression in senior pets with chronic illness; daily observation supports early intervention.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring",
+        "senior_pet_support"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Midday breathing and activity tolerance check",
+      "duration_minutes": 5,
+      "priority": "high",
+      "category": "health monitoring",
+      "scheduled_time": "10:00",
+      "frequency": "daily",
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "ai_generated": true,
+      "rationale": "Pugs with chronic respiratory disease benefit from multiple daily observation points to detect flare-ups early; midday check bridges morning and evening monitoring.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Appetite and food intake observation log",
+      "duration_minutes": 4,
+      "priority": "high",
+      "category": "nutrition",
+      "scheduled_time": "13:00",
+      "frequency": "daily",
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "ai_generated": true,
+      "rationale": "Low body weight risk requires consistent appetite tracking as an early indicator of digestive upset or disease progression.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring",
+        "senior_pet_support"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Gentle calm enrichment and brief activity",
+      "duration_minutes": 10,
+      "priority": "medium",
+      "category": "enrichment",
+      "scheduled_time": "14:00",
+      "frequency": "daily",
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "ai_generated": true,
+      "rationale": "Calm indoor routine with brief gentle play reduces respiratory strain and stress-related behaviors while supporting emotional stability; prevents overexertion in heat-sensitive Pug.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring",
+        "puppy_kitten_routine"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Gentle indoor sniff walk or exploration",
+      "duration_minutes": 8,
+      "priority": "medium",
+      "category": "enrichment",
+      "scheduled_time": "15:30",
+      "frequency": "daily",
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "ai_generated": true,
+      "rationale": "Short, calm indoor enrichment supports emotional stability and stress reduction while respecting respiratory limits and heat sensitivity in senior pugs.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring",
+        "senior_pet_support"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Stress-reduction calm interaction or gentle grooming",
+      "duration_minutes": 7,
+      "priority": "medium",
+      "category": "enrichment",
+      "scheduled_time": "16:00",
+      "frequency": "daily",
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "ai_generated": true,
+      "rationale": "Calm, consistent interaction reduces stress-related behaviors and supports overall recovery in senior dogs with chronic disease.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring",
+        "senior_pet_support"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Quiet rest period and breathing comfort check",
+      "duration_minutes": 5,
+      "priority": "high",
+      "category": "health monitoring",
+      "scheduled_time": "17:00",
+      "frequency": "daily",
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "ai_generated": true,
+      "rationale": "Senior dogs with respiratory disease need documented rest-state observations to track baseline breathing and detect changes in comfort or positioning.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring",
+        "senior_pet_support"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Weekly body weight and condition check",
+      "duration_minutes": 8,
+      "priority": "high",
+      "category": "health monitoring",
+      "scheduled_time": "10:00",
+      "frequency": "weekly",
+      "scheduled_weekday": "Monday",
+      "scheduled_month_weeks": [],
+      "ai_generated": true,
+      "rationale": "Consistent weekly weigh-in on work-from-home day tracks low body weight risk and detects appetite or absorption changes early; Monday allows weekend observation review.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring",
+        "senior_pet_support"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Cage and living space hygiene deep-clean",
+      "duration_minutes": 20,
+      "priority": "high",
+      "category": "environment",
+      "scheduled_time": "11:00",
+      "frequency": "weekly",
+      "scheduled_weekday": "Friday",
+      "scheduled_month_weeks": [],
+      "ai_generated": true,
+      "rationale": "Weekly deep-clean on work-from-home Friday maintains hygiene and allows time to verify humidity and temperature support respiratory comfort per vet plan.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Monthly medication and supply restock check",
+      "duration_minutes": 10,
+      "priority": "high",
+      "category": "medication",
+      "scheduled_time": "10:00",
+      "frequency": "monthly",
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [
+        "Week 1"
+      ],
+      "ai_generated": true,
+      "rationale": "Early-month restock prevents gaps in chronic disease management and ensures vet care plan continuity.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "medication_and_safety"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Monthly veterinary follow-up and trend review",
+      "duration_minutes": 15,
+      "priority": "high",
+      "category": "health monitoring",
+      "scheduled_time": "14:00",
+      "frequency": "monthly",
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [
+        "Week 3"
+      ],
+      "ai_generated": true,
+      "rationale": "Mid-month trend review allows owner to spot patterns in respiratory flare-ups, weight, or stress-related feather plucking and report to vet before next scheduled visit.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring",
+        "senior_pet_support"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Abnormal droppings or bathroom changes alert",
+      "duration_minutes": 3,
+      "priority": "high",
+      "category": "health monitoring",
+      "scheduled_time": "00:00",
+      "frequency": "as needed",
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "ai_generated": true,
+      "rationale": "Digestive changes are early indicators of nutritional or disease issues in senior dogs with low body weight risk; consistent monitoring creates a diagnostic record.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring",
+        "senior_pet_support"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Appetite drop or refusal alert",
+      "duration_minutes": 5,
+      "priority": "high",
+      "category": "nutrition",
+      "scheduled_time": "00:00",
+      "frequency": "as needed",
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "ai_generated": true,
+      "rationale": "Low body weight risk and chronic disease make appetite changes an early warning sign of digestive upset or disease progression requiring prompt veterinary attention.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring",
+        "senior_pet_support"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Heat sensitivity or overexertion warning",
+      "duration_minutes": 5,
+      "priority": "high",
+      "category": "environment",
+      "scheduled_time": "00:00",
+      "frequency": "as needed",
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "ai_generated": true,
+      "rationale": "Pugs are heat-sensitive and respiratory disease increases risk; proactive temperature and activity management prevents acute respiratory crises.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Labored breathing or coughing episode response",
+      "duration_minutes": 10,
+      "priority": "high",
+      "category": "health monitoring",
+      "scheduled_time": "00:00",
+      "frequency": "as needed",
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "ai_generated": true,
+      "rationale": "Pugs with chronic respiratory disease require immediate environmental adjustment and documentation when flare-ups occur to catch progression early.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "validation_status": "validated"
+    }
+  ],
+  "schedule_plan": {
+    "scheduled": [
+      {
+        "name": "Abnormal droppings or bathroom changes alert",
+        "duration_minutes": 3,
+        "priority": "high",
+        "category": "health monitoring",
+        "scheduled_time": "00:00",
+        "frequency": "as needed",
+        "scheduled_weekday": "",
+        "scheduled_month_weeks": []
+      },
+      {
+        "name": "Appetite drop or refusal alert",
+        "duration_minutes": 5,
+        "priority": "high",
+        "category": "nutrition",
+        "scheduled_time": "00:00",
+        "frequency": "as needed",
+        "scheduled_weekday": "",
+        "scheduled_month_weeks": []
+      },
+      {
+        "name": "Heat sensitivity or overexertion warning",
+        "duration_minutes": 5,
+        "priority": "high",
+        "category": "environment",
+        "scheduled_time": "00:00",
+        "frequency": "as needed",
+        "scheduled_weekday": "",
+        "scheduled_month_weeks": []
+      },
+      {
+        "name": "Labored breathing or coughing episode response",
+        "duration_minutes": 10,
+        "priority": "high",
+        "category": "health monitoring",
+        "scheduled_time": "00:00",
+        "frequency": "as needed",
+        "scheduled_weekday": "",
+        "scheduled_month_weeks": []
+      },
+      {
+        "name": "Morning breathing and appetite check",
+        "duration_minutes": 5,
+        "priority": "high",
+        "category": "health monitoring",
+        "scheduled_time": "08:00",
+        "frequency": "daily",
+        "scheduled_weekday": "",
+        "scheduled_month_weeks": []
+      },
+      {
+        "name": "Medication administration and log",
+        "duration_minutes": 3,
+        "priority": "high",
+        "category": "medication",
+        "scheduled_time": "08:30",
+        "frequency": "daily",
+        "scheduled_weekday": "",
+        "scheduled_month_weeks": []
+      },
+      {
+        "name": "Measured meal and water intake",
+        "duration_minutes": 5,
+        "priority": "high",
+        "category": "nutrition",
+        "scheduled_time": "08:45",
+        "frequency": "daily",
+        "scheduled_weekday": "",
+        "scheduled_month_weeks": []
+      },
+      {
+        "name": "Droppings and bathroom observation",
+        "duration_minutes": 3,
+        "priority": "high",
+        "category": "health monitoring",
+        "scheduled_time": "09:00",
+        "frequency": "daily",
+        "scheduled_weekday": "",
+        "scheduled_month_weeks": []
+      },
+      {
+        "name": "Midday breathing and activity tolerance check",
+        "duration_minutes": 5,
+        "priority": "high",
+        "category": "health monitoring",
+        "scheduled_time": "10:00",
+        "frequency": "daily",
+        "scheduled_weekday": "",
+        "scheduled_month_weeks": []
+      },
+      {
+        "name": "Weekly body weight and condition check",
+        "duration_minutes": 8,
+        "priority": "high",
+        "category": "health monitoring",
+        "scheduled_time": "10:00",
+        "frequency": "weekly",
+        "scheduled_weekday": "Monday",
+        "scheduled_month_weeks": []
+      },
+      {
+        "name": "Monthly medication and supply restock check",
+        "duration_minutes": 10,
+        "priority": "high",
+        "category": "medication",
+        "scheduled_time": "10:00",
+        "frequency": "monthly",
+        "scheduled_weekday": "",
+        "scheduled_month_weeks": [
+          "Week 1"
+        ]
+      },
+      {
+        "name": "Cage and living space hygiene deep-clean",
+        "duration_minutes": 20,
+        "priority": "high",
+        "category": "environment",
+        "scheduled_time": "11:00",
+        "frequency": "weekly",
+        "scheduled_weekday": "Friday",
+        "scheduled_month_weeks": []
+      },
+      {
+        "name": "Appetite and food intake observation log",
+        "duration_minutes": 4,
+        "priority": "high",
+        "category": "nutrition",
+        "scheduled_time": "13:00",
+        "frequency": "daily",
+        "scheduled_weekday": "",
+        "scheduled_month_weeks": []
+      },
+      {
+        "name": "Monthly veterinary follow-up and trend review",
+        "duration_minutes": 15,
+        "priority": "high",
+        "category": "health monitoring",
+        "scheduled_time": "14:00",
+        "frequency": "monthly",
+        "scheduled_weekday": "",
+        "scheduled_month_weeks": [
+          "Week 3"
+        ]
+      },
+      {
+        "name": "Quiet rest period and breathing comfort check",
+        "duration_minutes": 5,
+        "priority": "high",
+        "category": "health monitoring",
+        "scheduled_time": "17:00",
+        "frequency": "daily",
+        "scheduled_weekday": "",
+        "scheduled_month_weeks": []
+      },
+      {
+        "name": "Gentle calm enrichment and brief activity",
+        "duration_minutes": 10,
+        "priority": "medium",
+        "category": "enrichment",
+        "scheduled_time": "14:00",
+        "frequency": "daily",
+        "scheduled_weekday": "",
+        "scheduled_month_weeks": []
+      },
+      {
+        "name": "Gentle indoor sniff walk or exploration",
+        "duration_minutes": 8,
+        "priority": "medium",
+        "category": "enrichment",
+        "scheduled_time": "15:30",
+        "frequency": "daily",
+        "scheduled_weekday": "",
+        "scheduled_month_weeks": []
+      },
+      {
+        "name": "Stress-reduction calm interaction or gentle grooming",
+        "duration_minutes": 7,
+        "priority": "medium",
+        "category": "enrichment",
+        "scheduled_time": "16:00",
+        "frequency": "daily",
+        "scheduled_weekday": "",
+        "scheduled_month_weeks": []
+      }
+    ],
+    "skipped": [],
+    "reasoning": [
+      "Scheduled 'Abnormal droppings or bathroom changes alert' for Terror (3 min, high priority)",
+      "Scheduled 'Appetite drop or refusal alert' for Terror (5 min, high priority)",
+      "Scheduled 'Heat sensitivity or overexertion warning' for Terror (5 min, high priority)",
+      "Scheduled 'Labored breathing or coughing episode response' for Terror (10 min, high priority)",
+      "Scheduled 'Morning breathing and appetite check' for Terror (5 min, high priority)",
+      "Scheduled 'Medication administration and log' for Terror (3 min, high priority)",
+      "Scheduled 'Measured meal and water intake' for Terror (5 min, high priority)",
+      "Scheduled 'Droppings and bathroom observation' for Terror (3 min, high priority)",
+      "Scheduled 'Midday breathing and activity tolerance check' for Terror (5 min, high priority)",
+      "Scheduled 'Weekly body weight and condition check' for Terror (8 min, high priority)",
+      "Scheduled 'Monthly medication and supply restock check' for Terror (10 min, high priority)",
+      "Scheduled 'Cage and living space hygiene deep-clean' for Terror (20 min, high priority)",
+      "Scheduled 'Appetite and food intake observation log' for Terror (4 min, high priority)",
+      "Scheduled 'Monthly veterinary follow-up and trend review' for Terror (15 min, high priority)",
+      "Scheduled 'Quiet rest period and breathing comfort check' for Terror (5 min, high priority)",
+      "Scheduled 'Gentle calm enrichment and brief activity' for Terror (10 min, medium priority)",
+      "Scheduled 'Gentle indoor sniff walk or exploration' for Terror (8 min, medium priority)",
+      "Scheduled 'Stress-reduction calm interaction or gentle grooming' for Terror (7 min, medium priority)"
+    ]
+  }
+}

@@ -320,6 +320,83 @@ class TestKnowledgeBase:
         assert results
         assert results[0].doc_id == "senior_pet_support"
 
+    def test_retrieval_parses_optional_frontmatter_metadata(self, tmp_path):
+        knowledge_dir = tmp_path / "knowledge"
+        knowledge_dir.mkdir()
+        (knowledge_dir / "senior.md").write_text(
+            """---
+species: dog, cat
+life_stage: senior
+topics: mobility, hydration
+care_type: support
+---
+
+# Senior Support
+
+Senior pets benefit from hydration support and calm mobility routines.
+""",
+            encoding="utf-8",
+        )
+
+        kb = LocalKnowledgeBase(knowledge_dir=knowledge_dir)
+        results = kb.retrieve("senior dog hydration routine", top_k=1)
+
+        assert results
+        assert results[0].metadata == {
+            "species": ("dog", "cat"),
+            "life_stage": ("senior",),
+            "topics": ("mobility", "hydration"),
+            "care_type": ("support",),
+        }
+
+    def test_retrieval_uses_metadata_to_rank_more_relevant_document(self, tmp_path):
+        knowledge_dir = tmp_path / "knowledge"
+        knowledge_dir.mkdir()
+        (knowledge_dir / "general.md").write_text(
+            """# General Care
+
+Routine support can include food, water, rest, and observation for many pets.
+""",
+            encoding="utf-8",
+        )
+        (knowledge_dir / "senior.md").write_text(
+            """---
+species: dog
+life_stage: senior
+topics: mobility, hydration, routine
+care_type: support
+---
+
+# Senior Dog Support
+
+Routine support can include food, water, rest, and observation for many pets.
+""",
+            encoding="utf-8",
+        )
+
+        kb = LocalKnowledgeBase(knowledge_dir=knowledge_dir)
+        results = kb.retrieve("senior dog hydration mobility routine", top_k=2)
+
+        assert [item.doc_id for item in results] == ["senior", "general"]
+
+    def test_retrieval_keeps_backward_compatibility_without_frontmatter(self, tmp_path):
+        knowledge_dir = tmp_path / "knowledge"
+        knowledge_dir.mkdir()
+        (knowledge_dir / "plain.md").write_text(
+            """# Plain Guide
+
+Plain retrieval still works without metadata headers in the document.
+""",
+            encoding="utf-8",
+        )
+
+        kb = LocalKnowledgeBase(knowledge_dir=knowledge_dir)
+        results = kb.retrieve("plain retrieval guide", top_k=1)
+
+        assert results
+        assert results[0].doc_id == "plain"
+        assert results[0].metadata == {}
+
 
 class TestValidator:
     def test_validator_blocks_unsafe_or_ungrounded_recommendations(self):

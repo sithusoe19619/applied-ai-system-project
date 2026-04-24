@@ -1,3 +1,10 @@
+---
+species: dog, cat, rabbit, monkey
+life_stage: senior
+topics: mobility, hydration, appetite, comfort, observation, routine
+care_type: daily care, support
+---
+
 # Senior Pet Support
 
 Senior pets often need lower-impact exercise, more frequent comfort checks, and closer observation of appetite, hydration, and mobility. Shorter walks, joint-friendly movement, and calm enrichment are often easier to tolerate than intense activity.

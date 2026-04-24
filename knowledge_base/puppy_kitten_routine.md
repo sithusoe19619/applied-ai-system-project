@@ -1,3 +1,10 @@
+---
+species: dog, cat
+life_stage: puppy, kitten, young
+topics: routine, feeding, hydration, training, play, litter, bathroom
+care_type: starter care, daily care
+---
+
 # Puppy and Kitten Routine Basics
 
 Young pets benefit from short, predictable care blocks spread throughout the day. Frequent feeding, hydration checks, short play sessions, and bathroom or litter monitoring help establish routine without overwhelming the pet.
