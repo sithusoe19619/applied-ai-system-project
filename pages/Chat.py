@@ -46,7 +46,7 @@ def build_profile_from_session() -> tuple[Owner | None, Pet | None]:
         breed=breed.strip(),
         custom_species=custom_species.strip(),
     )
-    owner = Owner(owner_name.strip(), available_minutes=24 * 60)
+    owner = Owner(owner_name.strip())
     owner.add_pet(pet)
     return owner, pet
 

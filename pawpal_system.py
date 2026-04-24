@@ -6,11 +6,20 @@ import json
 import os
 import re
 
+from schedule_utils import infer_month_weeks, normalize_month_weeks
 
 class Priority(Enum):
     LOW = "low"
     MEDIUM = "medium"
     HIGH = "high"
+
+
+def normalize_priority_value(priority: object) -> str:
+    """Return a stable lowercase priority label from enums, strings, or stale session objects."""
+    value = getattr(priority, "value", priority)
+    if isinstance(value, str):
+        return value.strip().lower()
+    return str(value).strip().lower()
 
 
 DEFAULT_LIFESPAN_RANGE_YEARS = (10, 15)
@@ -103,6 +112,8 @@ class Task:
     scheduled_time: str = "00:00"  # "HH:MM" format, e.g. "08:30"
     scheduled_date: str = ""       # "YYYY-MM-DD" format, defaults to today at runtime
     frequency: str = "daily"       # "daily", "weekly", "monthly", or "as needed"
+    scheduled_weekday: str = ""    # "Monday" through "Sunday" for weekly AI tasks
+    scheduled_month_weeks: List[str] = field(default_factory=list)
     status: str = "pending"
     pet: Optional["Pet"] = None
     ai_generated: bool = False
@@ -114,6 +125,14 @@ class Task:
     def __post_init__(self):
         if not self.scheduled_date:
             self.scheduled_date = date.today().isoformat()
+        self.scheduled_month_weeks = normalize_month_weeks(self.scheduled_month_weeks)
+        if self.frequency == "monthly" and not self.scheduled_month_weeks:
+            self.scheduled_month_weeks = infer_month_weeks(
+                name=self.name,
+                category=self.category,
+                notes=self.notes,
+                rationale=self.rationale,
+            )
 
     def is_high_priority(self) -> bool:
         """Return True if this task has HIGH priority."""
@@ -444,9 +463,8 @@ class Pet:
 
 
 class Owner:
-    def __init__(self, name: str, available_minutes: int):
+    def __init__(self, name: str):
         self.name = name
-        self.available_minutes = available_minutes
         self.pets: List[Pet] = []
 
     def add_pet(self, pet: Pet) -> None:
@@ -468,7 +486,6 @@ class Owner:
         """Save the owner, all pets, and all tasks to a JSON file."""
         data = {
             "owner": self.name,
-            "available_minutes": self.available_minutes,
             "pets": [
                 {
                     "name": pet.name,
@@ -492,6 +509,8 @@ class Owner:
                             "scheduled_time": task.scheduled_time,
                             "scheduled_date": task.scheduled_date,
                             "frequency": task.frequency,
+                            "scheduled_weekday": task.scheduled_weekday,
+                            "scheduled_month_weeks": task.scheduled_month_weeks,
                             "status": task.status,
                             "ai_generated": task.ai_generated,
                             "rationale": task.rationale,
@@ -521,7 +540,7 @@ class Owner:
             data = json.load(f)
 
         priority_map = {"low": Priority.LOW, "medium": Priority.MEDIUM, "high": Priority.HIGH}
-        owner = cls(data["owner"], data["available_minutes"])
+        owner = cls(data["owner"])
 
         for pet_data in data["pets"]:
             pet = Pet(
@@ -547,6 +566,8 @@ class Owner:
                     scheduled_time=task_data.get("scheduled_time", "00:00"),
                     scheduled_date=task_data.get("scheduled_date", ""),
                     frequency=task_data.get("frequency", "daily"),
+                    scheduled_weekday=task_data.get("scheduled_weekday", ""),
+                    scheduled_month_weeks=task_data.get("scheduled_month_weeks", []),
                     status=task_data.get("status", "pending"),
                     ai_generated=task_data.get("ai_generated", False),
                     rationale=task_data.get("rationale", ""),
@@ -569,7 +590,8 @@ class Scheduler:
     def generate_plan(self, enforce_budget: bool = True) -> dict:
         """
         Returns: {"scheduled": List[Task], "skipped": List[Task], "reasoning": List[str]}
-        Schedules high-priority tasks first and optionally enforces an owner time budget.
+        Schedules tasks in priority/time order. Budget enforcement is retained as a no-op
+        for backward compatibility with older call sites.
         """
         self.scheduled_tasks = []
         self.skipped_tasks = []
@@ -577,23 +599,12 @@ class Scheduler:
 
         all_tasks = self.sort_by_priority_then_time(self.owner.get_all_tasks())
 
-        time_remaining = self.owner.available_minutes
-
         for task in all_tasks:
-            if (not enforce_budget) or self.fits_in_budget(task, time_remaining):
-                self.scheduled_tasks.append(task)
-                if enforce_budget:
-                    time_remaining -= task.duration_minutes
-                reasoning.append(
-                    f"Scheduled '{task.name}' for {task.pet.name} "
-                    f"({task.duration_minutes} min, {task.priority.value} priority)"
-                )
-            else:
-                self.skipped_tasks.append(task)
-                reasoning.append(
-                    f"Skipped '{task.name}' for {task.pet.name} "
-                    f"({task.duration_minutes} min) — only {time_remaining} min remaining"
-                )
+            self.scheduled_tasks.append(task)
+            reasoning.append(
+                f"Scheduled '{task.name}' for {task.pet.name} "
+                f"({task.duration_minutes} min, {task.priority.value} priority)"
+            )
 
         return {
             "scheduled": self.scheduled_tasks,
@@ -601,7 +612,7 @@ class Scheduler:
             "reasoning": reasoning,
         }
 
-    PRIORITY_ORDER = {Priority.HIGH: 0, Priority.MEDIUM: 1, Priority.LOW: 2}
+    PRIORITY_ORDER = {"high": 0, "medium": 1, "low": 2}
 
     def sort_by_time(self, tasks: List[Task]) -> List[Task]:
         """Sort tasks in chronological order by their scheduled_time.
@@ -641,7 +652,10 @@ class Scheduler:
         """
         return sorted(
             tasks,
-            key=lambda t: (self.PRIORITY_ORDER[t.priority], self._to_minutes(t.scheduled_time))
+            key=lambda t: (
+                self.PRIORITY_ORDER.get(normalize_priority_value(t.priority), len(self.PRIORITY_ORDER)),
+                self._to_minutes(t.scheduled_time),
+            )
         )
 
     def filter_tasks(self, tasks: List[Task], status: Optional[str] = None, pet_name: Optional[str] = None) -> List[Task]:

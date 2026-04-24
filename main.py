@@ -52,7 +52,7 @@ if owner:
     print(f"{GREEN}✅ Loaded saved data from {DATA_FILE}{RESET}")
 else:
     print(f"{YELLOW}⚠️  No saved data found — creating fresh demo data{RESET}")
-    owner = Owner("Alex", available_minutes=90)
+    owner = Owner("Alex")
 
     dog = Pet("Rex", "dog", 3)
     cat = Pet("Luna", "cat", 5, special_needs="kidney diet")
@@ -77,7 +77,7 @@ all_tasks = owner.get_all_tasks()
 # ── Daily Schedule ────────────────────────────────────────────────────────────
 section("🐾 PAWPAL+ DAILY SCHEDULE")
 print(f"  {BOLD}Owner :{RESET} {owner.name}")
-print(f"  {BOLD}Budget:{RESET} {owner.available_minutes} min\n")
+print()
 
 for pet in owner.pets:
     pet_tasks = [t for t in plan["scheduled"] if t.pet == pet]
@@ -92,22 +92,11 @@ for pet in owner.pets:
                    tablefmt="rounded_outline"))
     print()
 
-if plan["skipped"]:
-    print(f"  {DIM}⏭️  Skipped (didn't fit in budget){RESET}")
-    rows = [
-        [category_emoji(t.category), t.name, t.pet.name, f"{t.duration_minutes} min", priority_badge(t.priority.value)]
-        for t in plan["skipped"]
-    ]
-    print(tabulate(rows, headers=["", "Task", "Pet", "Duration", "Priority"],
-                   tablefmt="rounded_outline"))
-
 time_used = sum(t.duration_minutes for t in plan["scheduled"])
-remaining = owner.available_minutes - time_used
 print(f"\n  {BOLD}📊 Summary{RESET}")
 summary = [
     ["✅ Scheduled", len(plan["scheduled"])],
-    ["⏱️  Time Used",  f"{time_used} / {owner.available_minutes} min"],
-    ["💚 Remaining",  f"{remaining} min"],
+    ["⏱️  Total Care Time",  f"{time_used} min"],
 ]
 print(tabulate(summary, tablefmt="simple"))
 

@@ -1,0 +1,918 @@
+{
+  "run_id": "a679f6c1219c",
+  "model": "global.anthropic.claude-haiku-4-5-20251001-v1:0",
+  "owner": "Jordan",
+  "available_minutes": 1440,
+  "pet": {
+    "name": "Rio",
+    "species": "other",
+    "effective_species": "Parrot",
+    "breed": "",
+    "custom_species": "Parrot",
+    "age": 6,
+    "special_needs": "Chronic respiratory disease, feather plucking, daily medication, stress sensitivity, reduced stamina, and needs close breathing monitoring. Needs veterinary\n  follow-up twice a month.",
+    "characteristics": "Respiratory & Monitoring: Watch for changes in breathing rate, tail bobbing, or discharge around nostrils, especially before and after activity, since respiratory disease can worsen quickly; keep a simple log of breathing observations to share with your veterinarian at twice-monthly visits. Environment & Stress: Maintain consistent temperature (70\u201380\u00b0F), low humidity fluctuations, and minimal sudden noise or cage relocations, as stress directly triggers feather plucking and respiratory flare-ups in parrots with chronic disease. Medication & Routine: Administer daily medication at the same time each day and monitor appetite and droppings for changes, since medication compliance and early detection of decline are critical to managing both respiratory health and behavioral stress responses.",
+    "lifespan_range_years": [
+      20,
+      60
+    ],
+    "species_profile_summary": "Parrots typically live 20 to 60 years depending on species; this individual requires close respiratory monitoring, stress management, and consistent medication to support quality of life despite chronic disease.",
+    "species_profile_source": "Model-derived profile from global.anthropic.claude-haiku-4-5-20251001-v1:0",
+    "age_context": {
+      "life_stage": "young",
+      "lifespan_range_years": [
+        20,
+        60
+      ],
+      "estimated_total_years": 40,
+      "summary": "Parrots typically live 20 to 60 years depending on species; this individual requires close respiratory monitoring, stress management, and consistent medication to support quality of life despite chronic disease."
+    }
+  },
+  "query": "Parrot Rio age 6 young Chronic respiratory disease, feather plucking, daily medication, stress sensitivity, reduced stamina, and needs close breathing monitoring. Needs veterinary\n  follow-up twice a month. Respiratory & Monitoring: Watch for changes in breathing rate, tail bobbing, or discharge around nostrils, especially before and after activity, since respiratory disease can worsen quickly; keep a simple log of breathing observations to share with your veterinarian at twice-monthly visits. Environment & Stress: Maintain consistent temperature (70\u201380\u00b0F), low humidity fluctuations, and minimal sudden noise or cage relocations, as stress directly triggers feather plucking and respiratory flare-ups in parrots with chronic disease. Medication & Routine: Administer daily medication at the same time each day and monitor appetite and droppings for changes, since medication compliance and early detection of decline are critical to managing both respiratory health and behavioral stress responses. Create a complete pet care plan with daily, weekly, monthly tasks, reminders, and safe condition-aware guidance. Mainly a detailed daily care schedule and monthly schedule, with medication reminders, breathing checks, feeding routine, cage cleaning, calm enrichment, sleep\n  schedule, and two vet visits each month. pet care routine",
+  "goal": "Create a complete pet care plan with daily, weekly, monthly tasks, reminders, and safe condition-aware guidance.",
+  "extra_context": "Mainly a detailed daily care schedule and monthly schedule, with medication reminders, breathing checks, feeding routine, cage cleaning, calm enrichment, sleep\n  schedule, and two vet visits each month.",
+  "requested_frequencies": [],
+  "retrieved_passages": [
+    {
+      "doc_id": "kidney_diet_care",
+      "title": "Kidney Diet and Hydration Support",
+      "chunk_id": "kidney_diet_care#3",
+      "content": "Owners should follow the veterinary feeding plan already prescribed and avoid changing food or supplement amounts without veterinary guidance. If a pet refuses multiple meals or shows sudden decline, the safe action is to contact a veterinarian.",
+      "score": 22.95
+    },
+    {
+      "doc_id": "senior_pet_support",
+      "title": "Senior Pet Support",
+      "chunk_id": "senior_pet_support#3",
+      "content": "Older pets may benefit from routines that include medication reminders, slow feeding, and extra time for transitions. Owners should watch for changes in gait, confusion, appetite, and bathroom habits and report major changes to a veterinarian.",
+      "score": 21.85
+    },
+    {
+      "doc_id": "medication_and_safety",
+      "title": "Medication Routine and Safety",
+      "chunk_id": "medication_and_safety#2",
+      "content": "Medication-related tasks in a home routine should focus on reminders, documentation, and observation, not dosage changes. A planning assistant can remind the owner to give medication exactly as already prescribed and to log whether the dose was completed.",
+      "score": 21.1
+    },
+    {
+      "doc_id": "enrichment_and_monitoring",
+      "title": "Enrichment and Daily Monitoring",
+      "chunk_id": "enrichment_and_monitoring#3",
+      "content": "Observation tasks are useful for special-needs pets because they create a record of appetite, water intake, energy, and bathroom habits. These tasks should be short, specific, and easy to complete consistently.",
+      "score": 18.2
+    },
+    {
+      "doc_id": "enrichment_and_monitoring",
+      "title": "Enrichment and Daily Monitoring",
+      "chunk_id": "enrichment_and_monitoring#2",
+      "content": "Daily care plans are stronger when they combine essential care with realistic enrichment and observation. Short play, sniff walks, brushing, or calm interaction can improve quality of life without requiring large blocks of time.",
+      "score": 17.75
+    }
+  ],
+  "raw_recommendations": [
+    {
+      "name": "Administer daily medication",
+      "duration_minutes": 5,
+      "priority": "high",
+      "category": "medication",
+      "notes": "Give medication at the same time each day as prescribed; log completion and any changes in appetite or droppings.",
+      "scheduled_time": "08:00",
+      "frequency": "daily",
+      "rationale": "Medication compliance is critical for managing respiratory health and behavioral stress responses in chronic disease.",
+      "source_ids": [
+        "medication_and_safety"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "name": "Monitor breathing and respiratory signs",
+      "duration_minutes": 3,
+      "priority": "high",
+      "category": "health monitoring",
+      "notes": "Check breathing rate, tail bobbing, and nasal discharge before and after activity; log observations for vet visits.",
+      "scheduled_time": "09:00",
+      "frequency": "daily",
+      "rationale": "Respiratory disease can worsen quickly; early detection through consistent observation prevents emergencies.",
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "confidence": 0.99
+    },
+    {
+      "name": "Provide fresh water and monitor intake",
+      "duration_minutes": 5,
+      "priority": "high",
+      "category": "hydration",
+      "notes": "Refresh water daily and observe intake as part of health monitoring routine.",
+      "scheduled_time": "08:30",
+      "frequency": "daily",
+      "rationale": "Hydration support and observation of water intake help detect early signs of decline.",
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "confidence": 0.99
+    },
+    {
+      "name": "Feed Rio according to veterinary plan",
+      "duration_minutes": 10,
+      "priority": "high",
+      "category": "feeding",
+      "notes": "Follow prescribed feeding plan; do not change food or amounts without veterinary guidance; observe appetite.",
+      "scheduled_time": "08:00",
+      "frequency": "daily",
+      "rationale": "Consistent feeding supports medication routine and allows early detection of appetite changes or decline.",
+      "source_ids": [
+        "kidney_diet_care",
+        "medication_and_safety"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "name": "Maintain stable environment temperature and humidity",
+      "duration_minutes": 2,
+      "priority": "high",
+      "category": "environment",
+      "notes": "Keep temperature 70\u201380\u00b0F with minimal humidity fluctuations; avoid sudden cage relocations or loud noise.",
+      "scheduled_time": "07:00",
+      "frequency": "daily",
+      "rationale": "Consistent environment reduces stress-triggered feather plucking and respiratory flare-ups in chronic disease.",
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "confidence": 0.99
+    },
+    {
+      "name": "Provide calm enrichment and gentle interaction",
+      "duration_minutes": 15,
+      "priority": "medium",
+      "category": "enrichment",
+      "notes": "Offer quiet play, soft interaction, or calm enrichment activities suited to reduced stamina; avoid overstimulation.",
+      "scheduled_time": "14:00",
+      "frequency": "daily",
+      "rationale": "Realistic enrichment improves quality of life without exhausting a pet with reduced stamina and stress sensitivity.",
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "confidence": 0.99
+    },
+    {
+      "name": "Observe appetite, droppings, and energy level",
+      "duration_minutes": 3,
+      "priority": "high",
+      "category": "health monitoring",
+      "notes": "Log appetite, droppings, and energy changes daily to create a health record for veterinary visits.",
+      "scheduled_time": "18:00",
+      "frequency": "daily",
+      "rationale": "Consistent observation of appetite, droppings, and energy detects early decline and supports medication monitoring.",
+      "source_ids": [
+        "enrichment_and_monitoring",
+        "medication_and_safety"
+      ],
+      "confidence": 0.99
+    },
+    {
+      "name": "Ensure adequate sleep and quiet rest time",
+      "duration_minutes": 2,
+      "priority": "medium",
+      "category": "rest",
+      "notes": "Provide consistent sleep schedule in a calm, low-stress environment to support respiratory and behavioral health.",
+      "scheduled_time": "20:00",
+      "frequency": "daily",
+      "rationale": "Routine rest supports stress management and respiratory stability in chronic disease.",
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "confidence": 0.97
+    },
+    {
+      "name": "Clean and inspect cage weekly",
+      "duration_minutes": 20,
+      "priority": "medium",
+      "category": "environment",
+      "notes": "Remove soiled bedding, perches, and toys; inspect for hazards or respiratory irritants.",
+      "scheduled_time": "10:00",
+      "frequency": "weekly",
+      "rationale": "Clean environment reduces respiratory irritation and stress in a pet with chronic respiratory disease.",
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "confidence": 0.99
+    },
+    {
+      "name": "Review health log and prepare for veterinary visit",
+      "duration_minutes": 10,
+      "priority": "high",
+      "category": "veterinary care",
+      "notes": "Compile breathing observations, appetite notes, medication compliance, and behavioral changes for twice-monthly vet visits.",
+      "scheduled_time": "11:00",
+      "frequency": "weekly",
+      "rationale": "Organized health documentation supports veterinary decision-making and early detection of respiratory or behavioral decline.",
+      "source_ids": [
+        "medication_and_safety",
+        "enrichment_and_monitoring"
+      ],
+      "confidence": 0.99
+    },
+    {
+      "name": "Schedule and attend veterinary follow-up visits",
+      "duration_minutes": 30,
+      "priority": "high",
+      "category": "veterinary care",
+      "notes": "Attend twice-monthly veterinary appointments for respiratory monitoring, medication review, and health assessment.",
+      "scheduled_time": "09:00",
+      "frequency": "monthly",
+      "rationale": "Twice-monthly vet visits are essential for managing chronic respiratory disease and detecting early decline.",
+      "source_ids": [
+        "medication_and_safety"
+      ],
+      "confidence": 0.99
+    },
+    {
+      "name": "Contact veterinarian if Rio refuses multiple meals or shows sudden decline",
+      "duration_minutes": 5,
+      "priority": "high",
+      "category": "veterinary care",
+      "notes": "Seek immediate veterinary guidance if appetite loss or sudden behavioral or respiratory changes occur.",
+      "scheduled_time": "as needed",
+      "frequency": "as needed",
+      "rationale": "Early intervention prevents complications in a pet with chronic respiratory disease and stress sensitivity.",
+      "source_ids": [
+        "kidney_diet_care"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "name": "Administer daily medication at consistent time",
+      "duration_minutes": 2,
+      "priority": "high",
+      "category": "medication",
+      "notes": "Give medication exactly as prescribed and log completion to track compliance.",
+      "scheduled_time": "08:00",
+      "frequency": "daily",
+      "rationale": "Medication compliance is critical for managing respiratory health and stress responses in chronic disease.",
+      "source_ids": [
+        "medication_and_safety"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "name": "Monitor breathing and respiratory signs",
+      "duration_minutes": 3,
+      "priority": "high",
+      "category": "health monitoring",
+      "notes": "Watch for changes in breathing rate, tail bobbing, or nasal discharge before and after activity.",
+      "scheduled_time": "09:00",
+      "frequency": "daily",
+      "rationale": "Respiratory disease can worsen quickly; early detection supports twice-monthly vet visits.",
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "name": "Provide fresh water and monitor intake",
+      "duration_minutes": 5,
+      "priority": "high",
+      "category": "hydration",
+      "notes": "Ensure clean water available and note any changes in drinking behavior.",
+      "scheduled_time": "08:30",
+      "frequency": "daily",
+      "rationale": "Hydration tracking creates a health record useful for veterinary visits.",
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "confidence": 0.9
+    },
+    {
+      "name": "Maintain stable environment temperature and humidity",
+      "duration_minutes": 2,
+      "priority": "high",
+      "category": "environment",
+      "notes": "Keep temperature 70\u201380\u00b0F with minimal humidity fluctuations to prevent stress and respiratory flare-ups.",
+      "scheduled_time": "07:00",
+      "frequency": "daily",
+      "rationale": "Consistent environment directly reduces feather plucking and respiratory triggers.",
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "name": "Observe appetite, droppings, and energy level",
+      "duration_minutes": 3,
+      "priority": "high",
+      "category": "health monitoring",
+      "notes": "Log appetite, dropping appearance, and activity level to detect early decline.",
+      "scheduled_time": "18:00",
+      "frequency": "daily",
+      "rationale": "Observation tasks create a health record for medication and disease management.",
+      "source_ids": [
+        "enrichment_and_monitoring",
+        "senior_pet_support"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "name": "Provide calm enrichment and gentle interaction",
+      "duration_minutes": 15,
+      "priority": "medium",
+      "category": "enrichment",
+      "notes": "Offer quiet play or calm interaction to improve quality of life without overexertion.",
+      "scheduled_time": "14:00",
+      "frequency": "daily",
+      "rationale": "Gentle enrichment supports stress management and reduces feather-plucking triggers.",
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "confidence": 0.9
+    },
+    {
+      "name": "Ensure adequate sleep and quiet rest time",
+      "duration_minutes": 2,
+      "priority": "medium",
+      "category": "rest",
+      "notes": "Establish consistent bedtime and minimize noise to support respiratory recovery.",
+      "scheduled_time": "20:00",
+      "frequency": "daily",
+      "rationale": "Adequate rest is essential for chronic disease management and stress reduction.",
+      "source_ids": [
+        "senior_pet_support"
+      ],
+      "confidence": 0.9
+    },
+    {
+      "name": "Respond to sudden appetite loss or meal refusal",
+      "duration_minutes": 5,
+      "priority": "high",
+      "category": "health monitoring",
+      "notes": "If Rio refuses multiple meals or shows sudden decline, contact veterinarian immediately.",
+      "scheduled_time": "as needed",
+      "frequency": "as needed",
+      "rationale": "Sudden appetite changes signal potential respiratory or medication complications requiring urgent veterinary guidance.",
+      "source_ids": [
+        "kidney_diet_care"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "name": "Monitor for increased respiratory distress or behavioral changes",
+      "duration_minutes": 5,
+      "priority": "high",
+      "category": "health monitoring",
+      "notes": "Watch for labored breathing, excessive tail bobbing, nasal discharge, or sudden feather plucking escalation.",
+      "scheduled_time": "as needed",
+      "frequency": "as needed",
+      "rationale": "Respiratory flare-ups or stress-triggered feather plucking require prompt veterinary evaluation.",
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "name": "Adjust activity level if stamina decline is observed",
+      "duration_minutes": 3,
+      "priority": "medium",
+      "category": "enrichment",
+      "notes": "Reduce play duration or intensity if Rio shows fatigue, labored breathing, or reduced energy.",
+      "scheduled_time": "as needed",
+      "frequency": "as needed",
+      "rationale": "Reduced stamina from chronic disease requires activity modification to prevent respiratory stress.",
+      "source_ids": [
+        "senior_pet_support"
+      ],
+      "confidence": 0.9
+    },
+    {
+      "name": "Avoid sudden cage relocations or loud noise exposure",
+      "duration_minutes": 2,
+      "priority": "high",
+      "category": "environment",
+      "notes": "If relocation or noise exposure occurs, monitor closely for stress-triggered feather plucking or breathing changes.",
+      "scheduled_time": "as needed",
+      "frequency": "as needed",
+      "rationale": "Stress directly triggers feather plucking and respiratory flare-ups in parrots with chronic disease.",
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "name": "Administer daily medication at consistent time",
+      "duration_minutes": 3,
+      "priority": "high",
+      "category": "medication",
+      "notes": "Give medication exactly as prescribed and log completion to track compliance.",
+      "scheduled_time": "08:00",
+      "frequency": "daily",
+      "rationale": "Medication compliance is critical for managing respiratory health and stress responses in chronic disease.",
+      "source_ids": [
+        "medication_and_safety"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "name": "Monitor breathing rate and respiratory signs",
+      "duration_minutes": 2,
+      "priority": "high",
+      "category": "health monitoring",
+      "notes": "Watch for tail bobbing, discharge around nostrils, or changes in breathing before and after activity.",
+      "scheduled_time": "10:00",
+      "frequency": "daily",
+      "rationale": "Respiratory disease can worsen quickly; early detection prevents complications and informs veterinary visits.",
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "confidence": 0.99
+    },
+    {
+      "name": "Offer varied healthy snacks and monitor acceptance",
+      "duration_minutes": 5,
+      "priority": "medium",
+      "category": "nutrition",
+      "notes": "Provide veterinary-approved snacks and note any refusal or appetite changes.",
+      "scheduled_time": "15:30",
+      "frequency": "daily",
+      "rationale": "Snack time adds enrichment variety and provides early warning of appetite decline or medication side effects.",
+      "source_ids": [
+        "kidney_diet_care",
+        "enrichment_and_monitoring"
+      ],
+      "confidence": 0.99
+    },
+    {
+      "name": "Gentle perch-time and low-stress handling",
+      "duration_minutes": 10,
+      "priority": "medium",
+      "category": "enrichment",
+      "notes": "Allow Rio to rest on hand or nearby perch without forced interaction to reduce stress-triggered feather plucking.",
+      "scheduled_time": "16:00",
+      "frequency": "daily",
+      "rationale": "Stress directly triggers feather plucking and respiratory flare-ups; calm presence supports behavioral and respiratory stability.",
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "confidence": 0.99
+    },
+    {
+      "name": "Log breathing observations and behavioral notes",
+      "duration_minutes": 3,
+      "priority": "high",
+      "category": "health monitoring",
+      "notes": "Record breathing rate, energy level, and any feather-plucking episodes to share at veterinary visits.",
+      "scheduled_time": "18:00",
+      "frequency": "daily",
+      "rationale": "Simple daily logs create a record for twice-monthly veterinary follow-ups and help detect early decline.",
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "confidence": 0.99
+    },
+    {
+      "name": "Provide soft foraging or puzzle enrichment",
+      "duration_minutes": 8,
+      "priority": "medium",
+      "category": "enrichment",
+      "notes": "Offer low-effort foraging toys or puzzle feeders suited to reduced stamina to maintain mental engagement.",
+      "scheduled_time": "11:00",
+      "frequency": "daily",
+      "rationale": "Enrichment improves quality of life without overexertion; variety prevents boredom and stress-related behaviors.",
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "confidence": 0.97
+    },
+    {
+      "name": "Verify medication dose completion and document",
+      "duration_minutes": 2,
+      "priority": "high",
+      "category": "medication",
+      "notes": "Confirm medication was taken as prescribed and log in health record for veterinary review.",
+      "scheduled_time": "20:30",
+      "frequency": "daily",
+      "rationale": "Documentation of medication compliance supports veterinary decision-making and tracks response to treatment.",
+      "source_ids": [
+        "medication_and_safety"
+      ],
+      "confidence": 0.94
+    },
+    {
+      "name": "Check droppings and bathroom habits for changes",
+      "duration_minutes": 2,
+      "priority": "high",
+      "category": "health monitoring",
+      "notes": "Observe color, consistency, and frequency; note any sudden changes for veterinary reporting.",
+      "scheduled_time": "12:00",
+      "frequency": "daily",
+      "rationale": "Bathroom changes are early indicators of medication effects, dietary issues, or health decline in senior pets.",
+      "source_ids": [
+        "senior_pet_support",
+        "enrichment_and_monitoring"
+      ],
+      "confidence": 0.99
+    }
+  ],
+  "blocked_recommendations": [
+    {
+      "name": "Administer daily medication",
+      "reasons": [
+        "Recommendation contains unsafe or unsupported medical advice."
+      ]
+    },
+    {
+      "name": "Feed Rio according to veterinary plan",
+      "reasons": [
+        "Recommendation contains unsafe or unsupported medical advice."
+      ]
+    },
+    {
+      "name": "Contact veterinarian if Rio refuses multiple meals or shows sudden decline",
+      "reasons": [
+        "Scheduled time must use HH:MM in 24-hour format."
+      ]
+    },
+    {
+      "name": "Administer daily medication at consistent time",
+      "reasons": [
+        "Frequency must match the requested cadence: as needed.",
+        "Recommendation contains unsafe or unsupported medical advice."
+      ]
+    },
+    {
+      "name": "Monitor breathing and respiratory signs",
+      "reasons": [
+        "Frequency must match the requested cadence: as needed."
+      ]
+    },
+    {
+      "name": "Provide fresh water and monitor intake",
+      "reasons": [
+        "Frequency must match the requested cadence: as needed."
+      ]
+    },
+    {
+      "name": "Maintain stable environment temperature and humidity",
+      "reasons": [
+        "Frequency must match the requested cadence: as needed."
+      ]
+    },
+    {
+      "name": "Observe appetite, droppings, and energy level",
+      "reasons": [
+        "Frequency must match the requested cadence: as needed."
+      ]
+    },
+    {
+      "name": "Provide calm enrichment and gentle interaction",
+      "reasons": [
+        "Frequency must match the requested cadence: as needed."
+      ]
+    },
+    {
+      "name": "Ensure adequate sleep and quiet rest time",
+      "reasons": [
+        "Frequency must match the requested cadence: as needed."
+      ]
+    },
+    {
+      "name": "Respond to sudden appetite loss or meal refusal",
+      "reasons": [
+        "Scheduled time must use HH:MM in 24-hour format."
+      ]
+    },
+    {
+      "name": "Monitor for increased respiratory distress or behavioral changes",
+      "reasons": [
+        "Scheduled time must use HH:MM in 24-hour format."
+      ]
+    },
+    {
+      "name": "Adjust activity level if stamina decline is observed",
+      "reasons": [
+        "Scheduled time must use HH:MM in 24-hour format."
+      ]
+    },
+    {
+      "name": "Avoid sudden cage relocations or loud noise exposure",
+      "reasons": [
+        "Scheduled time must use HH:MM in 24-hour format."
+      ]
+    },
+    {
+      "name": "Administer daily medication at consistent time",
+      "reasons": [
+        "Recommendation contains unsafe or unsupported medical advice."
+      ]
+    },
+    {
+      "name": "Verify medication dose completion and document",
+      "reasons": [
+        "Recommendation contains unsafe or unsupported medical advice."
+      ]
+    }
+  ],
+  "warnings": [
+    "The generated plan is still missing some requested cadence types after a second pass."
+  ],
+  "reliability_score": 0.99,
+  "accepted_tasks": [
+    {
+      "name": "Maintain stable environment temperature and humidity",
+      "duration_minutes": 2,
+      "priority": "high",
+      "category": "environment",
+      "scheduled_time": "07:00",
+      "frequency": "daily",
+      "ai_generated": true,
+      "rationale": "Consistent environment reduces stress-triggered feather plucking and respiratory flare-ups in chronic disease.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Provide fresh water and monitor intake",
+      "duration_minutes": 5,
+      "priority": "high",
+      "category": "hydration",
+      "scheduled_time": "08:30",
+      "frequency": "daily",
+      "ai_generated": true,
+      "rationale": "Hydration support and observation of water intake help detect early signs of decline.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Log breathing observations and behavioral notes",
+      "duration_minutes": 3,
+      "priority": "high",
+      "category": "health monitoring",
+      "scheduled_time": "09:00",
+      "frequency": "daily",
+      "ai_generated": true,
+      "rationale": "Consistent observation of appetite, droppings, and energy detects early decline and supports medication monitoring.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring",
+        "medication_and_safety"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Provide soft foraging or puzzle enrichment",
+      "duration_minutes": 8,
+      "priority": "medium",
+      "category": "enrichment",
+      "scheduled_time": "11:00",
+      "frequency": "daily",
+      "ai_generated": true,
+      "rationale": "Enrichment improves quality of life without overexertion; variety prevents boredom and stress-related behaviors.",
+      "confidence_score": 0.97,
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Check droppings and bathroom habits for changes",
+      "duration_minutes": 2,
+      "priority": "high",
+      "category": "health monitoring",
+      "scheduled_time": "12:00",
+      "frequency": "daily",
+      "ai_generated": true,
+      "rationale": "Bathroom changes are early indicators of medication effects, dietary issues, or health decline in senior pets.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "senior_pet_support",
+        "enrichment_and_monitoring"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Provide calm enrichment and gentle interaction",
+      "duration_minutes": 15,
+      "priority": "medium",
+      "category": "enrichment",
+      "scheduled_time": "14:00",
+      "frequency": "daily",
+      "ai_generated": true,
+      "rationale": "Realistic enrichment improves quality of life without exhausting a pet with reduced stamina and stress sensitivity.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Offer varied healthy snacks and monitor acceptance",
+      "duration_minutes": 5,
+      "priority": "medium",
+      "category": "nutrition",
+      "scheduled_time": "15:30",
+      "frequency": "daily",
+      "ai_generated": true,
+      "rationale": "Snack time adds enrichment variety and provides early warning of appetite decline or medication side effects.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "kidney_diet_care",
+        "enrichment_and_monitoring"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Gentle perch-time and low-stress handling",
+      "duration_minutes": 10,
+      "priority": "medium",
+      "category": "enrichment",
+      "scheduled_time": "16:00",
+      "frequency": "daily",
+      "ai_generated": true,
+      "rationale": "Stress directly triggers feather plucking and respiratory flare-ups; calm presence supports behavioral and respiratory stability.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Ensure adequate sleep and quiet rest time",
+      "duration_minutes": 2,
+      "priority": "medium",
+      "category": "rest",
+      "scheduled_time": "20:00",
+      "frequency": "daily",
+      "ai_generated": true,
+      "rationale": "Routine rest supports stress management and respiratory stability in chronic disease.",
+      "confidence_score": 0.97,
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Clean and inspect cage weekly",
+      "duration_minutes": 20,
+      "priority": "medium",
+      "category": "environment",
+      "scheduled_time": "10:00",
+      "frequency": "weekly",
+      "ai_generated": true,
+      "rationale": "Clean environment reduces respiratory irritation and stress in a pet with chronic respiratory disease.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Review health log and prepare for veterinary visit",
+      "duration_minutes": 10,
+      "priority": "high",
+      "category": "veterinary care",
+      "scheduled_time": "11:00",
+      "frequency": "weekly",
+      "ai_generated": true,
+      "rationale": "Organized health documentation supports veterinary decision-making and early detection of respiratory or behavioral decline.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "medication_and_safety",
+        "enrichment_and_monitoring"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Schedule and attend veterinary follow-up visits",
+      "duration_minutes": 30,
+      "priority": "high",
+      "category": "veterinary care",
+      "scheduled_time": "09:00",
+      "frequency": "monthly",
+      "ai_generated": true,
+      "rationale": "Twice-monthly vet visits are essential for managing chronic respiratory disease and detecting early decline.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "medication_and_safety"
+      ],
+      "validation_status": "validated"
+    }
+  ],
+  "schedule_plan": {
+    "scheduled": [
+      {
+        "name": "Maintain stable environment temperature and humidity",
+        "duration_minutes": 2,
+        "priority": "high",
+        "category": "environment",
+        "scheduled_time": "07:00",
+        "frequency": "daily"
+      },
+      {
+        "name": "Provide fresh water and monitor intake",
+        "duration_minutes": 5,
+        "priority": "high",
+        "category": "hydration",
+        "scheduled_time": "08:30",
+        "frequency": "daily"
+      },
+      {
+        "name": "Log breathing observations and behavioral notes",
+        "duration_minutes": 3,
+        "priority": "high",
+        "category": "health monitoring",
+        "scheduled_time": "09:00",
+        "frequency": "daily"
+      },
+      {
+        "name": "Schedule and attend veterinary follow-up visits",
+        "duration_minutes": 30,
+        "priority": "high",
+        "category": "veterinary care",
+        "scheduled_time": "09:00",
+        "frequency": "monthly"
+      },
+      {
+        "name": "Review health log and prepare for veterinary visit",
+        "duration_minutes": 10,
+        "priority": "high",
+        "category": "veterinary care",
+        "scheduled_time": "11:00",
+        "frequency": "weekly"
+      },
+      {
+        "name": "Check droppings and bathroom habits for changes",
+        "duration_minutes": 2,
+        "priority": "high",
+        "category": "health monitoring",
+        "scheduled_time": "12:00",
+        "frequency": "daily"
+      },
+      {
+        "name": "Clean and inspect cage weekly",
+        "duration_minutes": 20,
+        "priority": "medium",
+        "category": "environment",
+        "scheduled_time": "10:00",
+        "frequency": "weekly"
+      },
+      {
+        "name": "Provide soft foraging or puzzle enrichment",
+        "duration_minutes": 8,
+        "priority": "medium",
+        "category": "enrichment",
+        "scheduled_time": "11:00",
+        "frequency": "daily"
+      },
+      {
+        "name": "Provide calm enrichment and gentle interaction",
+        "duration_minutes": 15,
+        "priority": "medium",
+        "category": "enrichment",
+        "scheduled_time": "14:00",
+        "frequency": "daily"
+      },
+      {
+        "name": "Offer varied healthy snacks and monitor acceptance",
+        "duration_minutes": 5,
+        "priority": "medium",
+        "category": "nutrition",
+        "scheduled_time": "15:30",
+        "frequency": "daily"
+      },
+      {
+        "name": "Gentle perch-time and low-stress handling",
+        "duration_minutes": 10,
+        "priority": "medium",
+        "category": "enrichment",
+        "scheduled_time": "16:00",
+        "frequency": "daily"
+      },
+      {
+        "name": "Ensure adequate sleep and quiet rest time",
+        "duration_minutes": 2,
+        "priority": "medium",
+        "category": "rest",
+        "scheduled_time": "20:00",
+        "frequency": "daily"
+      }
+    ],
+    "skipped": [],
+    "reasoning": [
+      "Scheduled 'Maintain stable environment temperature and humidity' for Rio (2 min, high priority)",
+      "Scheduled 'Provide fresh water and monitor intake' for Rio (5 min, high priority)",
+      "Scheduled 'Log breathing observations and behavioral notes' for Rio (3 min, high priority)",
+      "Scheduled 'Schedule and attend veterinary follow-up visits' for Rio (30 min, high priority)",
+      "Scheduled 'Review health log and prepare for veterinary visit' for Rio (10 min, high priority)",
+      "Scheduled 'Check droppings and bathroom habits for changes' for Rio (2 min, high priority)",
+      "Scheduled 'Clean and inspect cage weekly' for Rio (20 min, medium priority)",
+      "Scheduled 'Provide soft foraging or puzzle enrichment' for Rio (8 min, medium priority)",
+      "Scheduled 'Provide calm enrichment and gentle interaction' for Rio (15 min, medium priority)",
+      "Scheduled 'Offer varied healthy snacks and monitor acceptance' for Rio (5 min, medium priority)",
+      "Scheduled 'Gentle perch-time and low-stress handling' for Rio (10 min, medium priority)",
+      "Scheduled 'Ensure adequate sleep and quiet rest time' for Rio (2 min, medium priority)"
+    ]
+  }
+}

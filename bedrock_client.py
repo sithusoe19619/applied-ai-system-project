@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import Any, Dict, List
 import ast
 import importlib
@@ -7,6 +7,7 @@ import os
 import re
 
 from ai_retrieval import RetrievedPassage
+from schedule_utils import normalize_month_weeks
 
 
 DEFAULT_BEDROCK_MODEL_ID = "global.anthropic.claude-haiku-4-5-20251001-v1:0"
@@ -28,7 +29,12 @@ class RecommendationCandidate:
     frequency: str
     rationale: str
     source_ids: List[str]
+    scheduled_weekday: str = ""
+    scheduled_month_weeks: List[str] = field(default_factory=list)
     confidence: float = 0.0
+
+    def __post_init__(self):
+        self.scheduled_month_weeks = normalize_month_weeks(self.scheduled_month_weeks)
 
     @classmethod
     def from_payload(cls, payload: Dict[str, Any]) -> "RecommendationCandidate":
@@ -42,6 +48,8 @@ class RecommendationCandidate:
             frequency=str(payload.get("frequency", "daily")).strip().lower(),
             rationale=str(payload.get("rationale", "")).strip(),
             source_ids=[str(item).strip() for item in payload.get("source_ids", []) if str(item).strip()],
+            scheduled_weekday=str(payload.get("scheduled_weekday", "")).strip().title(),
+            scheduled_month_weeks=payload.get("scheduled_month_weeks", []),
             confidence=float(payload.get("confidence", 0.0)),
         )
 
@@ -120,7 +128,6 @@ class BedrockRecommendationClient:
     def recommend(
         self,
         owner_name: str,
-        available_minutes: int,
         pet_name: str,
         species: str,
         breed: str,
@@ -144,7 +151,6 @@ class BedrockRecommendationClient:
                         "role": "user",
                         "content": [{"text": self._build_user_prompt(
                             owner_name=owner_name,
-                            available_minutes=available_minutes,
                             pet_name=pet_name,
                             species=species,
                             breed=breed,
@@ -237,7 +243,10 @@ class BedrockRecommendationClient:
             "Keep notes and rationale brief, usually one short sentence each. "
             "Return JSON only with this shape: "
             "{\"recommendations\": [{\"name\": str, \"duration_minutes\": int, \"priority\": \"low|medium|high\", "
-            "\"category\": str, \"notes\": str, \"scheduled_time\": \"HH:MM\", \"frequency\": \"daily|weekly|monthly|as needed\", "
+            "\"category\": str, \"notes\": str, \"scheduled_time\": \"HH:MM\", "
+            "\"scheduled_weekday\": \"Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday|\", "
+            "\"scheduled_month_weeks\": [\"Week 1|Week 2|Week 3|Week 4\"], "
+            "\"frequency\": \"daily|weekly|monthly|as needed\", "
             "\"rationale\": str, \"source_ids\": [str], \"confidence\": float}]}"
         )
 
@@ -248,7 +257,13 @@ class BedrockRecommendationClient:
             "Estimate a realistic typical lifespan range in years for the named species or breed in a pet/captive context when possible. "
             "The lifespan range must reflect the usual healthy companion-animal range for the species or breed, not this individual pet's current age, senior status, injury, weight, or temporary condition. "
             "Describe general care characteristics only; do not diagnose, prescribe, or provide emergency instructions. "
+            "Write for a pet owner in clear, professional language. "
+            "Avoid generic encyclopedia-style paragraphs and avoid covering every possible care topic. "
             "Keep string values plain and compact. Avoid markdown, commentary, and unnecessary quotation marks inside values. "
+            "The characteristics field must use this grouped string format: "
+            "\"Group label: point one; point two || Group label: point one; point two\". "
+            "Return 2 to 3 groups with exactly 2 full owner-facing points per group. "
+            "Both points in each group must be grounded in the provided species, breed, age, and special-needs context rather than generic pet advice. "
             "Return JSON only with this shape: "
             "{\"species_profile\": {\"species_label\": str, \"lifespan_min_years\": int, "
             "\"lifespan_max_years\": int, \"characteristics\": str, \"summary\": str, \"confidence\": float}}"
@@ -269,7 +284,6 @@ class BedrockRecommendationClient:
     def _build_user_prompt(
         self,
         owner_name: str,
-        available_minutes: int,
         pet_name: str,
         species: str,
         breed: str,
@@ -296,7 +310,6 @@ class BedrockRecommendationClient:
 
         return (
             f"Owner: {owner_name}\n"
-            f"Available minutes today: {available_minutes}\n"
             f"Pet name: {pet_name}\n"
             f"Species: {species}\n"
             f"Breed: {breed or 'not provided'}\n"
@@ -311,11 +324,40 @@ class BedrockRecommendationClient:
             f"{current_tasks}\n\n"
             "Retrieved source excerpts:\n"
             f"{sources}\n\n"
-            "Generate a recurring pet care plan with 5 to 8 task recommendations that fit the pet profile. "
-            "Prefer 4 to 6 concise recommendations unless the evidence strongly supports more. "
+            "Generate a recurring pet care plan with 8 to 12 task recommendations that fit the pet profile. "
+            "Prefer 8 to 10 concise recommendations unless the evidence strongly supports fewer or more. "
             "If a cadence constraint is present, obey it strictly and return only recommendations with that cadence. "
+            "Use these cadence meanings exactly: daily means required everyday care that applies across the week and may repeat within a day only for genuinely separate mandatory time-based care moments such as morning/evening feeding or AM/PM medication. "
+            "Weekly means true once-per-week check-ins, reviews, grooming, weigh-ins, body-condition checks, or appointments. "
+            "Return no more than 2 weekly tasks in the full plan unless a strict weekly-only request makes weekly the only cadence allowed. "
+            "For every weekly task, choose exactly one full weekday name from Monday through Sunday in scheduled_weekday. "
+            "Pick the weekday that best fits the owner context and the task type, such as weigh-ins or check-ins after the weekend or before the busiest days, grooming on calmer home-based days, and vet or follow-up tasks on practical monitoring-friendly days. "
+            "Keep this weekday reasoning only for weekly tasks: daily, monthly, and as-needed items should leave scheduled_weekday empty. "
+            "Monthly means true month-based preventive care, restocks, follow-ups, or routine maintenance such as flea or tick prevention. "
+            "For every monthly task, leave scheduled_weekday empty and choose 1 or 2 values in scheduled_month_weeks using only Week 1, Week 2, Week 3, or Week 4. "
+            "Use 2 month-weeks only when the care truly needs a twice-per-month rhythm, and never return more than 2 selected month-weeks for a single monthly task. "
+            "Do not invent a new bi-weekly cadence because those tasks still belong under monthly. "
+            "Choose month-weeks based on owner context and task type: preventive or restock tasks usually fit Week 1 or Week 2, grooming or habitat maintenance often fit calmer mid-month weeks, and follow-up or monitoring tasks can fit later in the month when trend review is useful. "
+            "Do not default every monthly task to Week 1 or Week 2; when the care is better suited to later review, follow-up, or trend checking, use Week 3 or Week 4. "
+            "For monthly tasks, scheduled_time is ignored for plan semantics and may be left as a compatibility value only. "
+            "Non-monthly items must leave scheduled_month_weeks empty. "
+            "As needed means symptom-triggered or situation-triggered guidance only. "
+            "For as-needed guidance, reason over the full owner input, including special needs, goal, extra context, inferred species characteristics, existing tasks, and retrieved source excerpts. "
+            "Prioritize concrete trigger conditions explicitly named by the owner before adding broader source-supported alerts. "
+            "Do not restate generic daily monitoring as as-needed guidance; each as-needed item should name a specific triggering change or symptom and the safe response. "
+            "Reserve daily cadence for basic everyday care such as meals, medication, hydration, bathroom routines, and other true every-day essentials. "
+            "If a task is a necessary part of day-to-day care but belongs on only some days, keep it as a distinct daily-care task that varies across the week instead of forcing it into weekly cadence. "
+            "After the daily basics are covered, use remaining recommendation slots for distinct profile-specific tasks instead of rephrasing the same care idea. "
+            "When the profile supports it, include at least 4 to 6 distinct non-basic daily tasks beyond the basics so different weekdays can show different daily-care themes. "
+            "Do not rely on a single optional daily task that would just appear and disappear across the week. "
+            "Do not produce near-duplicate tasks such as multiple versions of gentle play, calm enrichment, or generic routine checks. "
+            "Use different grounded care themes when supported by the profile, such as walking, snack time, park or spa-style outings, mobility support, grooming, appetite or weight tracking, environment setup, preventive reminders, or supply follow-up. "
             "If no cadence constraint is present, include a realistic mix of daily, weekly, and monthly care tasks when supported by the profile and sources, "
             "plus 'as needed' guidance only when clearly grounded. "
+            "Do not return only daily tasks when the profile or request clearly calls for weekly checks, monthly preventive care, or watch-for-change guidance. "
+            "When the request mentions daily, weekly, monthly, symptoms, changing conditions, or watch-for-change guidance, include at least one grounded recommendation for each applicable cadence. "
+            "Keep weekly and monthly care out of the daily routine instead of using those cadences to restate generic daily maintenance tasks. "
+            "Do not use weekly or monthly items as filler when the source support only covers daily care. "
             "Prefer routine care, monitoring, enrichment, hydration, feeding, mobility support, and reminders "
             "already grounded in the sources. Use only source IDs that appear in the excerpts above."
         )
@@ -330,8 +372,13 @@ class BedrockRecommendationClient:
             "Do not reduce or narrow the lifespan estimate because this specific pet is older, injured, overweight, senior, or has medical needs. "
             "If breed is not provided, use a broad typical range for the species rather than inferring a size category from the care context. "
             "Use years for lifespan values. "
-            "Characteristics should be a concise paragraph about normal care tendencies, enrichment, monitoring, handling, diet rhythm, and environment. "
-            "Summary should be one short sentence explaining the lifespan estimate and broad care context."
+            "Characteristics should use the grouped format "
+            "\"Group label: point one; point two || Group label: point one; point two\". "
+            "Return 2 to 3 groups chosen from themes like hydration, nutrition, mobility, monitoring, comfort, grooming, environment, or preventive care. "
+            "Each group should include exactly 2 full owner-facing guidance points. "
+            "Every point must be specific to the species, breed, age or life stage, and any special-needs context provided. "
+            "Do not write a long paragraph, avoid generic filler, and prefer practical monitoring or routine themes a pet owner can understand quickly. "
+            "Summary should be one short sentence explaining the lifespan estimate and broad care context in plain language."
         )
 
     def _extract_text(self, response: Dict[str, Any]) -> str:

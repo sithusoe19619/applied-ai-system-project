@@ -43,11 +43,11 @@ class FakeKnowledgeBase:
 
 class TestChatContext:
     def test_result_context_takes_priority_over_draft_context(self):
-        result_owner = Owner("Jordan", 60)
+        result_owner = Owner("Jordan")
         result_pet = Pet("Mochi", "dog", 8, special_needs="stiff joints", breed="golden retriever")
         result_owner.add_pet(result_pet)
 
-        draft_owner = Owner("Alex", 60)
+        draft_owner = Owner("Alex")
         draft_pet = Pet("Pip", "cat", 3)
         draft_owner.add_pet(draft_pet)
 
@@ -82,7 +82,7 @@ class TestChatContext:
 
 class TestChatAssistant:
     def test_chat_assistant_builds_context_from_pet_and_plan(self):
-        owner = Owner("Jordan", 60)
+        owner = Owner("Jordan")
         pet = Pet("Mochi", "dog", 8, special_needs="stiff joints", breed="golden retriever")
         owner.add_pet(pet)
         accepted_task = Task("Hydration check", 5, Priority.HIGH, "health", "", frequency="daily")

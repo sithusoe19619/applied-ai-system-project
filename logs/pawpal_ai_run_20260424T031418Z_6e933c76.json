@@ -1,0 +1,872 @@
+{
+  "run_id": "6eed5858b915",
+  "model": "global.anthropic.claude-haiku-4-5-20251001-v1:0",
+  "owner": "Kito",
+  "pet": {
+    "name": "GIGI",
+    "species": "other",
+    "effective_species": "Congo African Grey Parrot",
+    "breed": "",
+    "custom_species": "Congo African Grey Parrot",
+    "age": 19,
+    "special_needs": "Chronic respiratory disease with recent flare-ups, low body weight risk, and stress-related feather plucking. Kito needs close daily observation of breathing\n  effort, appetite, droppings, energy, vocalization, and tolerance for activity. Follow the veterinarian\u2019s existing care plan exactly. Needs a calm indoor routine,\n  careful cage hygiene, humidity support as advised by the vet, reduced stress, and consistent enrichment without overexertion.",
+    "characteristics": "Respiratory and Nutrition: Monitor breathing effort, nostril discharge, and tail bobbing daily as early signs of respiratory flare-up; report changes to your veterinarian immediately. Maintain consistent appetite and droppings logs to catch weight loss or digestive upset early, since low body weight compounds respiratory stress. || Environment and Stress Management: Provide a calm, predictable daily routine with stable temperature and humidity levels as your vet recommends, since environmental fluctuations trigger both respiratory symptoms and feather plucking. Offer enrichment activities that engage the bird mentally without causing physical overexertion, such as foraging toys or quiet training sessions rather than high-activity play.",
+    "lifespan_range_years": [
+      40,
+      60
+    ],
+    "species_profile_summary": "Congo African Greys typically live 40 to 60 years in captive care; this individual requires strict adherence to veterinary protocols, daily health monitoring, and a low-stress environment to manage chronic respiratory disease and prevent secondary behavioral issues.",
+    "species_profile_source": "Model-derived profile from global.anthropic.claude-haiku-4-5-20251001-v1:0",
+    "age_context": {
+      "life_stage": "adult",
+      "lifespan_range_years": [
+        40,
+        60
+      ],
+      "estimated_total_years": 50,
+      "summary": "Congo African Greys typically live 40 to 60 years in captive care; this individual requires strict adherence to veterinary protocols, daily health monitoring, and a low-stress environment to manage chronic respiratory disease and prevent secondary behavioral issues."
+    }
+  },
+  "query": "Congo African Grey Parrot GIGI age 19 adult Chronic respiratory disease with recent flare-ups, low body weight risk, and stress-related feather plucking. Kito needs close daily observation of breathing\n  effort, appetite, droppings, energy, vocalization, and tolerance for activity. Follow the veterinarian\u2019s existing care plan exactly. Needs a calm indoor routine,\n  careful cage hygiene, humidity support as advised by the vet, reduced stress, and consistent enrichment without overexertion. Respiratory and Nutrition: Monitor breathing effort, nostril discharge, and tail bobbing daily as early signs of respiratory flare-up; report changes to your veterinarian immediately. Maintain consistent appetite and droppings logs to catch weight loss or digestive upset early, since low body weight compounds respiratory stress. || Environment and Stress Management: Provide a calm, predictable daily routine with stable temperature and humidity levels as your vet recommends, since environmental fluctuations trigger both respiratory symptoms and feather plucking. Offer enrichment activities that engage the bird mentally without causing physical overexertion, such as foraging toys or quiet training sessions rather than high-activity play. Create a complete pet care plan with daily, weekly, monthly tasks, reminders, and safe condition-aware guidance. Owner works from home on Mondays, Wednesdays, and Fridays and can do longer care blocks then. Tuesdays and Thursdays are busier, so check-ins should be shorter.\n  Wants strong daily monitoring, one practical weekly weigh-in and cage deep-clean rhythm, monthly supply and follow-up reminders, and clear watch-for-change\n  guidance for labored breathing, appetite drop, lethargy, or worsening feather damage.\n\n  Create a complete pet care plan with daily, weekly, monthly tasks, reminders, and safe condition-aware guidance. pet care routine",
+  "goal": "Create a complete pet care plan with daily, weekly, monthly tasks, reminders, and safe condition-aware guidance.",
+  "extra_context": "Owner works from home on Mondays, Wednesdays, and Fridays and can do longer care blocks then. Tuesdays and Thursdays are busier, so check-ins should be shorter.\n  Wants strong daily monitoring, one practical weekly weigh-in and cage deep-clean rhythm, monthly supply and follow-up reminders, and clear watch-for-change\n  guidance for labored breathing, appetite drop, lethargy, or worsening feather damage.\n\n  Create a complete pet care plan with daily, weekly, monthly tasks, reminders, and safe condition-aware guidance.",
+  "requested_frequencies": [],
+  "retrieved_passages": [
+    {
+      "doc_id": "medication_and_safety",
+      "title": "Medication Routine and Safety",
+      "chunk_id": "medication_and_safety#2",
+      "content": "Medication-related tasks in a home routine should focus on reminders, documentation, and observation, not dosage changes. A planning assistant can remind the owner to give medication exactly as already prescribed and to log whether the dose was completed.",
+      "score": 29.4
+    },
+    {
+      "doc_id": "enrichment_and_monitoring",
+      "title": "Enrichment and Daily Monitoring",
+      "chunk_id": "enrichment_and_monitoring#3",
+      "content": "Observation tasks are useful for special-needs pets because they create a record of appetite, water intake, energy, and bathroom habits. These tasks should be short, specific, and easy to complete consistently.",
+      "score": 24.75
+    },
+    {
+      "doc_id": "senior_pet_support",
+      "title": "Senior Pet Support",
+      "chunk_id": "senior_pet_support#3",
+      "content": "Older pets may benefit from routines that include medication reminders, slow feeding, and extra time for transitions. Owners should watch for changes in gait, confusion, appetite, and bathroom habits and report major changes to a veterinarian.",
+      "score": 24.5
+    },
+    {
+      "doc_id": "puppy_kitten_routine",
+      "title": "Puppy and Kitten Routine Basics",
+      "chunk_id": "puppy_kitten_routine#3",
+      "content": "Exercise and enrichment for very young pets should stay short and positive. Puppies often do better with several brief walks or training moments instead of one long outing, and kittens benefit from short interactive play sessions that stop before exhaustion.",
+      "score": 24.35
+    },
+    {
+      "doc_id": "enrichment_and_monitoring",
+      "title": "Enrichment and Daily Monitoring",
+      "chunk_id": "enrichment_and_monitoring#2",
+      "content": "Daily care plans are stronger when they combine essential care with realistic enrichment and observation. Short play, sniff walks, brushing, or calm interaction can improve quality of life without requiring large blocks of time.",
+      "score": 22.55
+    }
+  ],
+  "raw_recommendations": [
+    {
+      "name": "Morning health check and medication",
+      "duration_minutes": 10,
+      "priority": "high",
+      "category": "health monitoring",
+      "notes": "Observe breathing effort, nostril discharge, tail bobbing, energy level, and vocalization before giving prescribed medication.",
+      "scheduled_time": "08:00",
+      "frequency": "daily",
+      "rationale": "Early detection of respiratory flare-up signs prevents complications in a bird with chronic respiratory disease.",
+      "source_ids": [
+        "enrichment_and_monitoring",
+        "medication_and_safety"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Appetite and droppings log",
+      "duration_minutes": 5,
+      "priority": "high",
+      "category": "health monitoring",
+      "notes": "Record food intake, water consumption, and dropping appearance to catch weight loss or digestive upset early.",
+      "scheduled_time": "12:00",
+      "frequency": "daily",
+      "rationale": "Low body weight compounds respiratory stress; consistent logs enable early intervention.",
+      "source_ids": [
+        "enrichment_and_monitoring",
+        "senior_pet_support"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Evening medication and activity tolerance check",
+      "duration_minutes": 10,
+      "priority": "high",
+      "category": "health monitoring",
+      "notes": "Give evening medication as prescribed and note tolerance for activity, signs of fatigue, or increased respiratory effort.",
+      "scheduled_time": "18:00",
+      "frequency": "daily",
+      "rationale": "Twice-daily medication adherence and activity monitoring support chronic disease management.",
+      "source_ids": [
+        "medication_and_safety",
+        "enrichment_and_monitoring"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Calm enrichment and mental engagement",
+      "duration_minutes": 15,
+      "priority": "medium",
+      "category": "enrichment",
+      "notes": "Offer foraging toys or quiet training sessions without physical overexertion to reduce stress-related feather plucking.",
+      "scheduled_time": "14:00",
+      "frequency": "daily",
+      "rationale": "Low-stress enrichment prevents behavioral issues and supports respiratory stability.",
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Cage hygiene and environment check",
+      "duration_minutes": 20,
+      "priority": "high",
+      "category": "environment",
+      "notes": "Spot-clean soiled areas, refresh water, check temperature and humidity stability as advised by veterinarian.",
+      "scheduled_time": "09:00",
+      "frequency": "daily",
+      "rationale": "Clean environment and stable conditions prevent respiratory triggers and support immune function.",
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Weekly weigh-in and body condition assessment",
+      "duration_minutes": 15,
+      "priority": "high",
+      "category": "health monitoring",
+      "notes": "Weigh GIGI on same day and time; record weight and note any visible changes in feather condition or body mass.",
+      "scheduled_time": "10:00",
+      "frequency": "weekly",
+      "rationale": "Consistent weigh-ins catch weight loss early; Wednesday fits owner home schedule for longer care blocks.",
+      "source_ids": [
+        "senior_pet_support",
+        "enrichment_and_monitoring"
+      ],
+      "scheduled_weekday": "Wednesday",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Deep cage cleaning and disinfection",
+      "duration_minutes": 45,
+      "priority": "high",
+      "category": "environment",
+      "notes": "Full cage cleaning, perch sanitization, and substrate replacement to maintain respiratory health.",
+      "scheduled_time": "11:00",
+      "frequency": "weekly",
+      "rationale": "Thorough weekly hygiene reduces pathogen load and respiratory irritants; Friday allows extended care time.",
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "scheduled_weekday": "Friday",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Monthly veterinary follow-up reminder and health trend review",
+      "duration_minutes": 20,
+      "priority": "high",
+      "category": "health monitoring",
+      "notes": "Review medication adherence log, weight trend, breathing observations, and appetite records; contact vet if any concerning changes noted.",
+      "scheduled_time": "10:00",
+      "frequency": "monthly",
+      "rationale": "Mid-month trend review enables proactive communication with veterinarian about chronic disease management.",
+      "source_ids": [
+        "medication_and_safety",
+        "senior_pet_support"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [
+        "Week 3"
+      ],
+      "confidence": 0.99
+    },
+    {
+      "name": "Medication and supply restock check",
+      "duration_minutes": 10,
+      "priority": "high",
+      "category": "medication",
+      "notes": "Verify prescribed medications are in stock and order refills if needed; check cage supplies and enrichment toys.",
+      "scheduled_time": "09:00",
+      "frequency": "monthly",
+      "rationale": "Early restock prevents medication lapses critical to chronic respiratory disease management.",
+      "source_ids": [
+        "medication_and_safety"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [
+        "Week 1"
+      ],
+      "confidence": 0.99
+    },
+    {
+      "name": "Watch for labored breathing or respiratory distress",
+      "duration_minutes": 2,
+      "priority": "high",
+      "category": "health alert",
+      "notes": "If tail bobbing, open-mouth breathing, or increased nostril discharge observed, contact veterinarian immediately.",
+      "scheduled_time": "00:00",
+      "frequency": "as needed",
+      "rationale": "Acute respiratory flare-up requires immediate veterinary attention to prevent deterioration.",
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Watch for appetite loss or weight decline",
+      "duration_minutes": 2,
+      "priority": "high",
+      "category": "health alert",
+      "notes": "If food intake drops, droppings change, or weight declines on weekly check, report to veterinarian within 24 hours.",
+      "scheduled_time": "00:00",
+      "frequency": "as needed",
+      "rationale": "",
+      "source_ids": [],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.0
+    },
+    {
+      "name": "Breathing effort and respiratory symptom check",
+      "duration_minutes": 3,
+      "priority": "high",
+      "category": "health monitoring",
+      "notes": "Observe nostril discharge, tail bobbing, and breathing rate as early warning signs of respiratory flare-up.",
+      "scheduled_time": "08:30",
+      "frequency": "daily",
+      "rationale": "Congo African Greys with chronic respiratory disease require consistent daily observation to catch flare-ups early and report changes to veterinarian immediately.",
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Vocalization and energy level observation",
+      "duration_minutes": 2,
+      "priority": "high",
+      "category": "health monitoring",
+      "notes": "Note any changes in call volume, frequency, or overall activity level compared to baseline.",
+      "scheduled_time": "10:00",
+      "frequency": "daily",
+      "rationale": "Changes in vocalization and energy are sensitive indicators of stress, pain, or respiratory compromise in senior parrots and should be logged for trend detection.",
+      "source_ids": [
+        "enrichment_and_monitoring",
+        "senior_pet_support"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Quiet foraging enrichment session",
+      "duration_minutes": 10,
+      "priority": "medium",
+      "category": "enrichment",
+      "notes": "Offer low-stress foraging toy or puzzle feeder to engage mind without physical overexertion.",
+      "scheduled_time": "15:00",
+      "frequency": "daily",
+      "rationale": "Mental enrichment without high activity reduces stress-related feather plucking and supports respiratory stability in chronic disease management.",
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Gentle perch transition and postural comfort check",
+      "duration_minutes": 5,
+      "priority": "medium",
+      "category": "environment",
+      "notes": "Allow slow, unhurried movement between perches; observe for balance or effort changes.",
+      "scheduled_time": "16:30",
+      "frequency": "daily",
+      "rationale": "Senior parrots with respiratory compromise benefit from extra time for transitions and monitoring of gait or postural changes that may signal distress.",
+      "source_ids": [
+        "senior_pet_support"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Calm interaction and stress reduction time",
+      "duration_minutes": 8,
+      "priority": "medium",
+      "category": "enrichment",
+      "notes": "Quiet talking, gentle presence, or soft music to maintain bond without triggering overactivity.",
+      "scheduled_time": "17:00",
+      "frequency": "daily",
+      "rationale": "Predictable, low-stress interaction supports emotional stability and reduces feather plucking while fitting within respiratory safety limits.",
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Humidity and temperature stability verification",
+      "duration_minutes": 3,
+      "priority": "high",
+      "category": "environment",
+      "notes": "Check that cage environment matches veterinarian-recommended humidity and temperature levels.",
+      "scheduled_time": "11:00",
+      "frequency": "daily",
+      "rationale": "Environmental fluctuations trigger both respiratory symptoms and feather plucking; daily verification ensures vet-prescribed conditions are maintained.",
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Feather condition and plucking behavior log",
+      "duration_minutes": 4,
+      "priority": "medium",
+      "category": "health monitoring",
+      "notes": "Document any new feather damage, bald patches, or active plucking episodes observed.",
+      "scheduled_time": "13:00",
+      "frequency": "daily",
+      "rationale": "Stress-related feather plucking is a key secondary issue in this bird; daily logging creates a record to share with veterinarian and track stress triggers.",
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Water intake and quality check",
+      "duration_minutes": 2,
+      "priority": "high",
+      "category": "health monitoring",
+      "notes": "Verify fresh water is available and note any visible changes in drinking behavior.",
+      "scheduled_time": "14:30",
+      "frequency": "daily",
+      "rationale": "Observation of water intake is a sensitive marker for appetite changes and overall health status in senior birds with chronic disease.",
+      "source_ids": [
+        "enrichment_and_monitoring",
+        "senior_pet_support"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    }
+  ],
+  "blocked_recommendations": [
+    {
+      "name": "Watch for appetite loss or weight decline",
+      "reasons": [
+        "Recommendation must include a rationale.",
+        "Recommendation is ungrounded because it cites no sources."
+      ]
+    }
+  ],
+  "warnings": [
+    "The generated plan still has limited daily-care variety after a daily follow-up pass."
+  ],
+  "reliability_score": 0.99,
+  "accepted_tasks": [
+    {
+      "name": "Morning health check and medication",
+      "duration_minutes": 10,
+      "priority": "high",
+      "category": "health monitoring",
+      "scheduled_time": "08:00",
+      "frequency": "daily",
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "ai_generated": true,
+      "rationale": "Early detection of respiratory flare-up signs prevents complications in a bird with chronic respiratory disease.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring",
+        "medication_and_safety"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Gentle perch transition and postural comfort check",
+      "duration_minutes": 5,
+      "priority": "high",
+      "category": "environment",
+      "scheduled_time": "08:30",
+      "frequency": "daily",
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "ai_generated": true,
+      "rationale": "Congo African Greys with chronic respiratory disease require consistent daily observation to catch flare-ups early and report changes to veterinarian immediately.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring",
+        "senior_pet_support"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Cage hygiene and environment check",
+      "duration_minutes": 20,
+      "priority": "high",
+      "category": "environment",
+      "scheduled_time": "09:00",
+      "frequency": "daily",
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "ai_generated": true,
+      "rationale": "Clean environment and stable conditions prevent respiratory triggers and support immune function.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Appetite and droppings log",
+      "duration_minutes": 5,
+      "priority": "high",
+      "category": "health monitoring",
+      "scheduled_time": "12:00",
+      "frequency": "daily",
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "ai_generated": true,
+      "rationale": "Low body weight compounds respiratory stress; consistent logs enable early intervention.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring",
+        "senior_pet_support"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Calm interaction and stress reduction time",
+      "duration_minutes": 15,
+      "priority": "medium",
+      "category": "enrichment",
+      "scheduled_time": "14:00",
+      "frequency": "daily",
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "ai_generated": true,
+      "rationale": "Predictable, low-stress interaction supports emotional stability and reduces feather plucking while fitting within respiratory safety limits.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Water intake and quality check",
+      "duration_minutes": 2,
+      "priority": "high",
+      "category": "health monitoring",
+      "scheduled_time": "14:30",
+      "frequency": "daily",
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "ai_generated": true,
+      "rationale": "Observation of water intake is a sensitive marker for appetite changes and overall health status in senior birds with chronic disease.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring",
+        "senior_pet_support"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Quiet foraging enrichment session",
+      "duration_minutes": 10,
+      "priority": "medium",
+      "category": "enrichment",
+      "scheduled_time": "15:00",
+      "frequency": "daily",
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "ai_generated": true,
+      "rationale": "Mental enrichment without high activity reduces stress-related feather plucking and supports respiratory stability in chronic disease management.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Evening medication and activity tolerance check",
+      "duration_minutes": 10,
+      "priority": "high",
+      "category": "health monitoring",
+      "scheduled_time": "18:00",
+      "frequency": "daily",
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "ai_generated": true,
+      "rationale": "Twice-daily medication adherence and activity monitoring support chronic disease management.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "medication_and_safety",
+        "enrichment_and_monitoring"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Weekly weigh-in and body condition assessment",
+      "duration_minutes": 15,
+      "priority": "high",
+      "category": "health monitoring",
+      "scheduled_time": "10:00",
+      "frequency": "weekly",
+      "scheduled_weekday": "Wednesday",
+      "scheduled_month_weeks": [],
+      "ai_generated": true,
+      "rationale": "Consistent weigh-ins catch weight loss early; Wednesday fits owner home schedule for longer care blocks.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "senior_pet_support",
+        "enrichment_and_monitoring"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Deep cage cleaning and disinfection",
+      "duration_minutes": 45,
+      "priority": "high",
+      "category": "environment",
+      "scheduled_time": "11:00",
+      "frequency": "weekly",
+      "scheduled_weekday": "Friday",
+      "scheduled_month_weeks": [],
+      "ai_generated": true,
+      "rationale": "Thorough weekly hygiene reduces pathogen load and respiratory irritants; Friday allows extended care time.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Monthly veterinary follow-up reminder and health trend review",
+      "duration_minutes": 20,
+      "priority": "high",
+      "category": "health monitoring",
+      "scheduled_time": "10:00",
+      "frequency": "monthly",
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [
+        "Week 3"
+      ],
+      "ai_generated": true,
+      "rationale": "Mid-month trend review enables proactive communication with veterinarian about chronic disease management.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "medication_and_safety",
+        "senior_pet_support"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Medication and supply restock check",
+      "duration_minutes": 10,
+      "priority": "high",
+      "category": "medication",
+      "scheduled_time": "09:00",
+      "frequency": "monthly",
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [
+        "Week 1"
+      ],
+      "ai_generated": true,
+      "rationale": "Early restock prevents medication lapses critical to chronic respiratory disease management.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "medication_and_safety"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Watch for labored breathing or respiratory distress",
+      "duration_minutes": 2,
+      "priority": "high",
+      "category": "health alert",
+      "scheduled_time": "00:00",
+      "frequency": "as needed",
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "ai_generated": true,
+      "rationale": "Acute respiratory flare-up requires immediate veterinary attention to prevent deterioration.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Appetite drop or meal refusal",
+      "duration_minutes": 2,
+      "priority": "high",
+      "category": "nutrition",
+      "scheduled_time": "00:00",
+      "frequency": "as needed",
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "ai_generated": true,
+      "rationale": "Appetite decline is a relevant alert sign when the profile calls for weight, feeding, or nutritional monitoring.",
+      "confidence_score": 0.98,
+      "source_ids": [
+        "enrichment_and_monitoring",
+        "senior_pet_support"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Lethargy or reduced activity tolerance",
+      "duration_minutes": 2,
+      "priority": "high",
+      "category": "monitoring",
+      "scheduled_time": "00:00",
+      "frequency": "as needed",
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "ai_generated": true,
+      "rationale": "A sudden decline in energy or activity tolerance is a meaningful change signal for condition-aware care.",
+      "confidence_score": 0.86,
+      "source_ids": [
+        "medication_and_safety"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Worsening feather, coat, or skin damage",
+      "duration_minutes": 2,
+      "priority": "high",
+      "category": "grooming",
+      "scheduled_time": "00:00",
+      "frequency": "as needed",
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "ai_generated": true,
+      "rationale": "Visible worsening in feather, coat, or skin condition is a concrete alert sign when stress or self-directed damage is part of the profile.",
+      "confidence_score": 0.86,
+      "source_ids": [
+        "medication_and_safety"
+      ],
+      "validation_status": "validated"
+    }
+  ],
+  "schedule_plan": {
+    "scheduled": [
+      {
+        "name": "Watch for labored breathing or respiratory distress",
+        "duration_minutes": 2,
+        "priority": "high",
+        "category": "health alert",
+        "scheduled_time": "00:00",
+        "frequency": "as needed",
+        "scheduled_weekday": "",
+        "scheduled_month_weeks": []
+      },
+      {
+        "name": "Appetite drop or meal refusal",
+        "duration_minutes": 2,
+        "priority": "high",
+        "category": "nutrition",
+        "scheduled_time": "00:00",
+        "frequency": "as needed",
+        "scheduled_weekday": "",
+        "scheduled_month_weeks": []
+      },
+      {
+        "name": "Lethargy or reduced activity tolerance",
+        "duration_minutes": 2,
+        "priority": "high",
+        "category": "monitoring",
+        "scheduled_time": "00:00",
+        "frequency": "as needed",
+        "scheduled_weekday": "",
+        "scheduled_month_weeks": []
+      },
+      {
+        "name": "Worsening feather, coat, or skin damage",
+        "duration_minutes": 2,
+        "priority": "high",
+        "category": "grooming",
+        "scheduled_time": "00:00",
+        "frequency": "as needed",
+        "scheduled_weekday": "",
+        "scheduled_month_weeks": []
+      },
+      {
+        "name": "Morning health check and medication",
+        "duration_minutes": 10,
+        "priority": "high",
+        "category": "health monitoring",
+        "scheduled_time": "08:00",
+        "frequency": "daily",
+        "scheduled_weekday": "",
+        "scheduled_month_weeks": []
+      },
+      {
+        "name": "Gentle perch transition and postural comfort check",
+        "duration_minutes": 5,
+        "priority": "high",
+        "category": "environment",
+        "scheduled_time": "08:30",
+        "frequency": "daily",
+        "scheduled_weekday": "",
+        "scheduled_month_weeks": []
+      },
+      {
+        "name": "Cage hygiene and environment check",
+        "duration_minutes": 20,
+        "priority": "high",
+        "category": "environment",
+        "scheduled_time": "09:00",
+        "frequency": "daily",
+        "scheduled_weekday": "",
+        "scheduled_month_weeks": []
+      },
+      {
+        "name": "Medication and supply restock check",
+        "duration_minutes": 10,
+        "priority": "high",
+        "category": "medication",
+        "scheduled_time": "09:00",
+        "frequency": "monthly",
+        "scheduled_weekday": "",
+        "scheduled_month_weeks": [
+          "Week 1"
+        ]
+      },
+      {
+        "name": "Weekly weigh-in and body condition assessment",
+        "duration_minutes": 15,
+        "priority": "high",
+        "category": "health monitoring",
+        "scheduled_time": "10:00",
+        "frequency": "weekly",
+        "scheduled_weekday": "Wednesday",
+        "scheduled_month_weeks": []
+      },
+      {
+        "name": "Monthly veterinary follow-up reminder and health trend review",
+        "duration_minutes": 20,
+        "priority": "high",
+        "category": "health monitoring",
+        "scheduled_time": "10:00",
+        "frequency": "monthly",
+        "scheduled_weekday": "",
+        "scheduled_month_weeks": [
+          "Week 3"
+        ]
+      },
+      {
+        "name": "Deep cage cleaning and disinfection",
+        "duration_minutes": 45,
+        "priority": "high",
+        "category": "environment",
+        "scheduled_time": "11:00",
+        "frequency": "weekly",
+        "scheduled_weekday": "Friday",
+        "scheduled_month_weeks": []
+      },
+      {
+        "name": "Appetite and droppings log",
+        "duration_minutes": 5,
+        "priority": "high",
+        "category": "health monitoring",
+        "scheduled_time": "12:00",
+        "frequency": "daily",
+        "scheduled_weekday": "",
+        "scheduled_month_weeks": []
+      },
+      {
+        "name": "Water intake and quality check",
+        "duration_minutes": 2,
+        "priority": "high",
+        "category": "health monitoring",
+        "scheduled_time": "14:30",
+        "frequency": "daily",
+        "scheduled_weekday": "",
+        "scheduled_month_weeks": []
+      },
+      {
+        "name": "Evening medication and activity tolerance check",
+        "duration_minutes": 10,
+        "priority": "high",
+        "category": "health monitoring",
+        "scheduled_time": "18:00",
+        "frequency": "daily",
+        "scheduled_weekday": "",
+        "scheduled_month_weeks": []
+      },
+      {
+        "name": "Calm interaction and stress reduction time",
+        "duration_minutes": 15,
+        "priority": "medium",
+        "category": "enrichment",
+        "scheduled_time": "14:00",
+        "frequency": "daily",
+        "scheduled_weekday": "",
+        "scheduled_month_weeks": []
+      },
+      {
+        "name": "Quiet foraging enrichment session",
+        "duration_minutes": 10,
+        "priority": "medium",
+        "category": "enrichment",
+        "scheduled_time": "15:00",
+        "frequency": "daily",
+        "scheduled_weekday": "",
+        "scheduled_month_weeks": []
+      }
+    ],
+    "skipped": [],
+    "reasoning": [
+      "Scheduled 'Watch for labored breathing or respiratory distress' for GIGI (2 min, high priority)",
+      "Scheduled 'Appetite drop or meal refusal' for GIGI (2 min, high priority)",
+      "Scheduled 'Lethargy or reduced activity tolerance' for GIGI (2 min, high priority)",
+      "Scheduled 'Worsening feather, coat, or skin damage' for GIGI (2 min, high priority)",
+      "Scheduled 'Morning health check and medication' for GIGI (10 min, high priority)",
+      "Scheduled 'Gentle perch transition and postural comfort check' for GIGI (5 min, high priority)",
+      "Scheduled 'Cage hygiene and environment check' for GIGI (20 min, high priority)",
+      "Scheduled 'Medication and supply restock check' for GIGI (10 min, high priority)",
+      "Scheduled 'Weekly weigh-in and body condition assessment' for GIGI (15 min, high priority)",
+      "Scheduled 'Monthly veterinary follow-up reminder and health trend review' for GIGI (20 min, high priority)",
+      "Scheduled 'Deep cage cleaning and disinfection' for GIGI (45 min, high priority)",
+      "Scheduled 'Appetite and droppings log' for GIGI (5 min, high priority)",
+      "Scheduled 'Water intake and quality check' for GIGI (2 min, high priority)",
+      "Scheduled 'Evening medication and activity tolerance check' for GIGI (10 min, high priority)",
+      "Scheduled 'Calm interaction and stress reduction time' for GIGI (15 min, medium priority)",
+      "Scheduled 'Quiet foraging enrichment session' for GIGI (10 min, medium priority)"
+    ]
+  }
+}

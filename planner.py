@@ -5,8 +5,6 @@ from pawpal_ai import PawPalAIPlanner
 from pawpal_system import Owner, Pet
 from ui_theme import apply_theme, render_card_heading, render_note, render_page_intro
 
-
-DEFAULT_PLANNING_DAY_MINUTES = 24 * 60
 FORM_KEYS = [
     "owner_name",
     "pet_name",
@@ -72,7 +70,7 @@ def build_profile_from_inputs(
         breed=breed.strip(),
         custom_species=custom_species.strip(),
     )
-    owner = Owner(owner_name.strip(), available_minutes=DEFAULT_PLANNING_DAY_MINUTES)
+    owner = Owner(owner_name.strip())
     owner.add_pet(pet)
     return owner, pet, []
 

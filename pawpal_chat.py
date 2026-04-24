@@ -164,6 +164,6 @@ class PawPalChatAssistant:
 
     def _guard_chat_response(self, response_text: str) -> str:
         lowered = response_text.lower()
-        if any(pattern in lowered for pattern in UNSAFE_PATTERNS):
+        if any(pattern.search(lowered) for pattern in UNSAFE_PATTERNS):
             return SAFE_CHAT_FALLBACK
         return response_text.strip()

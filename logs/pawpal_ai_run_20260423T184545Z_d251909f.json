@@ -1,0 +1,352 @@
+{
+  "run_id": "cf623651acff",
+  "model": "global.anthropic.claude-haiku-4-5-20251001-v1:0",
+  "owner": "fghjfghj",
+  "available_minutes": 1440,
+  "pet": {
+    "name": "rtyutyr",
+    "species": "other",
+    "effective_species": "racoon",
+    "breed": "",
+    "custom_species": "racoon",
+    "age": 6,
+    "special_needs": "Needs secure supervised enrichment, feeding consistency, hydration monitoring, and close observation of stress, appetite, and handling tolerance.",
+    "characteristics": "Raccoons in captive/companion settings require secure, enriched environments with climbing structures, foraging opportunities, and puzzle feeders to support natural behaviors. Feeding should follow a consistent schedule with varied whole foods; hydration monitoring is essential as they are prone to dehydration. Handling tolerance varies widely by individual and early socialization; stress indicators include excessive vocalization, aggression, or appetite loss and warrant immediate observation. They are intelligent, dexterous, and escape-prone, so enclosures must be secure and regularly inspected. Environmental enrichment, regular health monitoring, and minimal stressors support behavioral stability. Nocturnal activity patterns should be accommodated.",
+    "lifespan_range_years": [
+      12,
+      16
+    ],
+    "species_profile_summary": "Raccoons typically live 12-16 years in captive settings and require secure, enriched environments with consistent feeding, close behavioral monitoring, and careful handling protocols.",
+    "species_profile_source": "Model-derived profile from global.anthropic.claude-haiku-4-5-20251001-v1:0",
+    "age_context": {
+      "life_stage": "adult",
+      "lifespan_range_years": [
+        12,
+        16
+      ],
+      "estimated_total_years": 14,
+      "summary": "Raccoons typically live 12-16 years in captive settings and require secure, enriched environments with consistent feeding, close behavioral monitoring, and careful handling protocols."
+    }
+  },
+  "query": "racoon rtyutyr age 6 adult Needs secure supervised enrichment, feeding consistency, hydration monitoring, and close observation of stress, appetite, and handling tolerance. Raccoons in captive/companion settings require secure, enriched environments with climbing structures, foraging opportunities, and puzzle feeders to support natural behaviors. Feeding should follow a consistent schedule with varied whole foods; hydration monitoring is essential as they are prone to dehydration. Handling tolerance varies widely by individual and early socialization; stress indicators include excessive vocalization, aggression, or appetite loss and warrant immediate observation. They are intelligent, dexterous, and escape-prone, so enclosures must be secure and regularly inspected. Environmental enrichment, regular health monitoring, and minimal stressors support behavioral stability. Nocturnal activity patterns should be accommodated. Create a complete pet care plan with daily, weekly, monthly tasks, reminders, and safe condition-aware guidance. Build a structured daily routine with enrichment, feeding reminders, activity blocks, and behavior monitoring. pet care routine",
+  "goal": "Create a complete pet care plan with daily, weekly, monthly tasks, reminders, and safe condition-aware guidance.",
+  "extra_context": "Build a structured daily routine with enrichment, feeding reminders, activity blocks, and behavior monitoring.",
+  "requested_frequencies": [],
+  "retrieved_passages": [
+    {
+      "doc_id": "senior_pet_support",
+      "title": "Senior Pet Support",
+      "chunk_id": "senior_pet_support#4",
+      "content": "A senior pet plan should prioritize consistency over intensity. When time is limited, essential care such as feeding, hydration, medication reminders, and mobility support should be scheduled before optional enrichment.",
+      "score": 21.4
+    },
+    {
+      "doc_id": "enrichment_and_monitoring",
+      "title": "Enrichment and Daily Monitoring",
+      "chunk_id": "enrichment_and_monitoring#3",
+      "content": "Observation tasks are useful for special-needs pets because they create a record of appetite, water intake, energy, and bathroom habits. These tasks should be short, specific, and easy to complete consistently.",
+      "score": 20.45
+    },
+    {
+      "doc_id": "enrichment_and_monitoring",
+      "title": "Enrichment and Daily Monitoring",
+      "chunk_id": "enrichment_and_monitoring#2",
+      "content": "Daily care plans are stronger when they combine essential care with realistic enrichment and observation. Short play, sniff walks, brushing, or calm interaction can improve quality of life without requiring large blocks of time.",
+      "score": 18.0
+    },
+    {
+      "doc_id": "kidney_diet_care",
+      "title": "Kidney Diet and Hydration Support",
+      "chunk_id": "kidney_diet_care#3",
+      "content": "Owners should follow the veterinary feeding plan already prescribed and avoid changing food or supplement amounts without veterinary guidance. If a pet refuses multiple meals or shows sudden decline, the safe action is to contact a veterinarian.",
+      "score": 17.7
+    },
+    {
+      "doc_id": "kidney_diet_care",
+      "title": "Kidney Diet and Hydration Support",
+      "chunk_id": "kidney_diet_care#2",
+      "content": "Pets on kidney-support diets often need strict consistency around meals and hydration. Wet-food feeding schedules, water refreshes, and appetite monitoring are common routine tasks that owners can track day by day.",
+      "score": 16.7
+    }
+  ],
+  "raw_recommendations": [
+    {
+      "name": "Morning feeding and hydration check",
+      "duration_minutes": 15,
+      "priority": "high",
+      "category": "feeding",
+      "notes": "Offer consistent whole-food meal and fresh water; monitor appetite and intake.",
+      "scheduled_time": "08:00",
+      "frequency": "daily",
+      "rationale": "Raccoons require consistent feeding schedules and hydration monitoring to prevent dehydration and support stable behavior.",
+      "source_ids": [
+        "kidney_diet_care"
+      ],
+      "confidence": 0.99
+    },
+    {
+      "name": "Evening feeding and hydration check",
+      "duration_minutes": 15,
+      "priority": "high",
+      "category": "feeding",
+      "notes": "Offer consistent whole-food meal and refresh water; note any changes in appetite or behavior.",
+      "scheduled_time": "18:00",
+      "frequency": "daily",
+      "rationale": "Second daily feeding maintains consistency and allows evening hydration monitoring; raccoons are nocturnal so evening feeding aligns with natural activity.",
+      "source_ids": [
+        "kidney_diet_care"
+      ],
+      "confidence": 0.99
+    },
+    {
+      "name": "Behavioral and appetite observation",
+      "duration_minutes": 10,
+      "priority": "high",
+      "category": "monitoring",
+      "notes": "Record stress indicators, vocalization, appetite refusal, aggression, or handling tolerance changes.",
+      "scheduled_time": "12:00",
+      "frequency": "daily",
+      "rationale": "Short, specific observation tasks create a record of appetite, energy, and stress for early detection of health or behavioral concerns.",
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "confidence": 0.99
+    },
+    {
+      "name": "Enrichment and puzzle feeder activity",
+      "duration_minutes": 20,
+      "priority": "medium",
+      "category": "enrichment",
+      "notes": "Offer puzzle feeder, foraging opportunity, or climbing structure to support natural behaviors.",
+      "scheduled_time": "19:00",
+      "frequency": "daily",
+      "rationale": "Intelligent, dexterous raccoons need daily enrichment and foraging opportunities to reduce stress and support behavioral stability.",
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "confidence": 0.99
+    },
+    {
+      "name": "Enclosure security and escape-risk inspection",
+      "duration_minutes": 15,
+      "priority": "high",
+      "category": "environment",
+      "notes": "Check for gaps, loose latches, or damage; raccoons are escape-prone and require secure, regularly inspected enclosures.",
+      "scheduled_time": "10:00",
+      "frequency": "weekly",
+      "rationale": "Raccoons are intelligent and dexterous; regular enclosure inspection prevents escape and ensures safe, secure environment.",
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "confidence": 0.99
+    },
+    {
+      "name": "Water system cleaning and refresh",
+      "duration_minutes": 10,
+      "priority": "medium",
+      "category": "hydration",
+      "notes": "Clean water bowl or system and provide fresh water to prevent dehydration and contamination.",
+      "scheduled_time": "09:00",
+      "frequency": "weekly",
+      "rationale": "Raccoons are prone to dehydration; regular water system maintenance supports consistent hydration monitoring.",
+      "source_ids": [
+        "kidney_diet_care"
+      ],
+      "confidence": 0.99
+    },
+    {
+      "name": "Stress and handling tolerance assessment",
+      "duration_minutes": 10,
+      "priority": "medium",
+      "category": "monitoring",
+      "notes": "Observe response to gentle interaction; note any aggression, excessive vocalization, or avoidance indicating stress.",
+      "scheduled_time": "14:00",
+      "frequency": "weekly",
+      "rationale": "Handling tolerance varies widely by individual; consistent monitoring supports safe interaction and early stress detection.",
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "confidence": 0.97
+    }
+  ],
+  "blocked_recommendations": [],
+  "warnings": [],
+  "reliability_score": 0.99,
+  "accepted_tasks": [
+    {
+      "name": "Morning feeding and hydration check",
+      "duration_minutes": 15,
+      "priority": "high",
+      "category": "feeding",
+      "scheduled_time": "08:00",
+      "frequency": "daily",
+      "ai_generated": true,
+      "rationale": "Raccoons require consistent feeding schedules and hydration monitoring to prevent dehydration and support stable behavior.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "kidney_diet_care"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Evening feeding and hydration check",
+      "duration_minutes": 15,
+      "priority": "high",
+      "category": "feeding",
+      "scheduled_time": "18:00",
+      "frequency": "daily",
+      "ai_generated": true,
+      "rationale": "Second daily feeding maintains consistency and allows evening hydration monitoring; raccoons are nocturnal so evening feeding aligns with natural activity.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "kidney_diet_care"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Behavioral and appetite observation",
+      "duration_minutes": 10,
+      "priority": "high",
+      "category": "monitoring",
+      "scheduled_time": "12:00",
+      "frequency": "daily",
+      "ai_generated": true,
+      "rationale": "Short, specific observation tasks create a record of appetite, energy, and stress for early detection of health or behavioral concerns.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Enrichment and puzzle feeder activity",
+      "duration_minutes": 20,
+      "priority": "medium",
+      "category": "enrichment",
+      "scheduled_time": "19:00",
+      "frequency": "daily",
+      "ai_generated": true,
+      "rationale": "Intelligent, dexterous raccoons need daily enrichment and foraging opportunities to reduce stress and support behavioral stability.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Enclosure security and escape-risk inspection",
+      "duration_minutes": 15,
+      "priority": "high",
+      "category": "environment",
+      "scheduled_time": "10:00",
+      "frequency": "weekly",
+      "ai_generated": true,
+      "rationale": "Raccoons are intelligent and dexterous; regular enclosure inspection prevents escape and ensures safe, secure environment.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Water system cleaning and refresh",
+      "duration_minutes": 10,
+      "priority": "medium",
+      "category": "hydration",
+      "scheduled_time": "09:00",
+      "frequency": "weekly",
+      "ai_generated": true,
+      "rationale": "Raccoons are prone to dehydration; regular water system maintenance supports consistent hydration monitoring.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "kidney_diet_care"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Stress and handling tolerance assessment",
+      "duration_minutes": 10,
+      "priority": "medium",
+      "category": "monitoring",
+      "scheduled_time": "14:00",
+      "frequency": "weekly",
+      "ai_generated": true,
+      "rationale": "Handling tolerance varies widely by individual; consistent monitoring supports safe interaction and early stress detection.",
+      "confidence_score": 0.97,
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "validation_status": "validated"
+    }
+  ],
+  "schedule_plan": {
+    "scheduled": [
+      {
+        "name": "Morning feeding and hydration check",
+        "duration_minutes": 15,
+        "priority": "high",
+        "category": "feeding",
+        "scheduled_time": "08:00",
+        "frequency": "daily"
+      },
+      {
+        "name": "Enclosure security and escape-risk inspection",
+        "duration_minutes": 15,
+        "priority": "high",
+        "category": "environment",
+        "scheduled_time": "10:00",
+        "frequency": "weekly"
+      },
+      {
+        "name": "Behavioral and appetite observation",
+        "duration_minutes": 10,
+        "priority": "high",
+        "category": "monitoring",
+        "scheduled_time": "12:00",
+        "frequency": "daily"
+      },
+      {
+        "name": "Evening feeding and hydration check",
+        "duration_minutes": 15,
+        "priority": "high",
+        "category": "feeding",
+        "scheduled_time": "18:00",
+        "frequency": "daily"
+      },
+      {
+        "name": "Water system cleaning and refresh",
+        "duration_minutes": 10,
+        "priority": "medium",
+        "category": "hydration",
+        "scheduled_time": "09:00",
+        "frequency": "weekly"
+      },
+      {
+        "name": "Stress and handling tolerance assessment",
+        "duration_minutes": 10,
+        "priority": "medium",
+        "category": "monitoring",
+        "scheduled_time": "14:00",
+        "frequency": "weekly"
+      },
+      {
+        "name": "Enrichment and puzzle feeder activity",
+        "duration_minutes": 20,
+        "priority": "medium",
+        "category": "enrichment",
+        "scheduled_time": "19:00",
+        "frequency": "daily"
+      }
+    ],
+    "skipped": [],
+    "reasoning": [
+      "Scheduled 'Morning feeding and hydration check' for rtyutyr (15 min, high priority)",
+      "Scheduled 'Enclosure security and escape-risk inspection' for rtyutyr (15 min, high priority)",
+      "Scheduled 'Behavioral and appetite observation' for rtyutyr (10 min, high priority)",
+      "Scheduled 'Evening feeding and hydration check' for rtyutyr (15 min, high priority)",
+      "Scheduled 'Water system cleaning and refresh' for rtyutyr (10 min, medium priority)",
+      "Scheduled 'Stress and handling tolerance assessment' for rtyutyr (10 min, medium priority)",
+      "Scheduled 'Enrichment and puzzle feeder activity' for rtyutyr (20 min, medium priority)"
+    ]
+  }
+}

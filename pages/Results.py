@@ -1,7 +1,12 @@
 import streamlit as st
 
 from ui_components import render_ai_profile_summary, render_plan_dashboard
-from ui_theme import apply_theme, render_badges, render_card_heading, render_page_intro
+from ui_theme import (
+    apply_theme,
+    render_badges,
+    render_card_heading,
+    render_page_intro,
+)
 
 
 FORM_KEYS = (
@@ -53,35 +58,28 @@ if not owner or not pet:
         if st.button("Back to Planner", type="secondary", use_container_width=True):
             st.switch_page("planner.py")
 else:
-    header_col, action_col = st.columns([2.1, 1.15], gap="large")
-    with header_col:
-        render_page_intro(
-            "Generated Care Plan",
-            f"{pet.name}'s AI care plan",
-            "This page shows the care plan created for your pet, including the suggested routine, reminders, and supporting details.",
-        )
-        badges = [f"Owner: {owner.name}", f"Pet: {pet.name}"]
-        if pet.get_effective_breed_label():
-            badges.append(pet.get_effective_breed_label())
-        elif pet.get_effective_species_label():
-            badges.append(pet.get_effective_species_label().title())
-        if ai_run:
-            badges.append(f"Reliability {ai_run.reliability_score:.2f}")
-        render_badges(badges)
-
-    with action_col:
-        with st.container(border=True):
-            render_card_heading(
-                "What You Can Do Next",
-                "Open chat for follow-up questions or start over with a new plan.",
-            )
-            st.page_link("pages/Chat.py", label="Ask About Plan", icon="💬")
-            if st.button("Create Another Plan", type="secondary", use_container_width=True):
-                clear_result_state()
-                clear_form_state()
-                clear_chat_state()
-                st.switch_page("planner.py")
+    render_page_intro(
+        "Generated Care Plan",
+        f"{pet.name}'s AI care plan",
+        "This page shows the care plan created for your pet, including the suggested routine, reminders, and supporting details.",
+    )
+    badges = [f"Owner: {owner.name}", f"Pet: {pet.name}"]
+    if pet.get_effective_breed_label():
+        badges.append(pet.get_effective_breed_label())
+    elif pet.get_effective_species_label():
+        badges.append(pet.get_effective_species_label().title())
+    render_badges(badges)
 
     render_ai_profile_summary(pet)
     current_ai_tasks = [task for task in pet.tasks if task.ai_generated]
     render_plan_dashboard(owner, current_ai_tasks, ai_run)
+
+    action_col1, action_col2 = st.columns(2, gap="medium")
+    with action_col1:
+        if st.button("Create Another Plan", type="secondary", use_container_width=True):
+            clear_result_state()
+            clear_form_state()
+            clear_chat_state()
+            st.switch_page("planner.py")
+    with action_col2:
+        st.page_link("pages/Chat.py", label="Ask Paw", icon="💬", use_container_width=True)
