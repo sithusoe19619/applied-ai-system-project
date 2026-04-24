@@ -85,6 +85,7 @@ flowchart LR
     Model[Bedrock model / agent]
     Validator[Validator / guardrails]
     Results[Plan + results]
+    Logger[Run logs]
     Tests[pytest + evaluation]
 
     Human -->|pet profile + goal| UI
@@ -95,10 +96,12 @@ flowchart LR
     Model -->|recommendations| Planner
     Planner --> Validator
     Validator -->|accepted tasks| Results
+    Planner --> Logger
     Results -->|human review| Human
 
     Tests -->|check reliability and safety| Planner
     Tests -->|check blocked / validated output| Validator
+    Logger -->|evidence for review| Human
 ```
 ## Trust and Safety Design
 
