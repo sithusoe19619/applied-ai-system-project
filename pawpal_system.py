@@ -35,6 +35,9 @@ AWS_REGION_RE = re.compile(r"^[a-z]{2}(?:-[a-z]+)?-[a-z]+-\d$")
 AWS_PROFILE_RE = re.compile(r"^[A-Za-z0-9+=,.@_-]{1,64}$")
 BEDROCK_MODEL_ID_RE = re.compile(r"^[A-Za-z0-9._:/-]{3,200}$")
 MEDICAL_SHORT_TOKENS = {"uti", "ckd", "ivdd", "fiv", "felv", "gi", "ibd", "dm", "uri", "rx", "qa", "am", "pm"}
+BREED_NAME_ALIASES = {
+    "pitbull": "pit bull",
+}
 KNOWN_DOG_BREED_NAMES = {
     "labrador retriever",
     "golden retriever",
@@ -58,6 +61,7 @@ KNOWN_DOG_BREED_NAMES = {
     "cavalier king charles spaniel",
     "french bulldog",
     "miniature schnauzer",
+    "pug",
     "pit bull",
 }
 KNOWN_CAT_BREED_NAMES = {
@@ -78,7 +82,7 @@ KNOWN_BREED_NAMES = KNOWN_DOG_BREED_NAMES | KNOWN_CAT_BREED_NAMES
 DOG_BREED_TOKENS = {
     "retriever", "shepherd", "terrier", "hound", "spaniel", "collie", "mastiff", "boxer",
     "corgi", "dachshund", "doberman", "rottweiler", "pomeranian", "poodle", "husky",
-    "bulldog", "beagle", "chihuahua", "dane", "schnauzer", "pit", "bull", "cavalier",
+    "bulldog", "beagle", "chihuahua", "dane", "schnauzer", "pug", "pit", "bull", "cavalier",
     "king", "charles", "labrador", "golden", "german", "french", "yorkshire", "shih",
     "tzu", "australian", "border", "miniature", "mix", "mixed",
 }
@@ -324,16 +328,31 @@ class Pet:
         return True
 
     @classmethod
+    def normalize_breed_label(cls, value: str) -> str:
+        """Return a lowercase breed label normalized for spacing and common aliases."""
+        cleaned = re.sub(r"[ -]+", " ", value.strip().lower())
+        if not cleaned:
+            return ""
+        return BREED_NAME_ALIASES.get(cleaned, cleaned)
+
+    @classmethod
     def is_valid_breed_label(cls, value: str, species: str) -> bool:
         """Return True for realistic breed input for the selected species."""
-        cleaned = value.strip().lower()
+        normalized_species = species.strip().lower()
+        cleaned = cls.normalize_breed_label(value)
         if not cleaned:
+            return False
+        if normalized_species not in {"dog", "cat"}:
             return False
         if cleaned in MIXED_OR_UNKNOWN_BREEDS:
             return True
-        if species == "dog" and cleaned in KNOWN_DOG_BREED_NAMES:
+        if normalized_species == "dog" and cleaned in KNOWN_CAT_BREED_NAMES:
+            return False
+        if normalized_species == "cat" and cleaned in KNOWN_DOG_BREED_NAMES:
+            return False
+        if normalized_species == "dog" and cleaned in KNOWN_DOG_BREED_NAMES:
             return True
-        if species == "cat" and cleaned in KNOWN_CAT_BREED_NAMES:
+        if normalized_species == "cat" and cleaned in KNOWN_CAT_BREED_NAMES:
             return True
         if not cls.is_valid_profile_label(value):
             return False
@@ -342,18 +361,15 @@ class Pet:
         if not tokens:
             return False
 
-        breed_tokens = DOG_BREED_TOKENS if species == "dog" else CAT_BREED_TOKENS if species == "cat" else set()
-        if not breed_tokens:
-            return False
-
-        recognized_tokens = [token for token in tokens if token in breed_tokens]
         if len(tokens) == 1:
-            return tokens[0] in breed_tokens
-
-        if not recognized_tokens:
             return False
 
-        return len(recognized_tokens) >= max(1, len(tokens) // 2)
+        breed_tokens = DOG_BREED_TOKENS if normalized_species == "dog" else CAT_BREED_TOKENS
+        recognized_tokens = [token for token in tokens if token in breed_tokens]
+        if recognized_tokens:
+            return True
+
+        return False
 
     @classmethod
     def is_valid_species_label(cls, value: str) -> bool:

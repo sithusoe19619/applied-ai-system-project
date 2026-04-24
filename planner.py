@@ -55,7 +55,7 @@ def build_profile_from_inputs(
     if not normalized_species:
         validation_errors.append("Select a species.")
     if breed.strip() and normalized_species in {"dog", "cat"} and not Pet.is_valid_breed_label(breed, normalized_species):
-        validation_errors.append('Enter a recognizable breed such as "Golden Retriever," "Siamese," or "Mixed."')
+        validation_errors.append("Enter a readable breed label without numbers or unusual symbols.")
     if normalized_species == "other" and not custom_species.strip():
         validation_errors.append("Specify the species name for this pet.")
 
@@ -140,7 +140,7 @@ with st.container(border=True):
             placeholder="Examples: Golden Retriever, Domestic Shorthair, Mixed",
         )
         st.markdown(
-            '<p class="paw-pet-profile-caption">Use a common breed label such as "Golden Retriever," "Siamese," or "Mixed."</p>',
+            '<p class="paw-pet-profile-caption">Use a readable breed label such as "Pug," "Golden Retriever," "Siamese," or "Mixed."</p>',
             unsafe_allow_html=True,
         )
     elif normalized_species == "other":

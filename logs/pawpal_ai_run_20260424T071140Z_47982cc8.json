@@ -1,0 +1,974 @@
+{
+  "run_id": "d4ffc024cc70",
+  "model": "global.anthropic.claude-haiku-4-5-20251001-v1:0",
+  "owner": "Marshall",
+  "pet": {
+    "name": "Terror",
+    "species": "dog",
+    "effective_species": "dog",
+    "breed": "Pug",
+    "custom_species": "",
+    "age": 6,
+    "special_needs": "Mild weight-management needs. Gets tired in hot weather, so exercise should stay short and low intensity. Watch breathing during walks and avoid overheating.",
+    "characteristics": "Heat and Breathing: Keep exercise short and low-intensity, especially in warm weather, since Pugs have a shortened muzzle that limits airflow and heat dissipation. Monitor for labored breathing, wheezing, or reluctance to move during or after activity, and stop immediately if these signs appear. || Weight Management: Pugs are prone to obesity, which compounds breathing difficulty and joint stress; establish consistent portion control and low-impact play routines rather than relying on extended walks to manage weight. Coordinate feeding amounts with your veterinarian, as excess weight can significantly shorten a Pug's healthy lifespan. || Hydration and Comfort: Provide constant access to fresh water indoors and carry water on any outing, since Pugs cannot cool themselves efficiently through panting; keep your home cool and offer shaded rest areas during warm months to prevent heat stress.",
+    "lifespan_range_years": [
+      12,
+      15
+    ],
+    "species_profile_summary": "Pugs typically live 12 to 15 years in good health; their flat-faced anatomy requires careful management of heat exposure, breathing strain, and weight to support longevity and comfort.",
+    "species_profile_source": "Model-derived profile from global.anthropic.claude-haiku-4-5-20251001-v1:0",
+    "age_context": {
+      "life_stage": "adult",
+      "lifespan_range_years": [
+        12,
+        15
+      ],
+      "estimated_total_years": 14,
+      "summary": "Pugs typically live 12 to 15 years in good health; their flat-faced anatomy requires careful management of heat exposure, breathing strain, and weight to support longevity and comfort."
+    }
+  },
+  "query": "dog Pug Terror age 6 adult Mild weight-management needs. Gets tired in hot weather, so exercise should stay short and low intensity. Watch breathing during walks and avoid overheating. Heat and Breathing: Keep exercise short and low-intensity, especially in warm weather, since Pugs have a shortened muzzle that limits airflow and heat dissipation. Monitor for labored breathing, wheezing, or reluctance to move during or after activity, and stop immediately if these signs appear. || Weight Management: Pugs are prone to obesity, which compounds breathing difficulty and joint stress; establish consistent portion control and low-impact play routines rather than relying on extended walks to manage weight. Coordinate feeding amounts with your veterinarian, as excess weight can significantly shorten a Pug's healthy lifespan. || Hydration and Comfort: Provide constant access to fresh water indoors and carry water on any outing, since Pugs cannot cool themselves efficiently through panting; keep your home cool and offer shaded rest areas during warm months to prevent heat stress. Create a complete pet care plan with daily, weekly, monthly tasks, reminders, and safe condition-aware guidance. Build a practical routine for a 6-year-old pug with short daily walks, indoor enrichment, feeding consistency, weight management, and reminders for hot-weather safety. pet care routine",
+  "goal": "Create a complete pet care plan with daily, weekly, monthly tasks, reminders, and safe condition-aware guidance.",
+  "extra_context": "Build a practical routine for a 6-year-old pug with short daily walks, indoor enrichment, feeding consistency, weight management, and reminders for hot-weather safety.",
+  "requested_frequencies": [],
+  "retrieved_passages": [
+    {
+      "doc_id": "puppy_kitten_routine",
+      "title": "Puppy and Kitten Routine Basics",
+      "chunk_id": "puppy_kitten_routine#3",
+      "content": "Exercise and enrichment for very young pets should stay short and positive. Puppies often do better with several brief walks or training moments instead of one long outing, and kittens benefit from short interactive play sessions that stop before exhaustion.",
+      "score": 23.6
+    },
+    {
+      "doc_id": "kidney_diet_care",
+      "title": "Kidney Diet and Hydration Support",
+      "chunk_id": "kidney_diet_care#3",
+      "content": "Owners should follow the veterinary feeding plan already prescribed and avoid changing food or supplement amounts without veterinary guidance. If a pet refuses multiple meals or shows sudden decline, the safe action is to contact a veterinarian.",
+      "score": 22.25
+    },
+    {
+      "doc_id": "enrichment_and_monitoring",
+      "title": "Enrichment and Daily Monitoring",
+      "chunk_id": "enrichment_and_monitoring#3",
+      "content": "Observation tasks are useful for special-needs pets because they create a record of appetite, water intake, energy, and bathroom habits. These tasks should be short, specific, and easy to complete consistently.",
+      "score": 22.15
+    },
+    {
+      "doc_id": "medication_and_safety",
+      "title": "Medication Routine and Safety",
+      "chunk_id": "medication_and_safety#2",
+      "content": "Medication-related tasks in a home routine should focus on reminders, documentation, and observation, not dosage changes. A planning assistant can remind the owner to give medication exactly as already prescribed and to log whether the dose was completed.",
+      "score": 21.45
+    },
+    {
+      "doc_id": "senior_pet_support",
+      "title": "Senior Pet Support",
+      "chunk_id": "senior_pet_support#3",
+      "content": "Older pets may benefit from routines that include medication reminders, slow feeding, and extra time for transitions. Owners should watch for changes in gait, confusion, appetite, and bathroom habits and report major changes to a veterinarian.",
+      "score": 21.45
+    }
+  ],
+  "raw_recommendations": [
+    {
+      "name": "Morning short walk and breathing check",
+      "duration_minutes": 10,
+      "priority": "high",
+      "category": "exercise",
+      "notes": "Low-intensity walk in cool part of day; monitor for labored breathing or reluctance to move.",
+      "scheduled_time": "07:00",
+      "frequency": "daily",
+      "rationale": "Pugs need brief, low-intensity exercise to manage weight without overheating; morning timing avoids peak heat.",
+      "source_ids": [
+        "puppy_kitten_routine"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Consistent morning feeding with portion control",
+      "duration_minutes": 5,
+      "priority": "high",
+      "category": "feeding",
+      "notes": "Follow veterinary feeding plan; measure portions to support weight management.",
+      "scheduled_time": "07:30",
+      "frequency": "daily",
+      "rationale": "Consistent portion-controlled feeding is essential for Pug weight management and prevents obesity-related breathing complications.",
+      "source_ids": [
+        "kidney_diet_care"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Fresh water access and hydration check",
+      "duration_minutes": 3,
+      "priority": "high",
+      "category": "hydration",
+      "notes": "Ensure constant access to fresh water indoors; refill bowl and observe intake.",
+      "scheduled_time": "08:00",
+      "frequency": "daily",
+      "rationale": "Pugs cannot cool efficiently through panting; constant hydration access is critical for heat stress prevention.",
+      "source_ids": [],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.95
+    },
+    {
+      "name": "Evening short walk and cool-down",
+      "duration_minutes": 10,
+      "priority": "high",
+      "category": "exercise",
+      "notes": "Low-intensity walk after sunset; allow gradual cool-down indoors.",
+      "scheduled_time": "19:00",
+      "frequency": "daily",
+      "rationale": "Evening walk avoids heat stress; second brief outing supports weight management without overexertion.",
+      "source_ids": [
+        "puppy_kitten_routine"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Evening feeding with portion control",
+      "duration_minutes": 5,
+      "priority": "high",
+      "category": "feeding",
+      "notes": "Follow veterinary feeding plan; measure portions consistently.",
+      "scheduled_time": "19:30",
+      "frequency": "daily",
+      "rationale": "Split daily feeding supports steady weight management and digestive consistency.",
+      "source_ids": [
+        "kidney_diet_care"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Daily observation log: appetite, water, energy, bathroom",
+      "duration_minutes": 5,
+      "priority": "medium",
+      "category": "monitoring",
+      "notes": "Record appetite, water intake, energy level, and bathroom habits for trend tracking.",
+      "scheduled_time": "20:00",
+      "frequency": "daily",
+      "rationale": "Consistent observation creates a record to detect early changes in health or weight management progress.",
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Indoor enrichment and low-impact play",
+      "duration_minutes": 15,
+      "priority": "medium",
+      "category": "enrichment",
+      "notes": "Short interactive play sessions indoors; stop before exhaustion to avoid overheating.",
+      "scheduled_time": "15:00",
+      "frequency": "daily",
+      "rationale": "Brief indoor enrichment supports mental stimulation and weight management without heat or breathing strain.",
+      "source_ids": [
+        "puppy_kitten_routine"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Weekly body condition and weight check",
+      "duration_minutes": 10,
+      "priority": "high",
+      "category": "monitoring",
+      "notes": "Assess body condition and record weight; compare to previous week for trend.",
+      "scheduled_time": "10:00",
+      "frequency": "weekly",
+      "rationale": "Weekly weigh-ins track weight-management progress and catch early gains before they compound breathing or joint stress.",
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "scheduled_weekday": "Saturday",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Hot-weather safety check and environment setup",
+      "duration_minutes": 8,
+      "priority": "high",
+      "category": "environment",
+      "notes": "Verify cool home temperature, shaded rest areas available, and water bowls positioned throughout home.",
+      "scheduled_time": "09:00",
+      "frequency": "weekly",
+      "rationale": "Weekly verification ensures Terror has consistent access to cool spaces and hydration, reducing heat-stress risk.",
+      "source_ids": [],
+      "scheduled_weekday": "Monday",
+      "scheduled_month_weeks": [],
+      "confidence": 0.92
+    },
+    {
+      "name": "Monthly feeding plan review with veterinarian notes",
+      "duration_minutes": 10,
+      "priority": "medium",
+      "category": "feeding",
+      "notes": "Review observation log and weight trends; confirm portions align with veterinary guidance.",
+      "scheduled_time": "10:00",
+      "frequency": "monthly",
+      "rationale": "Mid-month review of feeding and weight data allows early adjustment discussion with veterinarian if needed.",
+      "source_ids": [
+        "kidney_diet_care"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [
+        "Week 3"
+      ],
+      "confidence": 0.99
+    },
+    {
+      "name": "Monthly grooming and skin check",
+      "duration_minutes": 20,
+      "priority": "medium",
+      "category": "grooming",
+      "notes": "Gentle brushing, nail trim, and inspection of skin folds for irritation or moisture.",
+      "scheduled_time": "14:00",
+      "frequency": "monthly",
+      "rationale": "Pugs require regular grooming and skin-fold monitoring to prevent infection and maintain coat health.",
+      "source_ids": [],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [
+        "Week 2"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "name": "Stop walk immediately if labored breathing or wheezing appears",
+      "duration_minutes": 2,
+      "priority": "high",
+      "category": "exercise",
+      "notes": "Pug breathing strain is a heat and exertion trigger; halt activity and move to cool shade if signs occur.",
+      "scheduled_time": "00:00",
+      "frequency": "as needed",
+      "rationale": "Pugs have shortened muzzles that limit airflow; labored breathing during walks signals overheating or strain and requires immediate cessation.",
+      "source_ids": [
+        "puppy_kitten_routine"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Reduce walk duration or skip evening walk if outdoor temperature exceeds safe threshold",
+      "duration_minutes": 2,
+      "priority": "high",
+      "category": "exercise",
+      "notes": "Hot weather compounds breathing difficulty and heat dissipation failure in Pugs; shorten or defer walks on very warm days.",
+      "scheduled_time": "00:00",
+      "frequency": "as needed",
+      "rationale": "Terror gets tired in hot weather and cannot cool efficiently through panting; warm-day adjustments prevent heat stress and breathing strain.",
+      "source_ids": [
+        "puppy_kitten_routine"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Offer extra water and shade rest if Terror shows reluctance to move or excessive panting",
+      "duration_minutes": 5,
+      "priority": "high",
+      "category": "hydration",
+      "notes": "Heat stress signs include reluctance, excessive panting, or drooling; provide immediate cool water and shaded rest.",
+      "scheduled_time": "00:00",
+      "frequency": "as needed",
+      "rationale": "Pugs cannot cool themselves efficiently; reluctance or panting signals heat stress requiring hydration and shade intervention.",
+      "source_ids": [
+        "puppy_kitten_routine"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Contact veterinarian if Terror refuses multiple meals or shows sudden appetite decline",
+      "duration_minutes": 5,
+      "priority": "high",
+      "category": "feeding",
+      "notes": "Sudden meal refusal or appetite drop may signal illness; veterinary contact is the safe response.",
+      "scheduled_time": "00:00",
+      "frequency": "as needed",
+      "rationale": "Multiple missed meals or sudden appetite changes warrant veterinary evaluation to rule out underlying health issues.",
+      "source_ids": [
+        "kidney_diet_care"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Report major changes in gait, confusion, or bathroom habits to veterinarian",
+      "duration_minutes": 5,
+      "priority": "high",
+      "category": "monitoring",
+      "notes": "Age-related changes in mobility, mental clarity, or elimination patterns require veterinary assessment.",
+      "scheduled_time": "00:00",
+      "frequency": "as needed",
+      "rationale": "At age 6, Terror is entering mid-life; changes in gait, confusion, or bathroom habits may signal age-related or health concerns needing evaluation.",
+      "source_ids": [
+        "senior_pet_support"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Adjust feeding portions immediately if weight gain is detected on weekly check",
+      "duration_minutes": 5,
+      "priority": "high",
+      "category": "feeding",
+      "notes": "Weight gain compounds breathing and joint stress; coordinate portion reductions with veterinarian notes from monthly review.",
+      "scheduled_time": "00:00",
+      "frequency": "as needed",
+      "rationale": "Pugs are obesity-prone; rapid weight gain detected on Saturday weigh-ins should trigger veterinarian consultation before next monthly feeding review.",
+      "source_ids": [
+        "kidney_diet_care"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Provide cool water immediately if Terror shows signs of heat stress during or after activity",
+      "duration_minutes": 3,
+      "priority": "high",
+      "category": "hydration",
+      "notes": "Heat stress signs include excessive panting, drooling, lethargy, or reluctance; offer water and move to shade.",
+      "scheduled_time": "00:00",
+      "frequency": "as needed",
+      "rationale": "Pugs cannot dissipate heat efficiently; immediate cool water and shade access prevent heat-related emergencies.",
+      "source_ids": [
+        "puppy_kitten_routine"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Skip or shorten indoor enrichment if Terror shows fatigue or labored breathing",
+      "duration_minutes": 2,
+      "priority": "medium",
+      "category": "enrichment",
+      "notes": "Low-impact play should stop before exhaustion; if breathing strain or fatigue appears, halt activity immediately.",
+      "scheduled_time": "00:00",
+      "frequency": "as needed",
+      "rationale": "Pug breathing limits mean enrichment must remain low-intensity; fatigue or strain signals need to stop and rest.",
+      "source_ids": [
+        "puppy_kitten_routine"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Evening short walk and breathing check",
+      "duration_minutes": 10,
+      "priority": "high",
+      "category": "exercise",
+      "notes": "Low-intensity walk in cooler evening hours to support weight management and monitor breathing.",
+      "scheduled_time": "18:00",
+      "frequency": "daily",
+      "rationale": "Pugs need multiple brief walks rather than one long outing; evening timing reduces heat stress.",
+      "source_ids": [
+        "puppy_kitten_routine"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Midday hydration and shade rest check",
+      "duration_minutes": 5,
+      "priority": "high",
+      "category": "hydration",
+      "notes": "Ensure Terror has access to fresh water and shaded rest area during warmest part of day.",
+      "scheduled_time": "12:00",
+      "frequency": "daily",
+      "rationale": "Pugs cannot cool efficiently through panting; midday check prevents heat stress and supports hydration.",
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Afternoon training or calm enrichment session",
+      "duration_minutes": 10,
+      "priority": "medium",
+      "category": "enrichment",
+      "notes": "Brief positive training moment or puzzle toy engagement to provide mental stimulation without physical strain.",
+      "scheduled_time": "14:00",
+      "frequency": "daily",
+      "rationale": "Short interactive sessions prevent exhaustion while supporting cognitive engagement for weight management.",
+      "source_ids": [
+        "puppy_kitten_routine"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Gentle grooming or skin check",
+      "duration_minutes": 8,
+      "priority": "medium",
+      "category": "grooming",
+      "notes": "Brief brush or wipe of facial folds and paws to maintain coat health and check for skin issues.",
+      "scheduled_time": "16:00",
+      "frequency": "daily",
+      "rationale": "Pugs require regular fold maintenance; daily brief checks support early detection of irritation.",
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.97
+    },
+    {
+      "name": "Low-calorie treat or snack time with portion awareness",
+      "duration_minutes": 5,
+      "priority": "medium",
+      "category": "feeding",
+      "notes": "Offer measured low-calorie snack or training treat to support weight management and enrichment.",
+      "scheduled_time": "17:00",
+      "frequency": "daily",
+      "rationale": "Consistent portion-controlled snacking prevents weight gain while providing daily variety and engagement.",
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Evening calm settling routine",
+      "duration_minutes": 10,
+      "priority": "medium",
+      "category": "enrichment",
+      "notes": "Quiet time with soft toy or gentle interaction to support relaxation before bedtime.",
+      "scheduled_time": "20:30",
+      "frequency": "daily",
+      "rationale": "Calm settling routine helps older Pugs transition to rest and supports consistent sleep schedule.",
+      "source_ids": [
+        "senior_pet_support"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.97
+    },
+    {
+      "name": "Weekly body condition and weight check",
+      "duration_minutes": 10,
+      "priority": "high",
+      "category": "monitoring",
+      "notes": "Assess body condition score and weight to track weight-management progress.",
+      "scheduled_time": "10:00",
+      "frequency": "weekly",
+      "rationale": "Saturday weigh-in after the week allows trend review and early detection of weight gain.",
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "scheduled_weekday": "Saturday",
+      "scheduled_month_weeks": [],
+      "confidence": 0.95
+    },
+    {
+      "name": "Monthly feeding plan review with veterinarian notes",
+      "duration_minutes": 10,
+      "priority": "medium",
+      "category": "feeding",
+      "notes": "Review portion sizes and feeding strategy with veterinarian guidance to support weight management.",
+      "scheduled_time": "10:00",
+      "frequency": "monthly",
+      "rationale": "Mid-month review allows adjustment based on weekly weight trends and veterinary recommendations.",
+      "source_ids": [
+        "kidney_diet_care"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [
+        "Week 3"
+      ],
+      "confidence": 0.9
+    }
+  ],
+  "blocked_recommendations": [
+    {
+      "name": "Fresh water access and hydration check",
+      "reasons": [
+        "Recommendation is ungrounded because it cites no sources."
+      ]
+    },
+    {
+      "name": "Hot-weather safety check and environment setup",
+      "reasons": [
+        "Recommendation is ungrounded because it cites no sources."
+      ]
+    },
+    {
+      "name": "Monthly grooming and skin check",
+      "reasons": [
+        "Recommendation is ungrounded because it cites no sources."
+      ]
+    },
+    {
+      "name": "Weekly body condition and weight check",
+      "reasons": [
+        "Frequency must match the requested cadence: daily."
+      ]
+    },
+    {
+      "name": "Monthly feeding plan review with veterinarian notes",
+      "reasons": [
+        "Frequency must match the requested cadence: daily."
+      ]
+    }
+  ],
+  "warnings": [
+    "The generated plan still has limited daily-care variety after a daily follow-up pass."
+  ],
+  "reliability_score": 0.99,
+  "accepted_tasks": [
+    {
+      "name": "Morning short walk and breathing check",
+      "duration_minutes": 10,
+      "priority": "high",
+      "category": "exercise",
+      "scheduled_time": "07:00",
+      "frequency": "daily",
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "ai_generated": true,
+      "rationale": "Pugs need brief, low-intensity exercise to manage weight without overheating; morning timing avoids peak heat.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "puppy_kitten_routine"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Consistent morning feeding with portion control",
+      "duration_minutes": 5,
+      "priority": "high",
+      "category": "feeding",
+      "scheduled_time": "07:30",
+      "frequency": "daily",
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "ai_generated": true,
+      "rationale": "Consistent portion-controlled feeding is essential for Pug weight management and prevents obesity-related breathing complications.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "kidney_diet_care"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Midday hydration and shade rest check",
+      "duration_minutes": 5,
+      "priority": "high",
+      "category": "hydration",
+      "scheduled_time": "12:00",
+      "frequency": "daily",
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "ai_generated": true,
+      "rationale": "Pugs cannot cool efficiently through panting; midday check prevents heat stress and supports hydration.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Afternoon training or calm enrichment session",
+      "duration_minutes": 15,
+      "priority": "medium",
+      "category": "enrichment",
+      "scheduled_time": "14:00",
+      "frequency": "daily",
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "ai_generated": true,
+      "rationale": "Brief indoor enrichment supports mental stimulation and weight management without heat or breathing strain.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "puppy_kitten_routine"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Gentle grooming or skin check",
+      "duration_minutes": 8,
+      "priority": "medium",
+      "category": "grooming",
+      "scheduled_time": "16:00",
+      "frequency": "daily",
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "ai_generated": true,
+      "rationale": "Pugs require regular fold maintenance; daily brief checks support early detection of irritation.",
+      "confidence_score": 0.97,
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Low-calorie treat or snack time with portion awareness",
+      "duration_minutes": 5,
+      "priority": "medium",
+      "category": "feeding",
+      "scheduled_time": "17:00",
+      "frequency": "daily",
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "ai_generated": true,
+      "rationale": "Consistent portion-controlled snacking prevents weight gain while providing daily variety and engagement.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Evening feeding with portion control",
+      "duration_minutes": 5,
+      "priority": "high",
+      "category": "feeding",
+      "scheduled_time": "19:30",
+      "frequency": "daily",
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "ai_generated": true,
+      "rationale": "Split daily feeding supports steady weight management and digestive consistency.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "kidney_diet_care"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Daily observation log: appetite, water, energy, bathroom",
+      "duration_minutes": 5,
+      "priority": "medium",
+      "category": "monitoring",
+      "scheduled_time": "20:00",
+      "frequency": "daily",
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "ai_generated": true,
+      "rationale": "Consistent observation creates a record to detect early changes in health or weight management progress.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Evening calm settling routine",
+      "duration_minutes": 10,
+      "priority": "medium",
+      "category": "enrichment",
+      "scheduled_time": "20:30",
+      "frequency": "daily",
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "ai_generated": true,
+      "rationale": "Calm settling routine helps older Pugs transition to rest and supports consistent sleep schedule.",
+      "confidence_score": 0.97,
+      "source_ids": [
+        "senior_pet_support"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Weekly body condition and weight check",
+      "duration_minutes": 10,
+      "priority": "high",
+      "category": "monitoring",
+      "scheduled_time": "10:00",
+      "frequency": "weekly",
+      "scheduled_weekday": "Saturday",
+      "scheduled_month_weeks": [],
+      "ai_generated": true,
+      "rationale": "Weekly weigh-ins track weight-management progress and catch early gains before they compound breathing or joint stress.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Monthly feeding plan review with veterinarian notes",
+      "duration_minutes": 10,
+      "priority": "medium",
+      "category": "feeding",
+      "scheduled_time": "10:00",
+      "frequency": "monthly",
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [
+        "Week 3"
+      ],
+      "ai_generated": true,
+      "rationale": "Mid-month review of feeding and weight data allows early adjustment discussion with veterinarian if needed.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "kidney_diet_care"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Adjust feeding portions immediately if weight gain is detected on weekly check",
+      "duration_minutes": 5,
+      "priority": "high",
+      "category": "feeding",
+      "scheduled_time": "00:00",
+      "frequency": "as needed",
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "ai_generated": true,
+      "rationale": "Pugs are obesity-prone; rapid weight gain detected on Saturday weigh-ins should trigger veterinarian consultation before next monthly feeding review.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "kidney_diet_care"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Contact veterinarian if Terror refuses multiple meals or shows sudden appetite decline",
+      "duration_minutes": 5,
+      "priority": "high",
+      "category": "feeding",
+      "scheduled_time": "00:00",
+      "frequency": "as needed",
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "ai_generated": true,
+      "rationale": "Multiple missed meals or sudden appetite changes warrant veterinary evaluation to rule out underlying health issues.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "kidney_diet_care"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Offer extra water and shade rest if Terror shows reluctance to move or excessive panting",
+      "duration_minutes": 5,
+      "priority": "high",
+      "category": "hydration",
+      "scheduled_time": "00:00",
+      "frequency": "as needed",
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "ai_generated": true,
+      "rationale": "Pugs cannot cool themselves efficiently; reluctance or panting signals heat stress requiring hydration and shade intervention.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "puppy_kitten_routine"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Provide cool water immediately if Terror shows signs of heat stress during or after activity",
+      "duration_minutes": 3,
+      "priority": "high",
+      "category": "hydration",
+      "scheduled_time": "00:00",
+      "frequency": "as needed",
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "ai_generated": true,
+      "rationale": "Pugs cannot dissipate heat efficiently; immediate cool water and shade access prevent heat-related emergencies.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "puppy_kitten_routine"
+      ],
+      "validation_status": "validated"
+    }
+  ],
+  "schedule_plan": {
+    "scheduled": [
+      {
+        "name": "Adjust feeding portions immediately if weight gain is detected on weekly check",
+        "duration_minutes": 5,
+        "priority": "high",
+        "category": "feeding",
+        "scheduled_time": "00:00",
+        "frequency": "as needed",
+        "scheduled_weekday": "",
+        "scheduled_month_weeks": []
+      },
+      {
+        "name": "Contact veterinarian if Terror refuses multiple meals or shows sudden appetite decline",
+        "duration_minutes": 5,
+        "priority": "high",
+        "category": "feeding",
+        "scheduled_time": "00:00",
+        "frequency": "as needed",
+        "scheduled_weekday": "",
+        "scheduled_month_weeks": []
+      },
+      {
+        "name": "Offer extra water and shade rest if Terror shows reluctance to move or excessive panting",
+        "duration_minutes": 5,
+        "priority": "high",
+        "category": "hydration",
+        "scheduled_time": "00:00",
+        "frequency": "as needed",
+        "scheduled_weekday": "",
+        "scheduled_month_weeks": []
+      },
+      {
+        "name": "Provide cool water immediately if Terror shows signs of heat stress during or after activity",
+        "duration_minutes": 3,
+        "priority": "high",
+        "category": "hydration",
+        "scheduled_time": "00:00",
+        "frequency": "as needed",
+        "scheduled_weekday": "",
+        "scheduled_month_weeks": []
+      },
+      {
+        "name": "Morning short walk and breathing check",
+        "duration_minutes": 10,
+        "priority": "high",
+        "category": "exercise",
+        "scheduled_time": "07:00",
+        "frequency": "daily",
+        "scheduled_weekday": "",
+        "scheduled_month_weeks": []
+      },
+      {
+        "name": "Consistent morning feeding with portion control",
+        "duration_minutes": 5,
+        "priority": "high",
+        "category": "feeding",
+        "scheduled_time": "07:30",
+        "frequency": "daily",
+        "scheduled_weekday": "",
+        "scheduled_month_weeks": []
+      },
+      {
+        "name": "Weekly body condition and weight check",
+        "duration_minutes": 10,
+        "priority": "high",
+        "category": "monitoring",
+        "scheduled_time": "10:00",
+        "frequency": "weekly",
+        "scheduled_weekday": "Saturday",
+        "scheduled_month_weeks": []
+      },
+      {
+        "name": "Midday hydration and shade rest check",
+        "duration_minutes": 5,
+        "priority": "high",
+        "category": "hydration",
+        "scheduled_time": "12:00",
+        "frequency": "daily",
+        "scheduled_weekday": "",
+        "scheduled_month_weeks": []
+      },
+      {
+        "name": "Evening feeding with portion control",
+        "duration_minutes": 5,
+        "priority": "high",
+        "category": "feeding",
+        "scheduled_time": "19:30",
+        "frequency": "daily",
+        "scheduled_weekday": "",
+        "scheduled_month_weeks": []
+      },
+      {
+        "name": "Monthly feeding plan review with veterinarian notes",
+        "duration_minutes": 10,
+        "priority": "medium",
+        "category": "feeding",
+        "scheduled_time": "10:00",
+        "frequency": "monthly",
+        "scheduled_weekday": "",
+        "scheduled_month_weeks": [
+          "Week 3"
+        ]
+      },
+      {
+        "name": "Afternoon training or calm enrichment session",
+        "duration_minutes": 15,
+        "priority": "medium",
+        "category": "enrichment",
+        "scheduled_time": "14:00",
+        "frequency": "daily",
+        "scheduled_weekday": "",
+        "scheduled_month_weeks": []
+      },
+      {
+        "name": "Gentle grooming or skin check",
+        "duration_minutes": 8,
+        "priority": "medium",
+        "category": "grooming",
+        "scheduled_time": "16:00",
+        "frequency": "daily",
+        "scheduled_weekday": "",
+        "scheduled_month_weeks": []
+      },
+      {
+        "name": "Low-calorie treat or snack time with portion awareness",
+        "duration_minutes": 5,
+        "priority": "medium",
+        "category": "feeding",
+        "scheduled_time": "17:00",
+        "frequency": "daily",
+        "scheduled_weekday": "",
+        "scheduled_month_weeks": []
+      },
+      {
+        "name": "Daily observation log: appetite, water, energy, bathroom",
+        "duration_minutes": 5,
+        "priority": "medium",
+        "category": "monitoring",
+        "scheduled_time": "20:00",
+        "frequency": "daily",
+        "scheduled_weekday": "",
+        "scheduled_month_weeks": []
+      },
+      {
+        "name": "Evening calm settling routine",
+        "duration_minutes": 10,
+        "priority": "medium",
+        "category": "enrichment",
+        "scheduled_time": "20:30",
+        "frequency": "daily",
+        "scheduled_weekday": "",
+        "scheduled_month_weeks": []
+      }
+    ],
+    "skipped": [],
+    "reasoning": [
+      "Scheduled 'Adjust feeding portions immediately if weight gain is detected on weekly check' for Terror (5 min, high priority)",
+      "Scheduled 'Contact veterinarian if Terror refuses multiple meals or shows sudden appetite decline' for Terror (5 min, high priority)",
+      "Scheduled 'Offer extra water and shade rest if Terror shows reluctance to move or excessive panting' for Terror (5 min, high priority)",
+      "Scheduled 'Provide cool water immediately if Terror shows signs of heat stress during or after activity' for Terror (3 min, high priority)",
+      "Scheduled 'Morning short walk and breathing check' for Terror (10 min, high priority)",
+      "Scheduled 'Consistent morning feeding with portion control' for Terror (5 min, high priority)",
+      "Scheduled 'Weekly body condition and weight check' for Terror (10 min, high priority)",
+      "Scheduled 'Midday hydration and shade rest check' for Terror (5 min, high priority)",
+      "Scheduled 'Evening feeding with portion control' for Terror (5 min, high priority)",
+      "Scheduled 'Monthly feeding plan review with veterinarian notes' for Terror (10 min, medium priority)",
+      "Scheduled 'Afternoon training or calm enrichment session' for Terror (15 min, medium priority)",
+      "Scheduled 'Gentle grooming or skin check' for Terror (8 min, medium priority)",
+      "Scheduled 'Low-calorie treat or snack time with portion awareness' for Terror (5 min, medium priority)",
+      "Scheduled 'Daily observation log: appetite, water, energy, bathroom' for Terror (5 min, medium priority)",
+      "Scheduled 'Evening calm settling routine' for Terror (10 min, medium priority)"
+    ]
+  }
+}

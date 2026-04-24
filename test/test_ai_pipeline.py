@@ -1363,10 +1363,19 @@ class TestPetProfileContext:
     def test_breed_validation_rejects_obvious_junk(self):
         assert Pet.is_valid_breed_label("adfasf", "dog") is False
         assert Pet.is_valid_breed_label("ehfasdhf;asd2324", "dog") is False
+        assert Pet.is_valid_breed_label("Pug", "dog") is True
+        assert Pet.is_valid_breed_label("Pitbull", "dog") is True
+        assert Pet.is_valid_breed_label("pit-bull", "dog") is True
         assert Pet.is_valid_breed_label("golden retriever", "dog") is True
+        assert Pet.is_valid_breed_label("american bulldog", "dog") is True
         assert Pet.is_valid_breed_label("siamese", "cat") is True
         assert Pet.is_valid_breed_label("mixed", "dog") is True
         assert Pet.is_valid_breed_label("beagle", "cat") is False
+
+    def test_breed_normalization_collapses_alias_spacing(self):
+        assert Pet.normalize_breed_label("Pitbull") == "pit bull"
+        assert Pet.normalize_breed_label("pit-bull") == "pit bull"
+        assert Pet.normalize_breed_label("  Golden   Retriever ") == "golden retriever"
 
     def test_custom_species_validation_accepts_open_ended_labels(self):
         assert Pet.is_valid_species_label("Monkey") is True
