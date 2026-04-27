@@ -9,7 +9,7 @@ Paw'Pal Pet Care AI helps a pet owner turn a pet profile, care notes, and a curr
 This project demonstrates:
 
 - profile-driven AI planning
-- retrieval-augmented generation over curated care documents
+- retrieval-augmented generation over metadata-aware local care documents
 - deterministic guardrails for safer output
 - contextual follow-up chat tied to the active pet and plan
 - logging and evaluation for reliability
@@ -17,6 +17,14 @@ This project demonstrates:
 ## Why This Project Matters
 
 I wanted this project to feel like a real applied AI system rather than a simple chatbot demo. Paw'Pal Pet Care AI uses AI where reasoning is helpful, but it keeps deterministic code in control of safety, structure, and explainability. That balance made the project much stronger both technically and as a portfolio artifact.
+
+## Portfolio Artifact
+
+- **Loom walkthrough**: https://www.loom.com/share/42418d63b6a04a7b8837e163a412e790
+
+- **GitHub repository**: https://github.com/sithusoe19619/applied-ai-system-project
+
+This project shows that I am learning to think like an AI engineer, not just someone who can connect an app to a model. I started with a basic pet-care scheduler, where the user had to manually think of and organize care tasks, and I extended it into an AI system that can generate a grounded care plan from a pet profile, current needs, and owner goals. What I think this says about me is that I can look at an existing application, identify where AI can add real value, and build the surrounding system needed to make that AI useful. I did not only focus on getting the model to produce an answer; I also added retrieval, validation, logging, testing, and human review so the output could be easier to trust and inspect. This project also shows that I care about responsible AI. Because the app deals with pet-care guidance, I had to think about what the system should not do, such as diagnosing conditions, changing medication dosages, or replacing a veterinarian. Overall, Paw'Pal Pet Care AI represents my ability to build practical AI features while thinking about reliability, safety, user experience, and the limits of model-generated output.
 
 ## Architecture Overview
 
@@ -54,7 +62,7 @@ At a high level, the user enters a pet profile and care goal in the planner UI. 
 
 - `planner.py`: collects profile details, current care notes, and generation goals
 - `pawpal_ai.py`: orchestrates retrieval, model calls, validation, scheduling, and logging
-- `ai_retrieval.py`: retrieves relevant passages from the local `knowledge_base/`
+- `ai_retrieval.py`: retrieves relevant passages from the metadata-aware local `knowledge_base/`
 - `bedrock_client.py`: wraps Amazon Bedrock for species profiling, plan generation, and chat
 - `ai_validation.py`: blocks unsafe, malformed, or unsupported recommendations
 - `pages/Results.py`: presents the generated plan, rationale, reminders, and references
@@ -221,8 +229,8 @@ I wanted Paw'Pal Pet Care AI to feel trustworthy and inspectable, not just impre
 
 The most important design choices were:
 
-- **Local retrieval over curated documents**
-  I used a small local knowledge base so the reasoning path would be reproducible and easy to explain.
+- **Metadata-aware local retrieval over curated documents**
+  I used a small local knowledge base with document metadata so the reasoning path would be reproducible, explainable, and more relevant than flat keyword matching alone.
 - **Deterministic validation before display**
   The validator checks sources, cadence, durations, times, and unsafe medical-style advice before recommendations become visible tasks.
 - **Multipage UI**
@@ -234,8 +242,8 @@ The most important design choices were:
 
 ### Trade-offs
 
-- **Lexical retrieval vs embeddings**
-  The current retrieval approach is simpler and easier to reproduce, but less sophisticated than embedding-based retrieval.
+- **Metadata-aware lexical retrieval vs embeddings**
+  The current retrieval approach is local and explainable, with metadata-aware ranking, but still less semantically flexible than embedding-based retrieval.
 - **Strict guardrails vs flexibility**
   Strong validation reduces model freedom, but improves trustworthiness and keeps the app from sounding like a diagnostic tool.
 - **Bedrock integration vs portability**
@@ -247,17 +255,17 @@ The most important design choices were:
 
 I wanted the AI in this project to prove it was working, not just look convincing in a demo. To do that, I combined automated tests, deterministic guardrails, run-level logging, confidence and reliability scoring, and manual review of outputs in the UI.
 
-- **Automated tests**: the project currently has **102 passing tests** covering scheduler behavior, retrieval, Bedrock response parsing, validation, orchestration, and contextual chat behavior.
+- **Automated tests**: the project currently has **105 passing tests** covering scheduler behavior, retrieval, Bedrock response parsing, validation, orchestration, and contextual chat behavior.
 - **Confidence and reliability scoring**: validated recommendations keep a `confidence_score`, and each planning run stores an overall `reliability_score` so I can inspect how strong the accepted output was.
 - **Logging and error handling**: each AI planning run is saved as a JSON trace with retrieved passages, raw recommendations, blocked recommendations, warnings, accepted tasks, and final schedule output.
 - **Human evaluation**: I manually reviewed generated plans and chat responses to make sure they were grounded, readable, and safely constrained, and the screenshots in this README show those end-to-end results.
 - **Scenario-based evaluation**: the evaluation script runs multiple predefined scenarios, including cadence-constrained and unsafe-input cases, to check groundedness, blocked-output behavior, plan shape, and consistency.
 
-In short: **102 out of 102 automated tests passed.** The system also logs each AI planning run, assigns a reliability score to accepted outputs, and blocks unsafe or unsupported recommendations before they appear in the final plan. In manual review, the strongest outputs were grounded and readable, while the main weakness was lower-quality behavior when the available context was limited or overly constrained.
+In short: **105 out of 105 automated tests passed.** The system also logs each AI planning run, assigns a reliability score to accepted outputs, and blocks unsafe or unsupported recommendations before they appear in the final plan. In manual review, the strongest outputs were grounded and readable, while the main weakness was lower-quality behavior when the available context was limited or overly constrained.
 
 ## Testing Summary
 
-The current automated suite has **102 passing tests**.
+The current automated suite has **105 passing tests**.
 
 ### What I tested
 
@@ -277,7 +285,7 @@ The current automated suite has **102 passing tests**.
 ### What still has limits
 
 - Live evaluation depends on valid AWS credentials, Bedrock access, and network availability.
-- The retrieval layer is still local and lexical.
+- The retrieval layer is metadata-aware and local, but it is still not as semantically flexible as embedding-based retrieval.
 - The UI is still session-based and optimized for demo flow rather than persistence.
 
 ### What I learned from testing

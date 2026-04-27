@@ -1,0 +1,1237 @@
+{
+  "run_id": "3173711ed87c",
+  "model": "global.anthropic.claude-haiku-4-5-20251001-v1:0",
+  "owner": "William Butcher",
+  "pet": {
+    "name": "Terror",
+    "species": "dog",
+    "effective_species": "dog",
+    "breed": "Pug",
+    "custom_species": "",
+    "age": 6,
+    "special_needs": "-  Mild weight-management needs. Gets tired in hot weather, so exercise should stay short and low intensity. Watch breathing during walks and avoid overheating.",
+    "characteristics": "Heat and Breathing: Pugs are brachycephalic and overheat easily; keep exercise short, low-intensity, and always indoors or in shade during warm weather. Monitor for labored breathing, reverse sneezing, or excessive panting during and after activity, and stop immediately if either occurs. || Weight and Mobility: Pugs are prone to joint stress from excess weight; maintain consistent portion control and low-impact movement to protect knees and hips. Avoid jumping from furniture and use ramps or steps to reduce strain on their compact frame. || Environment and Hydration: Pugs struggle to regulate body temperature; provide constant access to fresh water, keep living spaces cool and well-ventilated, and never leave them in cars or direct sun. Watch for signs of heat stress such as drooling, lethargy, or difficulty breathing, especially during humid or warm seasons.",
+    "lifespan_range_years": [
+      12,
+      15
+    ],
+    "species_profile_summary": "Pugs typically live 12 to 15 years and require careful management of heat exposure, breathing, and weight to support their brachycephalic anatomy and joint health.",
+    "species_profile_source": "Model-derived profile from global.anthropic.claude-haiku-4-5-20251001-v1:0",
+    "age_context": {
+      "life_stage": "adult",
+      "lifespan_range_years": [
+        12,
+        15
+      ],
+      "estimated_total_years": 14,
+      "summary": "Pugs typically live 12 to 15 years and require careful management of heat exposure, breathing, and weight to support their brachycephalic anatomy and joint health."
+    }
+  },
+  "query": "dog Pug Terror age 6 adult -  Mild weight-management needs. Gets tired in hot weather, so exercise should stay short and low intensity. Watch breathing during walks and avoid overheating. Heat and Breathing: Pugs are brachycephalic and overheat easily; keep exercise short, low-intensity, and always indoors or in shade during warm weather. Monitor for labored breathing, reverse sneezing, or excessive panting during and after activity, and stop immediately if either occurs. || Weight and Mobility: Pugs are prone to joint stress from excess weight; maintain consistent portion control and low-impact movement to protect knees and hips. Avoid jumping from furniture and use ramps or steps to reduce strain on their compact frame. || Environment and Hydration: Pugs struggle to regulate body temperature; provide constant access to fresh water, keep living spaces cool and well-ventilated, and never leave them in cars or direct sun. Watch for signs of heat stress such as drooling, lethargy, or difficulty breathing, especially during humid or warm seasons. Create a complete pet care plan with daily, weekly, monthly tasks, reminders, and safe condition-aware guidance. -  Build a practical routine for a 6-year-old pug with short daily walks, indoor enrichment, feeding consistency, weight management, and reminders for hot-weather safety. pet care routine",
+  "goal": "Create a complete pet care plan with daily, weekly, monthly tasks, reminders, and safe condition-aware guidance.",
+  "extra_context": "-  Build a practical routine for a 6-year-old pug with short daily walks, indoor enrichment, feeding consistency, weight management, and reminders for hot-weather safety.",
+  "requested_frequencies": [],
+  "retrieved_passages": [
+    {
+      "doc_id": "enrichment_and_monitoring",
+      "title": "Enrichment and Daily Monitoring",
+      "chunk_id": "enrichment_and_monitoring#3",
+      "content": "Observation tasks are useful for special-needs pets because they create a record of appetite, water intake, energy, and bathroom habits. These tasks should be short, specific, and easy to complete consistently.",
+      "score": 25.55,
+      "metadata": {
+        "species": [
+          "dog",
+          "cat",
+          "rabbit",
+          "parrot",
+          "monkey"
+        ],
+        "life_stage": [
+          "puppy",
+          "kitten",
+          "adult",
+          "senior"
+        ],
+        "topics": [
+          "enrichment",
+          "monitoring",
+          "appetite",
+          "hydration",
+          "behavior",
+          "routine"
+        ],
+        "care_type": [
+          "daily care",
+          "observation"
+        ]
+      }
+    },
+    {
+      "doc_id": "senior_pet_support",
+      "title": "Senior Pet Support",
+      "chunk_id": "senior_pet_support#4",
+      "content": "A senior pet plan should prioritize consistency over intensity. When time is limited, essential care such as feeding, hydration, medication reminders, and mobility support should be scheduled before optional enrichment.",
+      "score": 25.35,
+      "metadata": {
+        "species": [
+          "dog",
+          "cat",
+          "rabbit",
+          "monkey"
+        ],
+        "life_stage": [
+          "senior"
+        ],
+        "topics": [
+          "mobility",
+          "hydration",
+          "appetite",
+          "comfort",
+          "observation",
+          "routine"
+        ],
+        "care_type": [
+          "daily care",
+          "support"
+        ]
+      }
+    },
+    {
+      "doc_id": "senior_pet_support",
+      "title": "Senior Pet Support",
+      "chunk_id": "senior_pet_support#2",
+      "content": "Senior pets often need lower-impact exercise, more frequent comfort checks, and closer observation of appetite, hydration, and mobility. Shorter walks, joint-friendly movement, and calm enrichment are often easier to tolerate than intense activity.",
+      "score": 24.7,
+      "metadata": {
+        "species": [
+          "dog",
+          "cat",
+          "rabbit",
+          "monkey"
+        ],
+        "life_stage": [
+          "senior"
+        ],
+        "topics": [
+          "mobility",
+          "hydration",
+          "appetite",
+          "comfort",
+          "observation",
+          "routine"
+        ],
+        "care_type": [
+          "daily care",
+          "support"
+        ]
+      }
+    },
+    {
+      "doc_id": "puppy_kitten_routine",
+      "title": "Puppy and Kitten Routine Basics",
+      "chunk_id": "puppy_kitten_routine#3",
+      "content": "Exercise and enrichment for very young pets should stay short and positive. Puppies often do better with several brief walks or training moments instead of one long outing, and kittens benefit from short interactive play sessions that stop before exhaustion.",
+      "score": 24.55,
+      "metadata": {
+        "species": [
+          "dog",
+          "cat"
+        ],
+        "life_stage": [
+          "puppy",
+          "kitten",
+          "young"
+        ],
+        "topics": [
+          "routine",
+          "feeding",
+          "hydration",
+          "training",
+          "play",
+          "litter",
+          "bathroom"
+        ],
+        "care_type": [
+          "starter care",
+          "daily care"
+        ]
+      }
+    },
+    {
+      "doc_id": "enrichment_and_monitoring",
+      "title": "Enrichment and Daily Monitoring",
+      "chunk_id": "enrichment_and_monitoring#2",
+      "content": "Daily care plans are stronger when they combine essential care with realistic enrichment and observation. Short play, sniff walks, brushing, or calm interaction can improve quality of life without requiring large blocks of time.",
+      "score": 22.1,
+      "metadata": {
+        "species": [
+          "dog",
+          "cat",
+          "rabbit",
+          "parrot",
+          "monkey"
+        ],
+        "life_stage": [
+          "puppy",
+          "kitten",
+          "adult",
+          "senior"
+        ],
+        "topics": [
+          "enrichment",
+          "monitoring",
+          "appetite",
+          "hydration",
+          "behavior",
+          "routine"
+        ],
+        "care_type": [
+          "daily care",
+          "observation"
+        ]
+      }
+    }
+  ],
+  "raw_recommendations": [
+    {
+      "name": "Morning feeding and hydration check",
+      "duration_minutes": 5,
+      "priority": "high",
+      "category": "feeding",
+      "notes": "Portion-controlled meal for weight management; ensure fresh water is available and accessible.",
+      "scheduled_time": "08:00",
+      "frequency": "daily",
+      "rationale": "Consistent feeding and hydration are essential for weight management and heat regulation in pugs.",
+      "source_ids": [
+        "senior_pet_support"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Evening feeding and hydration check",
+      "duration_minutes": 5,
+      "priority": "high",
+      "category": "feeding",
+      "notes": "Second portion-controlled meal; refresh water bowl and monitor intake.",
+      "scheduled_time": "18:00",
+      "frequency": "daily",
+      "rationale": "Split feeding supports weight management and consistent hydration throughout the day.",
+      "source_ids": [
+        "senior_pet_support"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Short low-intensity indoor walk",
+      "duration_minutes": 10,
+      "priority": "high",
+      "category": "exercise",
+      "notes": "Keep indoors or in shade; monitor breathing and panting; stop immediately if labored breathing occurs.",
+      "scheduled_time": "09:00",
+      "frequency": "daily",
+      "rationale": "Pugs overheat easily and are brachycephalic; short, low-intensity movement protects joints and respiration.",
+      "source_ids": [
+        "senior_pet_support",
+        "puppy_kitten_routine"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Evening low-intensity walk or sniff activity",
+      "duration_minutes": 10,
+      "priority": "high",
+      "category": "exercise",
+      "notes": "Prefer cooler evening hours; gentle sniffing or short walk; watch for heat stress signs.",
+      "scheduled_time": "19:00",
+      "frequency": "daily",
+      "rationale": "Multiple brief sessions are better tolerated than one long outing for low-impact exercise.",
+      "source_ids": [
+        "senior_pet_support",
+        "puppy_kitten_routine"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Daily appetite, energy, and bathroom observation",
+      "duration_minutes": 3,
+      "priority": "high",
+      "category": "monitoring",
+      "notes": "Record appetite, water intake, energy level, and bathroom habits; note any changes.",
+      "scheduled_time": "20:00",
+      "frequency": "daily",
+      "rationale": "Observation tasks create a record for special-needs pets and catch early signs of weight or health changes.",
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Calm indoor enrichment or gentle play",
+      "duration_minutes": 8,
+      "priority": "medium",
+      "category": "enrichment",
+      "notes": "Puzzle toys, sniff games, or gentle interactive play indoors; stop before exhaustion.",
+      "scheduled_time": "15:00",
+      "frequency": "daily",
+      "rationale": "Short calm enrichment improves quality of life without requiring intense activity or overheating risk.",
+      "source_ids": [
+        "enrichment_and_monitoring",
+        "senior_pet_support"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Weekly body condition and weight check-in",
+      "duration_minutes": 5,
+      "priority": "high",
+      "category": "monitoring",
+      "notes": "Assess rib visibility, waist definition, and overall body condition; note any weight changes.",
+      "scheduled_time": "10:00",
+      "frequency": "weekly",
+      "rationale": "Regular body-condition checks support weight-management goals and catch joint-stress risks early.",
+      "source_ids": [
+        "enrichment_and_monitoring",
+        "senior_pet_support"
+      ],
+      "scheduled_weekday": "Saturday",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Weekly heat-stress and breathing observation",
+      "duration_minutes": 5,
+      "priority": "high",
+      "category": "monitoring",
+      "notes": "Check for drooling, lethargy, labored breathing, or excessive panting; note environmental temperature.",
+      "scheduled_time": "14:00",
+      "frequency": "weekly",
+      "rationale": "Pugs struggle to regulate body temperature; weekly checks during warm seasons catch heat stress early.",
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "scheduled_weekday": "Wednesday",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Monthly grooming and skin check",
+      "duration_minutes": 15,
+      "priority": "medium",
+      "category": "grooming",
+      "notes": "Brush coat, check skin folds for irritation, trim nails, and clean ears.",
+      "scheduled_time": "11:00",
+      "frequency": "monthly",
+      "rationale": "Regular grooming maintains skin health and allows early detection of issues in a calm mid-month window.",
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [
+        "Week 2"
+      ],
+      "confidence": 0.99
+    },
+    {
+      "name": "Monthly preventive care and supply restock",
+      "duration_minutes": 10,
+      "priority": "medium",
+      "category": "preventive",
+      "notes": "Check flea, tick, and heartworm prevention status; restock food, treats, and water bowls as needed.",
+      "scheduled_time": "09:00",
+      "frequency": "monthly",
+      "rationale": "Early-month preventive restocking ensures consistent care and medication compliance.",
+      "source_ids": [
+        "senior_pet_support"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [
+        "Week 1"
+      ],
+      "confidence": 0.99
+    },
+    {
+      "name": "Heat stress or labored breathing alert",
+      "duration_minutes": 2,
+      "priority": "high",
+      "category": "safety",
+      "notes": "If Terror shows drooling, lethargy, reverse sneezing, excessive panting, or difficulty breathing, move indoors immediately, provide cool water, and contact vet if symptoms persist.",
+      "scheduled_time": "00:00",
+      "frequency": "as needed",
+      "rationale": "Brachycephalic pu",
+      "source_ids": [],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.0
+    },
+    {
+      "name": "Monitor for heat stress and labored breathing during warm weather",
+      "duration_minutes": 2,
+      "priority": "high",
+      "category": "monitoring",
+      "notes": "Watch for drooling, lethargy, difficulty breathing, or excessive panting; stop activity immediately if observed.",
+      "scheduled_time": "00:00",
+      "frequency": "as needed",
+      "rationale": "Pugs are brachycephalic and overheat easily; heat stress requires immediate intervention to prevent serious complications.",
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Adjust exercise intensity or move indoors if outdoor temperature rises",
+      "duration_minutes": 5,
+      "priority": "high",
+      "category": "exercise",
+      "notes": "Shift walks indoors or to shade during warm or humid weather to protect breathing and prevent overheating.",
+      "scheduled_time": "00:00",
+      "frequency": "as needed",
+      "rationale": "Brachycephalic breeds struggle to regulate body temperature; environmental adjustment is essential during seasonal heat.",
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Assess reverse sneezing or unusual breathing patterns",
+      "duration_minutes": 3,
+      "priority": "high",
+      "category": "monitoring",
+      "notes": "Note frequency and duration of reverse sneezing or labored breathing; document changes for veterinary review.",
+      "scheduled_time": "00:00",
+      "frequency": "as needed",
+      "rationale": "Reverse sneezing and breathing changes are common in pugs but warrant tracking to distinguish routine from concerning patterns.",
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Increase hydration checks during hot weather or after activity",
+      "duration_minutes": 2,
+      "priority": "high",
+      "category": "feeding",
+      "notes": "Ensure fresh water is always available and refill more frequently during warm seasons or after exercise.",
+      "scheduled_time": "00:00",
+      "frequency": "as needed",
+      "rationale": "Pugs struggle to regulate body temperature and require constant hydration access, especially in heat or after activity.",
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Watch for joint stress or mobility changes during movement",
+      "duration_minutes": 3,
+      "priority": "medium",
+      "category": "monitoring",
+      "notes": "Observe for limping, reluctance to jump, or stiffness; note any changes in gait or comfort level.",
+      "scheduled_time": "00:00",
+      "frequency": "as needed",
+      "rationale": "Pugs are prone to joint stress from excess weight; early detection of mobility changes helps protect knees and hips.",
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Provide ramps or steps if Terror shows difficulty jumping from furniture",
+      "duration_minutes": 10,
+      "priority": "medium",
+      "category": "preventive",
+      "notes": "Install or use ramps and steps to reduce strain on compact frame and protect joints.",
+      "scheduled_time": "00:00",
+      "frequency": "as needed",
+      "rationale": "Pugs have compact frames vulnerable to joint injury; environmental modifications prevent strain when mobility changes occur.",
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.97
+    },
+    {
+      "name": "Reassess portion sizes if weight gain or appetite changes are noticed",
+      "duration_minutes": 5,
+      "priority": "high",
+      "category": "feeding",
+      "notes": "Review feeding amounts and treat frequency if weight increases or appetite shifts; consult vet if changes persist.",
+      "scheduled_time": "00:00",
+      "frequency": "as needed",
+      "rationale": "Mild weight-management needs require responsive feeding adjustments when appetite or weight patterns change.",
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Check for skin irritation or ear issues during grooming or bathing",
+      "duration_minutes": 3,
+      "priority": "medium",
+      "category": "monitoring",
+      "notes": "Inspect skin folds, ears, and paw pads for redness, odor, or discharge; address promptly if found.",
+      "scheduled_time": "00:00",
+      "frequency": "as needed",
+      "rationale": "Pugs are prone to skin and ear issues; early detection during routine care prevents infection or discomfort.",
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.97
+    },
+    {
+      "name": "Midday snack and weight-management portion check",
+      "duration_minutes": 5,
+      "priority": "medium",
+      "category": "feeding",
+      "notes": "Portion-controlled treat reinforces weight management and breaks up the day with positive interaction.",
+      "scheduled_time": "12:00",
+      "frequency": "daily",
+      "rationale": "Pugs are prone to joint stress from excess weight; consistent portion control supports mobility and health.",
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Gentle facial and paw pad brushing or wipe-down",
+      "duration_minutes": 5,
+      "priority": "medium",
+      "category": "grooming",
+      "notes": "Daily light grooming prevents skin fold irritation and keeps Terror comfortable without full bathing.",
+      "scheduled_time": "17:00",
+      "frequency": "daily",
+      "rationale": "Pugs have facial folds and compact frames prone to skin irritation; brief daily grooming maintains skin health.",
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Midday cool-down rest and hydration break",
+      "duration_minutes": 3,
+      "priority": "high",
+      "category": "monitoring",
+      "notes": "Check water bowl, offer fresh water, and ensure Terror is resting in a cool spot away from direct sun.",
+      "scheduled_time": "13:00",
+      "frequency": "daily",
+      "rationale": "Pugs struggle to regulate body temperature; midday hydration and rest prevent heat stress during warmer hours.",
+      "source_ids": [
+        "enrichment_and_monitoring",
+        "senior_pet_support"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Breathing and comfort check during or after activity",
+      "duration_minutes": 2,
+      "priority": "high",
+      "category": "monitoring",
+      "notes": "Observe for labored breathing, excessive panting, or reverse sneezing; stop activity immediately if present.",
+      "scheduled_time": "09:30",
+      "frequency": "daily",
+      "rationale": "Brachycephalic pugs are prone to breathing difficulty; monitoring during and after walks ensures safe exercise.",
+      "source_ids": [
+        "enrichment_and_monitoring",
+        "senior_pet_support"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Quiet time or puzzle toy enrichment session",
+      "duration_minutes": 7,
+      "priority": "medium",
+      "category": "enrichment",
+      "notes": "Low-stress mental stimulation with a puzzle toy or sniff mat supports cognitive engagement without physical strain.",
+      "scheduled_time": "16:00",
+      "frequency": "daily",
+      "rationale": "Senior pets benefit from calm enrichment that improves quality of life without requiring intense activity.",
+      "source_ids": [
+        "enrichment_and_monitoring",
+        "senior_pet_support"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Evening mobility and joint comfort observation",
+      "duration_minutes": 3,
+      "priority": "medium",
+      "category": "monitoring",
+      "notes": "Watch for stiffness, limping, or reluctance to move; note any changes in gait or posture after daily activity.",
+      "scheduled_time": "20:30",
+      "frequency": "daily",
+      "rationale": "Pugs are prone to joint stress from excess weight; daily observation tracks mobility and detects early changes.",
+      "source_ids": [
+        "enrichment_and_monitoring",
+        "senior_pet_support"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Bedtime comfort setup and temperature check",
+      "duration_minutes": 4,
+      "priority": "medium",
+      "category": "environment",
+      "notes": "Ensure sleeping area is cool, well-ventilated, and free from direct sun or heat sources; provide comfortable bedding.",
+      "scheduled_time": "21:00",
+      "frequency": "daily",
+      "rationale": "Pugs struggle to regulate body temperature; a cool, comfortable sleep environment supports rest and prevents heat stress.",
+      "source_ids": [
+        "enrichment_and_monitoring",
+        "senior_pet_support"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    },
+    {
+      "name": "Morning temperature and weather assessment for exercise safety",
+      "duration_minutes": 3,
+      "priority": "high",
+      "category": "exercise",
+      "notes": "Check outdoor temperature and humidity before morning walk; move indoors or delay if conditions are warm or humid.",
+      "scheduled_time": "08:30",
+      "frequency": "daily",
+      "rationale": "Brachycephalic pugs overheat easily; daily weather checks ensure exercise stays safe and low-intensity.",
+      "source_ids": [
+        "enrichment_and_monitoring",
+        "senior_pet_support"
+      ],
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "confidence": 0.99
+    }
+  ],
+  "blocked_recommendations": [
+    {
+      "name": "Heat stress or labored breathing alert",
+      "reasons": [
+        "Recommendation is ungrounded because it cites no sources."
+      ]
+    }
+  ],
+  "warnings": [],
+  "reliability_score": 0.99,
+  "accepted_tasks": [
+    {
+      "name": "Morning feeding and hydration check",
+      "duration_minutes": 5,
+      "priority": "high",
+      "category": "feeding",
+      "scheduled_time": "08:00",
+      "frequency": "daily",
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "ai_generated": true,
+      "rationale": "Consistent feeding and hydration are essential for weight management and heat regulation in pugs.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "senior_pet_support"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Morning temperature and weather assessment for exercise safety",
+      "duration_minutes": 10,
+      "priority": "high",
+      "category": "exercise",
+      "scheduled_time": "08:30",
+      "frequency": "daily",
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "ai_generated": true,
+      "rationale": "Brachycephalic pugs overheat easily; daily weather checks ensure exercise stays safe and low-intensity.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring",
+        "senior_pet_support",
+        "puppy_kitten_routine"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Short low-intensity indoor walk",
+      "duration_minutes": 10,
+      "priority": "high",
+      "category": "exercise",
+      "scheduled_time": "09:00",
+      "frequency": "daily",
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "ai_generated": true,
+      "rationale": "Pugs overheat easily and are brachycephalic; short, low-intensity movement protects joints and respiration.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "senior_pet_support",
+        "puppy_kitten_routine"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Breathing and comfort check during or after activity",
+      "duration_minutes": 2,
+      "priority": "high",
+      "category": "monitoring",
+      "scheduled_time": "09:30",
+      "frequency": "daily",
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "ai_generated": true,
+      "rationale": "Brachycephalic pugs are prone to breathing difficulty; monitoring during and after walks ensures safe exercise.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring",
+        "senior_pet_support"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Midday snack and weight-management portion check",
+      "duration_minutes": 5,
+      "priority": "medium",
+      "category": "feeding",
+      "scheduled_time": "12:00",
+      "frequency": "daily",
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "ai_generated": true,
+      "rationale": "Pugs are prone to joint stress from excess weight; consistent portion control supports mobility and health.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Midday cool-down rest and hydration break",
+      "duration_minutes": 3,
+      "priority": "high",
+      "category": "monitoring",
+      "scheduled_time": "13:00",
+      "frequency": "daily",
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "ai_generated": true,
+      "rationale": "Pugs struggle to regulate body temperature; midday hydration and rest prevent heat stress during warmer hours.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring",
+        "senior_pet_support"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Quiet time or puzzle toy enrichment session",
+      "duration_minutes": 8,
+      "priority": "medium",
+      "category": "enrichment",
+      "scheduled_time": "15:00",
+      "frequency": "daily",
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "ai_generated": true,
+      "rationale": "Senior pets benefit from calm enrichment that improves quality of life without requiring intense activity.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring",
+        "senior_pet_support"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Gentle facial and paw pad brushing or wipe-down",
+      "duration_minutes": 5,
+      "priority": "medium",
+      "category": "grooming",
+      "scheduled_time": "17:00",
+      "frequency": "daily",
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "ai_generated": true,
+      "rationale": "Pugs have facial folds and compact frames prone to skin irritation; brief daily grooming maintains skin health.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Evening feeding and hydration check",
+      "duration_minutes": 5,
+      "priority": "high",
+      "category": "feeding",
+      "scheduled_time": "18:00",
+      "frequency": "daily",
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "ai_generated": true,
+      "rationale": "Split feeding supports weight management and consistent hydration throughout the day.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "senior_pet_support"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Daily appetite, energy, and bathroom observation",
+      "duration_minutes": 3,
+      "priority": "high",
+      "category": "monitoring",
+      "scheduled_time": "20:00",
+      "frequency": "daily",
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "ai_generated": true,
+      "rationale": "Observation tasks create a record for special-needs pets and catch early signs of weight or health changes.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Evening mobility and joint comfort observation",
+      "duration_minutes": 3,
+      "priority": "medium",
+      "category": "monitoring",
+      "scheduled_time": "20:30",
+      "frequency": "daily",
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "ai_generated": true,
+      "rationale": "Pugs are prone to joint stress from excess weight; daily observation tracks mobility and detects early changes.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring",
+        "senior_pet_support"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Bedtime comfort setup and temperature check",
+      "duration_minutes": 4,
+      "priority": "medium",
+      "category": "environment",
+      "scheduled_time": "21:00",
+      "frequency": "daily",
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "ai_generated": true,
+      "rationale": "Pugs struggle to regulate body temperature; a cool, comfortable sleep environment supports rest and prevents heat stress.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring",
+        "senior_pet_support"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Weekly heat-stress and breathing observation",
+      "duration_minutes": 5,
+      "priority": "high",
+      "category": "monitoring",
+      "scheduled_time": "14:00",
+      "frequency": "weekly",
+      "scheduled_weekday": "Wednesday",
+      "scheduled_month_weeks": [],
+      "ai_generated": true,
+      "rationale": "Pugs struggle to regulate body temperature; weekly checks during warm seasons catch heat stress early.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Weekly body condition and weight check-in",
+      "duration_minutes": 5,
+      "priority": "high",
+      "category": "monitoring",
+      "scheduled_time": "10:00",
+      "frequency": "weekly",
+      "scheduled_weekday": "Saturday",
+      "scheduled_month_weeks": [],
+      "ai_generated": true,
+      "rationale": "Regular body-condition checks support weight-management goals and catch joint-stress risks early.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring",
+        "senior_pet_support"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Monthly grooming and skin check",
+      "duration_minutes": 15,
+      "priority": "medium",
+      "category": "grooming",
+      "scheduled_time": "11:00",
+      "frequency": "monthly",
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [
+        "Week 2"
+      ],
+      "ai_generated": true,
+      "rationale": "Regular grooming maintains skin health and allows early detection of issues in a calm mid-month window.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Monthly preventive care and supply restock",
+      "duration_minutes": 10,
+      "priority": "medium",
+      "category": "preventive",
+      "scheduled_time": "09:00",
+      "frequency": "monthly",
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [
+        "Week 1"
+      ],
+      "ai_generated": true,
+      "rationale": "Early-month preventive restocking ensures consistent care and medication compliance.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "senior_pet_support"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Adjust exercise intensity or move indoors if outdoor temperature rises",
+      "duration_minutes": 5,
+      "priority": "high",
+      "category": "exercise",
+      "scheduled_time": "00:00",
+      "frequency": "as needed",
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "ai_generated": true,
+      "rationale": "Brachycephalic breeds struggle to regulate body temperature; environmental adjustment is essential during seasonal heat.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Increase hydration checks during hot weather or after activity",
+      "duration_minutes": 2,
+      "priority": "high",
+      "category": "feeding",
+      "scheduled_time": "00:00",
+      "frequency": "as needed",
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "ai_generated": true,
+      "rationale": "Pugs struggle to regulate body temperature and require constant hydration access, especially in heat or after activity.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Watch for joint stress or mobility changes during movement",
+      "duration_minutes": 3,
+      "priority": "medium",
+      "category": "monitoring",
+      "scheduled_time": "00:00",
+      "frequency": "as needed",
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "ai_generated": true,
+      "rationale": "Pugs are prone to joint stress from excess weight; early detection of mobility changes helps protect knees and hips.",
+      "confidence_score": 0.99,
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "validation_status": "validated"
+    },
+    {
+      "name": "Check for skin irritation or ear issues during grooming or bathing",
+      "duration_minutes": 3,
+      "priority": "medium",
+      "category": "monitoring",
+      "scheduled_time": "00:00",
+      "frequency": "as needed",
+      "scheduled_weekday": "",
+      "scheduled_month_weeks": [],
+      "ai_generated": true,
+      "rationale": "Pugs are prone to skin and ear issues; early detection during routine care prevents infection or discomfort.",
+      "confidence_score": 0.97,
+      "source_ids": [
+        "enrichment_and_monitoring"
+      ],
+      "validation_status": "validated"
+    }
+  ],
+  "schedule_plan": {
+    "scheduled": [
+      {
+        "name": "Adjust exercise intensity or move indoors if outdoor temperature rises",
+        "duration_minutes": 5,
+        "priority": "high",
+        "category": "exercise",
+        "scheduled_time": "00:00",
+        "frequency": "as needed",
+        "scheduled_weekday": "",
+        "scheduled_month_weeks": []
+      },
+      {
+        "name": "Increase hydration checks during hot weather or after activity",
+        "duration_minutes": 2,
+        "priority": "high",
+        "category": "feeding",
+        "scheduled_time": "00:00",
+        "frequency": "as needed",
+        "scheduled_weekday": "",
+        "scheduled_month_weeks": []
+      },
+      {
+        "name": "Morning feeding and hydration check",
+        "duration_minutes": 5,
+        "priority": "high",
+        "category": "feeding",
+        "scheduled_time": "08:00",
+        "frequency": "daily",
+        "scheduled_weekday": "",
+        "scheduled_month_weeks": []
+      },
+      {
+        "name": "Morning temperature and weather assessment for exercise safety",
+        "duration_minutes": 10,
+        "priority": "high",
+        "category": "exercise",
+        "scheduled_time": "08:30",
+        "frequency": "daily",
+        "scheduled_weekday": "",
+        "scheduled_month_weeks": []
+      },
+      {
+        "name": "Short low-intensity indoor walk",
+        "duration_minutes": 10,
+        "priority": "high",
+        "category": "exercise",
+        "scheduled_time": "09:00",
+        "frequency": "daily",
+        "scheduled_weekday": "",
+        "scheduled_month_weeks": []
+      },
+      {
+        "name": "Breathing and comfort check during or after activity",
+        "duration_minutes": 2,
+        "priority": "high",
+        "category": "monitoring",
+        "scheduled_time": "09:30",
+        "frequency": "daily",
+        "scheduled_weekday": "",
+        "scheduled_month_weeks": []
+      },
+      {
+        "name": "Weekly body condition and weight check-in",
+        "duration_minutes": 5,
+        "priority": "high",
+        "category": "monitoring",
+        "scheduled_time": "10:00",
+        "frequency": "weekly",
+        "scheduled_weekday": "Saturday",
+        "scheduled_month_weeks": []
+      },
+      {
+        "name": "Midday cool-down rest and hydration break",
+        "duration_minutes": 3,
+        "priority": "high",
+        "category": "monitoring",
+        "scheduled_time": "13:00",
+        "frequency": "daily",
+        "scheduled_weekday": "",
+        "scheduled_month_weeks": []
+      },
+      {
+        "name": "Weekly heat-stress and breathing observation",
+        "duration_minutes": 5,
+        "priority": "high",
+        "category": "monitoring",
+        "scheduled_time": "14:00",
+        "frequency": "weekly",
+        "scheduled_weekday": "Wednesday",
+        "scheduled_month_weeks": []
+      },
+      {
+        "name": "Evening feeding and hydration check",
+        "duration_minutes": 5,
+        "priority": "high",
+        "category": "feeding",
+        "scheduled_time": "18:00",
+        "frequency": "daily",
+        "scheduled_weekday": "",
+        "scheduled_month_weeks": []
+      },
+      {
+        "name": "Daily appetite, energy, and bathroom observation",
+        "duration_minutes": 3,
+        "priority": "high",
+        "category": "monitoring",
+        "scheduled_time": "20:00",
+        "frequency": "daily",
+        "scheduled_weekday": "",
+        "scheduled_month_weeks": []
+      },
+      {
+        "name": "Watch for joint stress or mobility changes during movement",
+        "duration_minutes": 3,
+        "priority": "medium",
+        "category": "monitoring",
+        "scheduled_time": "00:00",
+        "frequency": "as needed",
+        "scheduled_weekday": "",
+        "scheduled_month_weeks": []
+      },
+      {
+        "name": "Check for skin irritation or ear issues during grooming or bathing",
+        "duration_minutes": 3,
+        "priority": "medium",
+        "category": "monitoring",
+        "scheduled_time": "00:00",
+        "frequency": "as needed",
+        "scheduled_weekday": "",
+        "scheduled_month_weeks": []
+      },
+      {
+        "name": "Monthly preventive care and supply restock",
+        "duration_minutes": 10,
+        "priority": "medium",
+        "category": "preventive",
+        "scheduled_time": "09:00",
+        "frequency": "monthly",
+        "scheduled_weekday": "",
+        "scheduled_month_weeks": [
+          "Week 1"
+        ]
+      },
+      {
+        "name": "Monthly grooming and skin check",
+        "duration_minutes": 15,
+        "priority": "medium",
+        "category": "grooming",
+        "scheduled_time": "11:00",
+        "frequency": "monthly",
+        "scheduled_weekday": "",
+        "scheduled_month_weeks": [
+          "Week 2"
+        ]
+      },
+      {
+        "name": "Midday snack and weight-management portion check",
+        "duration_minutes": 5,
+        "priority": "medium",
+        "category": "feeding",
+        "scheduled_time": "12:00",
+        "frequency": "daily",
+        "scheduled_weekday": "",
+        "scheduled_month_weeks": []
+      },
+      {
+        "name": "Quiet time or puzzle toy enrichment session",
+        "duration_minutes": 8,
+        "priority": "medium",
+        "category": "enrichment",
+        "scheduled_time": "15:00",
+        "frequency": "daily",
+        "scheduled_weekday": "",
+        "scheduled_month_weeks": []
+      },
+      {
+        "name": "Gentle facial and paw pad brushing or wipe-down",
+        "duration_minutes": 5,
+        "priority": "medium",
+        "category": "grooming",
+        "scheduled_time": "17:00",
+        "frequency": "daily",
+        "scheduled_weekday": "",
+        "scheduled_month_weeks": []
+      },
+      {
+        "name": "Evening mobility and joint comfort observation",
+        "duration_minutes": 3,
+        "priority": "medium",
+        "category": "monitoring",
+        "scheduled_time": "20:30",
+        "frequency": "daily",
+        "scheduled_weekday": "",
+        "scheduled_month_weeks": []
+      },
+      {
+        "name": "Bedtime comfort setup and temperature check",
+        "duration_minutes": 4,
+        "priority": "medium",
+        "category": "environment",
+        "scheduled_time": "21:00",
+        "frequency": "daily",
+        "scheduled_weekday": "",
+        "scheduled_month_weeks": []
+      }
+    ],
+    "skipped": [],
+    "reasoning": [
+      "Scheduled 'Adjust exercise intensity or move indoors if outdoor temperature rises' for Terror (5 min, high priority)",
+      "Scheduled 'Increase hydration checks during hot weather or after activity' for Terror (2 min, high priority)",
+      "Scheduled 'Morning feeding and hydration check' for Terror (5 min, high priority)",
+      "Scheduled 'Morning temperature and weather assessment for exercise safety' for Terror (10 min, high priority)",
+      "Scheduled 'Short low-intensity indoor walk' for Terror (10 min, high priority)",
+      "Scheduled 'Breathing and comfort check during or after activity' for Terror (2 min, high priority)",
+      "Scheduled 'Weekly body condition and weight check-in' for Terror (5 min, high priority)",
+      "Scheduled 'Midday cool-down rest and hydration break' for Terror (3 min, high priority)",
+      "Scheduled 'Weekly heat-stress and breathing observation' for Terror (5 min, high priority)",
+      "Scheduled 'Evening feeding and hydration check' for Terror (5 min, high priority)",
+      "Scheduled 'Daily appetite, energy, and bathroom observation' for Terror (3 min, high priority)",
+      "Scheduled 'Watch for joint stress or mobility changes during movement' for Terror (3 min, medium priority)",
+      "Scheduled 'Check for skin irritation or ear issues during grooming or bathing' for Terror (3 min, medium priority)",
+      "Scheduled 'Monthly preventive care and supply restock' for Terror (10 min, medium priority)",
+      "Scheduled 'Monthly grooming and skin check' for Terror (15 min, medium priority)",
+      "Scheduled 'Midday snack and weight-management portion check' for Terror (5 min, medium priority)",
+      "Scheduled 'Quiet time or puzzle toy enrichment session' for Terror (8 min, medium priority)",
+      "Scheduled 'Gentle facial and paw pad brushing or wipe-down' for Terror (5 min, medium priority)",
+      "Scheduled 'Evening mobility and joint comfort observation' for Terror (3 min, medium priority)",
+      "Scheduled 'Bedtime comfort setup and temperature check' for Terror (4 min, medium priority)"
+    ]
+  }
+}
